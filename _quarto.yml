@@ -1,0 +1,59 @@
+project:
+  type: website
+  output-dir: docs
+
+execute: 
+  cache: true
+  echo: false
+  warning: false
+
+website:
+  title: "技術政策額"
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 0
+    contents:
+      - index.qmd
+
+format:
+  html:
+    theme: lumen
+    include-in-header:
+      - analytics.html
+    mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, BIZ UDPGothic, Meiryo, sans-serif
+    toc: true
+    number-sections: true
+    reference-location: margin
+    # fig-cap-location: margin
+    link-external-icon: true
+    link-external-newwindow: true
+    fig-format: png
+    smooth-scroll: true
+  pdf:
+    pdf-engine: latexmk
+    pdf-engine-opt: "-xelatex"
+    latex-output-dir: pdf
+    latex-auto-install: false
+    documentclass: bxjsarticle
+    classoption:
+      - xelatex
+      - ja=standard
+    include-in-header: 
+      text: |
+        \renewcommand{\thefootnote}{\arabic{footnote}}
+    mainfont: Noto Serif CJK JP
+    mainfontoptions: 
+      - BoldFont=Noto Sans CJK JP
+    number-sections: true
+    fig-pos: "htpb"
+    fig-format: png
+    linkcolor: NavyBlue
+    citecolor: NavyBlue
+    urlcolor: NavyBlue
+    cite-method: natbib
+    biblio-config: true
+    biblio-style: jecon
+
+# bibliography: references.bib
+lang: ja

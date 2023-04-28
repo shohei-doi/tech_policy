@@ -1,0 +1,8 @@
+---
+title: "はじめに"
+subtitle: "技術政策学（データ科学編）"
+author: "土井翔平"
+date: today
+---
+
+[土井翔平](https://shohei-doi.github.io)が担当する[北海道大学公共政策大学院 (HOPS)](https://www.hops.hokudai.ac.jp/)の技術政策学（データ科学編）の講義レジュメです。受講生はこのサイトもしくはpdf版を参照して、授業に望んでください。
