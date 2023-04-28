@@ -8,7 +8,7 @@ execute:
   warning: false
 
 website:
-  title: "技術政策額"
+  title: "技術政策学"
   sidebar:
     style: "docked"
     search: true
@@ -55,5 +55,5 @@ format:
     biblio-config: true
     biblio-style: jecon
 
-# bibliography: references.bib
+bibliography: references.bib
 lang: ja

@@ -173,11 +173,86 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, enhanced, interior hidden, frame hidden, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, breakable, enhanced, boxrule=0pt, frame hidden, interior hidden, sharp corners]}{\end{tcolorbox}}\fi
 
 \href{https://shohei-doi.github.io}{土井翔平}が担当する\href{https://www.hops.hokudai.ac.jp/}{北海道大学公共政策大学院
 (HOPS)}の技術政策学（データ科学編）の講義レジュメです。受講生はこのサイトもしくはpdf版を参照して、授業に望んでください。
 
+\hypertarget{ux76eeux6a19}{%
+\section{目標}\label{ux76eeux6a19}}
+
+様々な科学技術の中でも近年、発展が目覚ましいデータ科学について学ぶ。\footnote{講師はデータ科学を用いた国際関係の分析を行っている。}
+
+\begin{itemize}
+\tightlist
+\item
+  科学技術のための公共政策：データ科学にはどのような弊害があり、それらに対して社会はどのように対応するべきなのか？
+\item
+  公共政策のための科学技術：データ科学はにはどのような利点があり、それらをどのように社会のために利活用するべきなのか？
+\end{itemize}
+
+\(\leadsto\)代表的なデータ科学の手法について、その概要と長所・短所を学ぶ。
+
+\hypertarget{ux30c8ux30d4ux30c3ux30af}{%
+\section{トピック}\label{ux30c8ux30d4ux30c3ux30af}}
+
+データ科学の中でも機械学習と統計的因果推論を扱う。
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{機械学習}（いわゆる人工知能）：多様なデータからパターンを学習し、予測や生成を行う。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    深層学習（ディープラーニング）は機械学習の一手法
+  \end{itemize}
+\item
+  \textbf{統計的因果推論}：人間や社会に関するデータから因果関係、政策効果を推定する。
+\end{itemize}
+
+時間が許せば、これらを実際に行うためのプログラミング言語である\href{https://www.python.org/}{Python}を用いた実習を行う。
+
+\begin{itemize}
+\tightlist
+\item
+  ノートPCを持っている人は持参する。
+\item
+  Googleアカウントを作成する。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    自身のPCにPython環境が構築されている場合は不要
+  \end{itemize}
+\item
+  \href{https://www.mdsc.hokudai.ac.jp/mds/learning-management-system/}{MDSセンター}の教材を用いてPythonの学習をすることを強く推奨する。\footnote{いずれ、\href{https://www.mext.go.jp/a_menu/shotou/zyouhou/detail/1416756.htm}{情報I}を高校で学習した人々が社会に進出してくる。}
+\end{itemize}
+
+\hypertarget{ux6388ux696dux306eux9032ux3081ux65b9}{%
+\section{授業の進め方}\label{ux6388ux696dux306eux9032ux3081ux65b9}}
+
+Moodleを参照すること。
+
+\hypertarget{ux53c2ux8003ux66f8}{%
+\section{参考書}\label{ux53c2ux8003ux66f8}}
+
+特定の教科書を用いないが、自習のためにいくつかの参考書を紹介する。
+
+\begin{itemize}
+\tightlist
+\item
+  機械学習：\citet{ng2019}, \citet{hisano2018}, \citet{kitagawa2023}
+\item
+  統計的因果推論：\citet{nakamuro2017}, \citet{ito2017},
+  \citet{matsubayashi2021}
+\end{itemize}
+
+データ科学については優良な資料がオンラインで無料で公開されているので、各自で調べて参照すること。
+
+
+  \bibliography{references.bib}
 
 
 \end{document}
