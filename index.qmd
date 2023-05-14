@@ -26,8 +26,9 @@ $\leadsto$代表的なデータ科学の手法について、その概要と長�
 
 時間が許せば、これらを実際に行うためのプログラミング言語である[Python](https://www.python.org/)を用いた実習を行う。
 
-- ノートPCを持っている人は持参する。
+- ノートPCを持参する。
 - Googleアカウントを作成する。
+  - [Google Colaboratory](https://colab.research.google.com/?hl=ja)を使用する。
   - 自身のPCにPython環境が構築されている場合は不要
 - [MDSセンター](https://www.mdsc.hokudai.ac.jp/mds/learning-management-system/)の教材を用いてPythonの学習をすることを強く推奨する。^[いずれ、[情報I](https://www.mext.go.jp/a_menu/shotou/zyouhou/detail/1416756.htm)を高校で学習した人々が社会に進出してくる。]
 
@@ -36,8 +37,6 @@ $\leadsto$代表的なデータ科学の手法について、その概要と長�
 Moodleを参照すること。
 
 ## 参考書
-
-特定の教科書を用いないが、自習のためにいくつかの参考書を紹介する。
 
 - 機械学習：@ng2019, @hisano2018, @kitagawa2023
 - 統計的因果推論：@nakamuro2017, @ito2017, @matsubayashi2021

@@ -15,6 +15,7 @@ website:
     collapse-level: 0
     contents:
       - index.qmd
+      - big_data.qmd
 
 format:
   html:

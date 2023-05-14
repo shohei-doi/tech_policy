@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.290">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="土井翔平">
+
+<title>技術政策学 - デジタル化する社会</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "一致なし",
+    "search-matching-documents-text": "一致した文書",
+    "search-copy-link-title": "検索へのリンクをコピー",
+    "search-hide-matches-text": "追加の検索結果を非表示",
+    "search-more-match-text": "追加の検索結果",
+    "search-more-matches-text": "追加の検索結果",
+    "search-clear-button-title": "消去",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "検索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="robots" content="noindex">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./big_data.html">デジタル化する社会</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">技術政策学</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="サーチ"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">はじめに</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./big_data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">デジタル化する社会</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#ビッグデータ" id="toc-ビッグデータ" class="nav-link" data-scroll-target="#ビッグデータ"><span class="header-section-number">1</span> ビッグデータ</a>
+  <ul class="collapse">
+  <li><a href="#ビッグではないデータ" id="toc-ビッグではないデータ" class="nav-link" data-scroll-target="#ビッグではないデータ"><span class="header-section-number">1.1</span> ビッグではないデータ</a></li>
+  <li><a href="#地理情報システム" id="toc-地理情報システム" class="nav-link" data-scroll-target="#地理情報システム"><span class="header-section-number">1.2</span> 地理情報システム</a></li>
+  <li><a href="#企業データ" id="toc-企業データ" class="nav-link" data-scroll-target="#企業データ"><span class="header-section-number">1.3</span> 企業データ</a></li>
+  <li><a href="#デジタルヒューマニティーズ" id="toc-デジタルヒューマニティーズ" class="nav-link" data-scroll-target="#デジタルヒューマニティーズ"><span class="header-section-number">1.4</span> デジタル・ヒューマニティーズ</a></li>
+  </ul></li>
+  <li><a href="#インターネット空間" id="toc-インターネット空間" class="nav-link" data-scroll-target="#インターネット空間"><span class="header-section-number">2</span> インターネット空間</a>
+  <ul class="collapse">
+  <li><a href="#ソーシャルネットワーク" id="toc-ソーシャルネットワーク" class="nav-link" data-scroll-target="#ソーシャルネットワーク"><span class="header-section-number">2.1</span> ソーシャル・ネットワーク</a></li>
+  <li><a href="#sns上のコミュニティ" id="toc-sns上のコミュニティ" class="nav-link" data-scroll-target="#sns上のコミュニティ"><span class="header-section-number">2.2</span> SNS上のコミュニティ</a></li>
+  <li><a href="#中国によるsns検閲" id="toc-中国によるsns検閲" class="nav-link" data-scroll-target="#中国によるsns検閲"><span class="header-section-number">2.3</span> 中国によるSNS検閲</a></li>
+  <li><a href="#オンライン実験" id="toc-オンライン実験" class="nav-link" data-scroll-target="#オンライン実験"><span class="header-section-number">2.4</span> オンライン実験</a></li>
+  </ul></li>
+  <li><a href="#資源としてのデータ" id="toc-資源としてのデータ" class="nav-link" data-scroll-target="#資源としてのデータ"><span class="header-section-number">3</span> 資源としてのデータ</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/big_data.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">デジタル化する社会</h1>
+<p class="subtitle lead">技術政策学（データ科学編）</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">作者</div>
+    <div class="quarto-title-meta-contents">
+             <p>土井翔平 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">公開</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2023年5月14日</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="はじめに" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="はじめに">はじめに</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+警告
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>日進月歩の分野なので、本章の内容はすぐに古いものになる（or既にそうであるかもしれない）点に注意。</p>
+</div>
+</div>
+<p><strong>人工知能</strong> (artificial intelligence) とは？</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://d1uzk9o9cg136f.cloudfront.net/f/16783100/rc/2021/06/24/6beb130603950f1b17c14ef2d3f83336233334a7_xlarge.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ターミネーター</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.tv-asahi.co.jp/doraemon/cast/img/doraemon.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ドラえもん</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>コンピュータ（機械）が人間のように意思をもって、自律的に認識・判断・行動する？</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>機械学習について学ぶことで（昨今、話題になっている）人工知能について理解する。</p>
+<p>なぜ<strong>機械学習</strong> (machine learning) か？</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ml_ai.drawio.png" class="quarto-discovered-preview-image img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">人工知能、機械学習、深層学習、生成AIの関係</figcaption><p></p>
+</figure>
+</div>
+<p>機械学習：データから一定のパターンを機械（パソコン）が学習し、<strong>予測をする</strong>。</p>
+<p>近年の人工知能<span class="math inline">\(\approx\)</span>機械学習のブレイクスルー</p>
+<ol type="1">
+<li>ビッグデータの利活用</li>
+<li>深層学習（およびその発展形）の発明</li>
+<li>豊富な計算資源</li>
+</ol>
+<p><span class="math inline">\(\leadsto\)</span>特に（我々にとって）重要な1点目と2点目に焦点</p>
+</section>
+<section id="ビッグデータ" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="ビッグデータ"><span class="header-section-number">1</span> ビッグデータ</h2>
+<p>インターネット空間の拡大やセンシング技術の向上（スマートフォン、衛星写真）により、<strong>ビッグデータ</strong>を収集することができる。</p>
+<ul>
+<li><strong>ビッグデータ</strong>：人間の様々な活動が粒度の高い（従って大規模な）データとして記録される。</li>
+<li>インターネットはそのようなデータを生み出す最初の空間だったが、最近ではインターネットに限られない。</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>ビッグデータの特徴は大規模であること自体ではなく、<strong>粒度</strong> (granularity) が高い（データが細かい）ことである。</p>
+<ol type="1">
+<li>多様性 (variery) ：国レベルではなく地方自治体、個人レベル
+<ul>
+<li>小さいレベルのデータから全体を作ることはできるが、その逆ではない。</li>
+</ul></li>
+<li>速度 (velocity) ：年単位ではなく月単位、分単位
+<ul>
+<li>一定の間隔や一時的なデータ収集ではなく、always-onが理想である。</li>
+</ul></li>
+<li>量 (volume) ：多様性と速度の結果としての大規模データ</li>
+</ol>
+<p><span class="math inline">\(\leadsto\)</span>ビッグデータを解析できる機械学習（特に深層学習）の登場により、ビッグデータの価値が生まれ始めている。</p>
+<section id="ビッグではないデータ" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="ビッグではないデータ"><span class="header-section-number">1.1</span> ビッグではないデータ</h3>
+<p>伝統的なデータは分析レベルが荒いデータである。</p>
+<ul>
+<li><a href="https://ucdp.uu.se/encyclopedia">UCDPの紛争データ</a></li>
+<li><a href="https://www.v-dem.net/">V-Demの政治体制データ</a></li>
+<li><a href="http://www.masaki.j.u-tokyo.ac.jp/utas/utasindex.html">東大・朝日の世論調査</a></li>
+</ul>
+<p>多くの場合、</p>
+<ul>
+<li>国レベルに集計したり、一部の個人のみを対象</li>
+<li>毎年、イベントごとなど特定の時点のみを対象</li>
+</ul>
+<p>としている。</p>
+</section>
+<section id="地理情報システム" class="level3 page-columns page-full" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="地理情報システム"><span class="header-section-number">1.2</span> 地理情報システム</h3>
+<p>GPS付きスマートフォンのデータにより個人の位置情報がほぼリアルタイムで計測できる。</p>
+<ul>
+<li>外出者の数や移動経路が分かり、感染症対策に利活用できる。</li>
+</ul>
+<p><strong>地理情報システム</strong> (geospatial information system: GIS) の発展・普及によって地理空間データの利活用が進んでいる。</p>
+<p>人工衛星の写真から経済発展や森林破壊の度合いを測定することができる。</p>
+<p><span class="math inline">\(\leadsto\)</span>リモート・センシングによりこれまでアクセスできなかったデータを取得できる。</p>
+<ul>
+<li>統計が怪しい、取ることのできない地域のデータ</li>
+<li>行政単位よりも細かい地域区分でデータ</li>
+</ul>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="figures/nightlight1.jpg" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="figures/nightlight2.jpg" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="https://www.imf.org/en/Publications/fandd/issues/2019/09/satellite-images-at-night-and-economic-growth-yao">Satellite images of the earth at night reveal the pace of economic growth and much more</a></p>
+</div>
+</div>
+</div>
+<p>通話履歴から個人の（従って地域の）豊かさを予測することができる。</p>
+<ul>
+<li><a href="https://ict4d.jp/2017/07/01/mobile-poverty/">ルワンダ</a>最大の携帯電話会社の協力を得て分析を行った。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.science.org/cms/10.1126/science.aac4420/asset/835cce83-674f-40d1-af1c-ced3b0f27b07/assets/graphic/350_1073_f2.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="blumenstock2015">Blumenstock, Cadamuro, と On (<a href="#ref-blumenstock2015" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>街中にある監視カメラと画像認識技術を組み合わせることで、犯人の迅速な逮捕や犯罪防止に役立っている。</p>
+<ul>
+<li>プライバシーの侵害の懸念はある。</li>
+<li>中国は<a href="https://www.nikkei.com/article/DGXMZO53393500W9A211C1000000/">監視技術を外国に輸出</a>している。</li>
+</ul>
+<p>GISを（無料で）使えるサービスがある。</p>
+<ul>
+<li><a href="https://resas.go.jp/">RESAS</a></li>
+<li><a href="https://jstatmap.e-stat.go.jp/trialstart.html">jSTAT MAP</a></li>
+<li><a href="https://qgis.org/ja/site/forusers/download.html">QGIS</a></li>
+</ul>
+<div class="column-screen-right">
+<iframe src="https://resas.go.jp/" loading="lazy" style="width: 100%; height: 800px; border: 0px none;">
+</iframe>
+</div>
+</section>
+<section id="企業データ" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="企業データ"><span class="header-section-number">1.3</span> 企業データ</h3>
+<p>株式保有のデータを用いて、株式ネットワークのデータを構築することができる。</p>
+<p><span class="math inline">\(\leadsto\)</span>直接的だけでなく間接的に、どのような株主が、どのような企業を、どの程度接続しているのかが分かる。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ownership.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">2020年のグローバルな株式ネットワーク</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>間接的支配を含めると、中国政府は世界最大の株主である。</li>
+<li>一般的に販売されている金融商品の約9割が軍事企業や環境破壊企業に繋がっている。</li>
+<li><a href="https://business.nikkei.com/atcl/gen/19/00351/110900058/">「隠れ株主」を探せ：米テスラ、サプライチェーンの「身体検査」</a></li>
+</ul>
+</section>
+<section id="デジタルヒューマニティーズ" class="level3 page-columns page-full" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="デジタルヒューマニティーズ"><span class="header-section-number">1.4</span> デジタル・ヒューマニティーズ</h3>
+<p>人文学（特に歴史学）にデジタル技術を取り入れている分野を<strong>デジタル・ヒューマニティ</strong> (digital humanity) と呼ぶ。</p>
+<p>電子書籍によって大量の書籍を電子的に処理することが可能になった。</p>
+<ul>
+<li><a href="https://books.google.com/ngrams">Google Ngram Viewer</a>や<a href="https://lab.ndl.go.jp/service/ngramviewer/">NDL Ngram Viewer</a>によって1800年ごろから書籍における単語の頻度を見ることができる。</li>
+</ul>
+<div class="column-screen-right">
+<iframe src="https://books.google.com/ngrams" loading="lazy" style="width: 100%; height: 800px; border: 0px none;">
+</iframe>
+</div>
+<p>画像認識の技術を応用して<a href="http://codh.rois.ac.jp/project/index.html.ja">日本史の資料のデジタル化</a>が進んでいる。</p>
+<ul>
+<li><a href="http://codh.rois.ac.jp/kuronet/">くずし字OCR</a></li>
+<li><a href="http://codh.rois.ac.jp/edo-cooking/">江戸料理レシピ</a></li>
+<li><a href="http://codh.rois.ac.jp/ukiyo-e/index.html.ja">浮世絵顔データ</a></li>
+</ul>
+</section>
+</section>
+<section id="インターネット空間" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="インターネット空間"><span class="header-section-number">2</span> インターネット空間</h2>
+<p>21世紀の特徴の1つはインターネット空間の登場と拡大である。</p>
+<p><span class="math inline">\(\leadsto\)</span>情報通信コストが限りなく下がり、経済活動だけでなく言論空間もオンライン上に構築された。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.bitbybitbook.com/figures/chapter1/hilbert_worlds_2011_fig2_and_5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="salganik2019">Salganik (<a href="#ref-salganik2019" role="doc-biblioref">2019</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>ビッグデータという観点からすると、膨大な量のデータが日々、作られている。</p>
+<ul>
+<li><strong>テキスト</strong>データ</li>
+<li><strong>画像</strong>データ</li>
+<li>音声データ</li>
+<li>映像データ</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>人工知能の誕生によって、はじめてビッグデータに価値が生まれ、インターネット空間が（さらに）変容しつつある。</p>
+<p>なぜGoogleは強いのか？</p>
+<ul>
+<li>Google Flu Trendsというインフルエンザに関する検索傾向からインフルエンザの感染を予測するサービスがあった（現在は中止）。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://d279m997dpfwgl.cloudfront.net/wp/2013/01/keithgraph-768x446.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.wbur.org/news/2013/01/13/google-flu-trends-cdc">Is ‘Google Flu Trends’ Prescient Or Wrong?</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><a href="https://trends.google.co.jp/trends/">Googleトレンド</a>で検索傾向を調べることができる。</li>
+</ul>
+<p>しかも、人々が<strong>アノテーション</strong>（情報の付加）をしてくれている。</p>
+<ul>
+<li>商品やお店のレビュー</li>
+<li>画像のタグ付け（画像つきツイート）、地理情報</li>
+</ul>
+<section id="ソーシャルネットワーク" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="ソーシャルネットワーク"><span class="header-section-number">2.1</span> ソーシャル・ネットワーク</h3>
+<p><strong>デジタル・フットプリント</strong>（インターネット上の行動履歴）から個人的属性を予測できる。</p>
+<p><span class="math inline">\(\leadsto\)</span>個人に焦点を当てた（<strong>パーソナライズ</strong>した）マーケティングを行える。</p>
+<ul>
+<li>インターネットの広告、eコマースにおける推薦</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>ユーザーは自由に情報を検索して、選択しているつもりでも、表示される情報は誘導されている。</p>
+<p>Netflixはデータを公開して予測コンペ (Netflix Prize) を行っていた。</p>
+<p>公開されたデータは匿名であるが、視聴履歴から個人を特定することができることが分かる。</p>
+<ul>
+<li>脱匿名化、再識別などと呼ぶ。</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>政治信条や性的志向が判明する危険性がある。</p>
+<p>SNSは豊富な情報を持つビッグデータである。</p>
+<ul>
+<li>個人レベル</li>
+<li>always-on</li>
+<li>テキスト、画像と繋がり（ネットワーク）</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>政治信条や性的志向が暴露されてしまう危険性がある。</p>
+<ul>
+<li><a href="https://www.axion.zone/private-traits-and-attributes-are-predictable-from-digital-records-of-human-behavior/">とある研究</a>ではFacebookの「いいね (like) 」を使って個人属性を予測した。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.pnas.org/cms/10.1073/pnas.1218772110/asset/434208ae-25a9-42ff-8f04-11babafd6310/assets/graphic/pnas.1218772110fig02.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="kosinski2013">Kosinski, Stillwell, と Graepel (<a href="#ref-kosinski2013" role="doc-biblioref">2013</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>ケンブリッジ・アナリティカ社がFacebook上で選挙介入を行ったと指摘されている。</li>
+</ul>
+</section>
+<section id="sns上のコミュニティ" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sns上のコミュニティ"><span class="header-section-number">2.2</span> SNS上のコミュニティ</h3>
+<p>人々は同じ意見を持っている人同士で繋がる傾向を<strong>ホモフィリー</strong>と呼ぶ。</p>
+<ul>
+<li>トランプのフォロワーはクリントンのフォロワーと繋がりにくい。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/twitter1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows">Journalists and Trump voters live in separate online bubbles, MIT analysis shows</a></figcaption><p></p>
+</figure>
+</div>
+<p>同質的なコミュニティで意見が反射、増幅して信念が強化される<strong>エコー・チェンバー</strong>が生じる。</p>
+<ul>
+<li>人種差別についてリベラルでしか議論されない。</li>
+<li>移民や銃については両方で議論されているが、繋がってはいない。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/twitter2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows">Journalists and Trump voters live in separate online bubbles, MIT analysis shows</a></figcaption><p></p>
+</figure>
+</div>
+<p>SNSがパーソナライズされる（フォローの推薦）ことで投稿内容やユーザーが限定される。</p>
+<p><span class="math inline">\(\leadsto\)</span>（本人の意図によらず）見たくない情報がSNS上から除去される<strong>フィルター・バブル</strong>ができる。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/twitter3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows">Journalists and Trump voters live in separate online bubbles, MIT analysis shows</a></figcaption><p></p>
+</figure>
+</div>
+<p>ホモフィリーが正しいのだとすれば、SNS上の繋がりから政治的イデオロギーも分かる。</p>
+<ul>
+<li>SNS上を通じて世論や分極化をリアルタイムに観測できる。</li>
+<li>SNS上の情報で個人の政治的傾向が分かってしまう。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://d3i71xaburhd42.cloudfront.net/b775eecd0bbbda04e45e1217e74a3d0e69835d5f/5-Figure1-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="barbera2015">Barberá ほか (<a href="#ref-barbera2015" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="中国によるsns検閲" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="中国によるsns検閲"><span class="header-section-number">2.3</span> 中国によるSNS検閲</h3>
+<p>中国ではTwitterなどは利用できないが、類似のサービスが利用されているが、検閲されているかもしれない。</p>
+<p><span class="math inline">\(\leadsto\)</span><a href="https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&amp;active_action=repository_view_main_item_detail&amp;item_id=199708&amp;item_no=1&amp;page_id=13&amp;block_id=8">とある研究</a>によって、情報を隠すという検閲により、隠したい中国政府の意図が分かってしまった。</p>
+<p>どうやって検閲を見つけるのか？</p>
+<ol type="1">
+<li>人力検閲で削除される前に<strong>スクレイピング</strong>する。</li>
+<li>実際に中国のSNSアカウントを作り、投稿する。</li>
+<li>実際に中国のSNSサービスを作り、マニュアルを見る。</li>
+</ol>
+<p>自動検閲される確率は（2013年時点では）ほとんどない。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/censorship1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="king2014">King, Pan, と Roberts (<a href="#ref-king2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>中国で検閲されやすい内容は</p>
+<ol type="1">
+<li>デモや集会に繋がる行動</li>
+<li>検閲の批判</li>
+<li>ポルノグラフィー</li>
+</ol>
+<p>に関するものである。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/censorship2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="king2013">King, Pan, と Roberts (<a href="#ref-king2013" role="doc-biblioref">2013</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>検閲される確率は政府に対して肯定的であるか批判的であるかは「関係がない」。</p>
+<ul>
+<li>天安門事件に関する投稿だからといって削除されるとは限らない。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/censorship3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="king2013">King, Pan, と Roberts (<a href="#ref-king2013" role="doc-biblioref">2013</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>中国のSNSでは五毛党 (50 Cent Party) が世論誘導 (astroturfing) を行っていると考えられている。</p>
+<ul>
+<li>とある地区の五毛党のリストがリークした。</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>機械学習によって五毛党のアカウントを予測し、それらの投稿の内容も分類できる。</p>
+<p>五毛党は協調して投稿している。</p>
+<p>五毛党は外国の批判や論争への参加は<strong>していない</strong>。</p>
+<ul>
+<li>愛国心を煽る表現</li>
+<li>政府の政策の紹介</li>
+<li>論争的ではない政府の称賛</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>政府の意見を広めるというより、不都合な情報から目を逸らそうとしているのでは？</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/censorship4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="king2017">King, Pan, と Roberts (<a href="#ref-king2017" role="doc-biblioref">2017</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/censorship5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="king2017">King, Pan, と Roberts (<a href="#ref-king2017" role="doc-biblioref">2017</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="オンライン実験" class="level3 page-columns page-full" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="オンライン実験"><span class="header-section-number">2.4</span> オンライン実験</h3>
+<div class="page-columns page-full"><p><strong>A/Bテスト</strong>とはランダムに異なるウェブサイトを表示し、収益の高いウェブサイトを見つける実験のことである。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;実験については統計的因果推論において解説する。</p></li></div></div>
+<ul>
+<li>オバマ元大統領は選挙資金の寄付を受け付けるサイトのデザインでA/Bテストを行い、約6000万ドルの寄付増加に繋がったと言われている。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://juicer.cc/articles/wordpress/wp-content/uploads/2016/11/82330bae6a74b04d00872164d66bb35a-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://juicer.cc/articles/archives/1273/">あの大統領も140%の成果改善。アメリカ大統領とA/Bテストの意外な関係</a></figcaption><p></p>
+</figure>
+</div>
+<p>オンライン上では（しばしば利用者が知らないうちに）実験が行われている。</p>
+<ul>
+<li>Facebookの<a href="https://www.afpbb.com/articles/-/2900894">選挙実験</a>では友人が投票に行ったことを知ると、投票率が上がることが分かった。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://media.springernature.com/w300/springer-static/image/art%3A10.1038%2Fnature.2012.11401/MediaObjects/41586_2012_Article_BFnature201211401_Figa_HTML.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="bond2012">Bond ほか (<a href="#ref-bond2012" role="doc-biblioref">2012</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Facebookの<a href="https://www.itmedia.co.jp/news/articles/1406/29/news007.html">感情実験</a>ではTL上にネガティブな投稿が表示されなくなると、ポジティブな投稿が増える（その逆も然り）ことが分かった。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://image.itmedia.co.jp/news/articles/1406/29/yu_emotion.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="kramer2014">Kramer, Guillory, と Hancock (<a href="#ref-kramer2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>ただし、インターネットを含めてマスメディアの影響を過大評価するべきではない。</p>
+<ul>
+<li>メディアの効果に関するサーベイとして <span class="citation" data-cites="inamasu2022">稲増 (<a href="#ref-inamasu2022" role="doc-biblioref">2022</a>)</span> を参照。</li>
+</ul>
+</section>
+</section>
+<section id="資源としてのデータ" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="資源としてのデータ"><span class="header-section-number">3</span> 資源としてのデータ</h2>
+<p>機械学習が調理法だとすれば、データは食材と言える。</p>
+<p><span class="math inline">\(\leadsto\)</span>近年の機械学習の発展（後述）により、データの価値が発見（21世紀の資源と呼ばれることも）</p>
+<ul>
+<li>データそれ自体に価値があるわけではない。
+<ul>
+<li>適切な調理法（と下ごしらえ）がなければ宝の持ち腐れ。</li>
+</ul></li>
+</ul>
+<p>機械学習において、データの量が多いことは性能の向上に繋がる<a href="https://deeplearning.hatenablog.com/entry/scaling_law">スケーリング則</a>が発見されている。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://wirelesswire.jp/wp-content/uploads/2023/02/e047e8f1cde575800c5ef4f18b15239a.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="kaplan2020">Kaplan ほか (<a href="#ref-kaplan2020" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>資源としてデータは足りるのか？</p>
+<p>質の良いテキストデータは近いうちに<a href="https://www.technologyreview.jp/s/291329/we-could-run-out-of-data-to-train-ai-language-programs/">枯渇する可能性</a>が指摘されている。</p>
+<ul>
+<li>非デジタル情報のデジタル化？</li>
+<li>ネットユーザーの拡大？</li>
+<li>AI利用者の入力データの利用？</li>
+</ul>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-barbera2015" class="csl-entry" role="listitem">
+Barberá, Pablo, John T Jost, Jonathan Nagler, Joshua A Tucker, と Richard Bonneau. 2015. <span>「Tweeting from left to right: Is online political communication more than an echo chamber?」</span> <em>Psychological science</em> 26 (10): 1531–42.
+</div>
+<div id="ref-blumenstock2015" class="csl-entry" role="listitem">
+Blumenstock, Joshua, Gabriel Cadamuro, と Robert On. 2015. <span>「Predicting poverty and wealth from mobile phone metadata」</span>. <em>Science</em> 350 (6264): 1073–76.
+</div>
+<div id="ref-bond2012" class="csl-entry" role="listitem">
+Bond, Robert M, Christopher J Fariss, Jason J Jones, Adam DI Kramer, Cameron Marlow, Jaime E Settle, と James H Fowler. 2012. <span>「A 61-million-person experiment in social influence and political mobilization」</span>. <em>Nature</em> 489 (7415): 295–98.
+</div>
+<div id="ref-kaplan2020" class="csl-entry" role="listitem">
+Kaplan, Jared, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, と Dario Amodei. 2020. <span>「Scaling laws for neural language models」</span>. <em>arXiv preprint arXiv:2001.08361</em>.
+</div>
+<div id="ref-king2013" class="csl-entry" role="listitem">
+King, Gary, Jennifer Pan, と Margaret E Roberts. 2013. <span>「How censorship in China allows government criticism but silences collective expression」</span>. <em>American political science Review</em> 107 (2): 326–43.
+</div>
+<div id="ref-king2014" class="csl-entry" role="listitem">
+———. 2014. <span>「Reverse-engineering censorship in China: Randomized experimentation and participant observation」</span>. <em>Science</em> 345 (6199): 1251722.
+</div>
+<div id="ref-king2017" class="csl-entry" role="listitem">
+———. 2017. <span>「How the Chinese government fabricates social media posts for strategic distraction, not engaged argument」</span>. <em>American political science review</em> 111 (3): 484–501.
+</div>
+<div id="ref-kosinski2013" class="csl-entry" role="listitem">
+Kosinski, Michal, David Stillwell, と Thore Graepel. 2013. <span>「Private traits and attributes are predictable from digital records of human behavior」</span>. <em>Proceedings of the national academy of sciences</em> 110 (15): 5802–5.
+</div>
+<div id="ref-kramer2014" class="csl-entry" role="listitem">
+Kramer, Adam DI, Jamie E Guillory, と Jeffrey T Hancock. 2014. <span>「Experimental evidence of massive-scale emotional contagion through social networks」</span>. <em>Proceedings of the National Academy of Sciences</em> 111 (24): 8788–90.
+</div>
+<div id="ref-salganik2019" class="csl-entry" role="listitem">
+Salganik, Matthew J. 2019. <em>Bit by bit: Social research in the digital age</em>. Princeton University Press.
+</div>
+<div id="ref-inamasu2022" class="csl-entry" role="listitem">
+稲増一憲. 2022. <em>マスメディアとは何か : 「影響力」の正体</em>. 中公新書. 中央公論新社.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "コピーしました");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "コピーしました");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

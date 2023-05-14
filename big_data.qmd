@@ -1,0 +1,337 @@
+---
+title: "デジタル化する社会"
+subtitle: "技術政策学（データ科学編）"
+author: "土井翔平"
+date: today
+---
+
+## はじめに {.unnumbered}
+
+:::{.callout-warning}
+日進月歩の分野なので、本章の内容はすぐに古いものになる（or既にそうであるかもしれない）点に注意。
+:::
+
+**人工知能** (artificial intelligence) とは？
+
+:::{.content-visible when-format="html"}
+:::{layout-ncol=2}
+![ターミネーター](https://d1uzk9o9cg136f.cloudfront.net/f/16783100/rc/2021/06/24/6beb130603950f1b17c14ef2d3f83336233334a7_xlarge.jpg)
+
+![ドラえもん](https://www.tv-asahi.co.jp/doraemon/cast/img/doraemon.jpg)
+:::
+:::
+
+- コンピュータ（機械）が人間のように意思をもって、自律的に認識・判断・行動する？
+
+$\leadsto$機械学習について学ぶことで（昨今、話題になっている）人工知能について理解する。
+
+なぜ**機械学習** (machine learning) か？
+
+![人工知能、機械学習、深層学習、生成AIの関係](figures/ml_ai.drawio.png){width=80%}
+
+機械学習：データから一定のパターンを機械（パソコン）が学習し、**予測をする**。
+
+近年の人工知能$\approx$機械学習のブレイクスルー
+
+1. ビッグデータの利活用
+1. 深層学習（およびその発展形）の発明
+1. 豊富な計算資源
+
+$\leadsto$特に（我々にとって）重要な1点目と2点目に焦点
+
+## ビッグデータ
+
+インターネット空間の拡大やセンシング技術の向上（スマートフォン、衛星写真）により、**ビッグデータ**を収集することができる。
+
+- **ビッグデータ**：人間の様々な活動が粒度の高い（従って大規模な）データとして記録される。
+- インターネットはそのようなデータを生み出す最初の空間だったが、最近ではインターネットに限られない。
+
+$\leadsto$ビッグデータの特徴は大規模であること自体ではなく、**粒度** (granularity) が高い（データが細かい）ことである。
+
+1. 多様性 (variery) ：国レベルではなく地方自治体、個人レベル
+    - 小さいレベルのデータから全体を作ることはできるが、その逆ではない。
+1. 速度 (velocity) ：年単位ではなく月単位、分単位
+    - 一定の間隔や一時的なデータ収集ではなく、always-onが理想である。
+1. 量 (volume) ：多様性と速度の結果としての大規模データ
+
+$\leadsto$ビッグデータを解析できる機械学習（特に深層学習）の登場により、ビッグデータの価値が生まれ始めている。
+
+### ビッグではないデータ
+
+伝統的なデータは分析レベルが荒いデータである。
+
+- [UCDPの紛争データ](https://ucdp.uu.se/encyclopedia)
+- [V-Demの政治体制データ](https://www.v-dem.net/)
+- [東大・朝日の世論調査](http://www.masaki.j.u-tokyo.ac.jp/utas/utasindex.html)
+
+多くの場合、
+
+- 国レベルに集計したり、一部の個人のみを対象
+- 毎年、イベントごとなど特定の時点のみを対象
+
+としている。
+
+### 地理情報システム
+
+GPS付きスマートフォンのデータにより個人の位置情報がほぼリアルタイムで計測できる。
+
+- 外出者の数や移動経路が分かり、感染症対策に利活用できる。
+
+**地理情報システム** (geospatial information system: GIS) の発展・普及によって地理空間データの利活用が進んでいる。
+
+人工衛星の写真から経済発展や森林破壊の度合いを測定することができる。
+
+$\leadsto$リモート・センシングによりこれまでアクセスできなかったデータを取得できる。
+
+- 統計が怪しい、取ることのできない地域のデータ
+- 行政単位よりも細かい地域区分でデータ
+
+:::{layout-ncol=2}
+
+![](figures/nightlight1.jpg)
+
+![](figures/nightlight2.jpg)
+
+[Satellite images of the earth at night reveal the pace of economic growth and much more](https://www.imf.org/en/Publications/fandd/issues/2019/09/satellite-images-at-night-and-economic-growth-yao)
+
+:::
+
+通話履歴から個人の（従って地域の）豊かさを予測することができる。
+
+- [ルワンダ](https://ict4d.jp/2017/07/01/mobile-poverty/)最大の携帯電話会社の協力を得て分析を行った。
+
+![@blumenstock2015](https://www.science.org/cms/10.1126/science.aac4420/asset/835cce83-674f-40d1-af1c-ced3b0f27b07/assets/graphic/350_1073_f2.jpeg)
+
+街中にある監視カメラと画像認識技術を組み合わせることで、犯人の迅速な逮捕や犯罪防止に役立っている。
+
+- プライバシーの侵害の懸念はある。
+- 中国は[監視技術を外国に輸出](https://www.nikkei.com/article/DGXMZO53393500W9A211C1000000/)している。
+
+GISを（無料で）使えるサービスがある。
+
+- [RESAS](https://resas.go.jp/)
+- [jSTAT MAP](https://jstatmap.e-stat.go.jp/trialstart.html)
+- [QGIS](https://qgis.org/ja/site/forusers/download.html)
+
+::: {.content-visible when-format="html"}
+::: {.column-screen-right}
+<iframe src="https://resas.go.jp/" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
+:::
+:::
+
+### 企業データ
+
+株式保有のデータを用いて、株式ネットワークのデータを構築することができる。
+
+$\leadsto$直接的だけでなく間接的に、どのような株主が、どのような企業を、どの程度接続しているのかが分かる。
+
+![2020年のグローバルな株式ネットワーク](figures/ownership.png){width=50%}
+
+- 間接的支配を含めると、中国政府は世界最大の株主である。
+- 一般的に販売されている金融商品の約9割が軍事企業や環境破壊企業に繋がっている。
+- [「隠れ株主」を探せ：米テスラ、サプライチェーンの「身体検査」](https://business.nikkei.com/atcl/gen/19/00351/110900058/)
+
+### デジタル・ヒューマニティーズ
+
+人文学（特に歴史学）にデジタル技術を取り入れている分野を**デジタル・ヒューマニティ** (digital humanity) と呼ぶ。
+
+電子書籍によって大量の書籍を電子的に処理することが可能になった。
+
+ - [Google Ngram Viewer](https://books.google.com/ngrams)や[NDL Ngram Viewer](https://lab.ndl.go.jp/service/ngramviewer/)によって1800年ごろから書籍における単語の頻度を見ることができる。
+
+::: {.content-visible when-format="html"}
+::: {.column-screen-right}
+<iframe src="https://books.google.com/ngrams" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
+:::
+:::
+
+画像認識の技術を応用して[日本史の資料のデジタル化](http://codh.rois.ac.jp/project/index.html.ja)が進んでいる。
+
+- [くずし字OCR](http://codh.rois.ac.jp/kuronet/)
+- [江戸料理レシピ](http://codh.rois.ac.jp/edo-cooking/)
+- [浮世絵顔データ](http://codh.rois.ac.jp/ukiyo-e/index.html.ja)
+
+## インターネット空間
+
+21世紀の特徴の1つはインターネット空間の登場と拡大である。
+
+$\leadsto$情報通信コストが限りなく下がり、経済活動だけでなく言論空間もオンライン上に構築された。
+
+![@salganik2019](https://www.bitbybitbook.com/figures/chapter1/hilbert_worlds_2011_fig2_and_5.png)
+
+ビッグデータという観点からすると、膨大な量のデータが日々、作られている。
+
+- **テキスト**データ
+- **画像**データ
+- 音声データ
+- 映像データ
+
+$\leadsto$人工知能の誕生によって、はじめてビッグデータに価値が生まれ、インターネット空間が（さらに）変容しつつある。
+
+なぜGoogleは強いのか？
+
+- Google Flu Trendsというインフルエンザに関する検索傾向からインフルエンザの感染を予測するサービスがあった（現在は中止）。
+
+![[Is 'Google Flu Trends' Prescient Or Wrong?](https://www.wbur.org/news/2013/01/13/google-flu-trends-cdc)](https://d279m997dpfwgl.cloudfront.net/wp/2013/01/keithgraph-768x446.jpeg)
+
+- [Googleトレンド](https://trends.google.co.jp/trends/)で検索傾向を調べることができる。
+
+しかも、人々が**アノテーション**（情報の付加）をしてくれている。
+
+- 商品やお店のレビュー
+- 画像のタグ付け（画像つきツイート）、地理情報
+
+### ソーシャル・ネットワーク
+
+**デジタル・フットプリント**（インターネット上の行動履歴）から個人的属性を予測できる。
+
+$\leadsto$個人に焦点を当てた（**パーソナライズ**した）マーケティングを行える。
+
+- インターネットの広告、eコマースにおける推薦
+
+$\leadsto$ユーザーは自由に情報を検索して、選択しているつもりでも、表示される情報は誘導されている。
+
+Netflixはデータを公開して予測コンペ (Netflix Prize) を行っていた。
+
+公開されたデータは匿名であるが、視聴履歴から個人を特定することができることが分かる。
+
+- 脱匿名化、再識別などと呼ぶ。
+
+$\leadsto$政治信条や性的志向が判明する危険性がある。
+
+SNSは豊富な情報を持つビッグデータである。
+
+- 個人レベル
+- always-on
+- テキスト、画像と繋がり（ネットワーク）
+
+$\leadsto$政治信条や性的志向が暴露されてしまう危険性がある。
+
+- [とある研究](https://www.axion.zone/private-traits-and-attributes-are-predictable-from-digital-records-of-human-behavior/)ではFacebookの「いいね (like) 」を使って個人属性を予測した。
+
+![@kosinski2013](https://www.pnas.org/cms/10.1073/pnas.1218772110/asset/434208ae-25a9-42ff-8f04-11babafd6310/assets/graphic/pnas.1218772110fig02.jpeg)
+
+- ケンブリッジ・アナリティカ社がFacebook上で選挙介入を行ったと指摘されている。
+
+### SNS上のコミュニティ
+
+人々は同じ意見を持っている人同士で繋がる傾向を**ホモフィリー**と呼ぶ。
+
+- トランプのフォロワーはクリントンのフォロワーと繋がりにくい。
+
+![[Journalists and Trump voters live in separate online bubbles, MIT analysis shows](https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows)](figures/twitter1.png)
+
+同質的なコミュニティで意見が反射、増幅して信念が強化される**エコー・チェンバー**が生じる。
+
+- 人種差別についてリベラルでしか議論されない。
+- 移民や銃については両方で議論されているが、繋がってはいない。
+
+![[Journalists and Trump voters live in separate online bubbles, MIT analysis shows](https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows)](figures/twitter2.png)
+
+SNSがパーソナライズされる（フォローの推薦）ことで投稿内容やユーザーが限定される。
+
+$\leadsto$（本人の意図によらず）見たくない情報がSNS上から除去される**フィルター・バブル**ができる。
+
+![[Journalists and Trump voters live in separate online bubbles, MIT analysis shows](https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows)](figures/twitter3.png)
+
+ホモフィリーが正しいのだとすれば、SNS上の繋がりから政治的イデオロギーも分かる。
+
+- SNS上を通じて世論や分極化をリアルタイムに観測できる。
+- SNS上の情報で個人の政治的傾向が分かってしまう。
+
+![@barbera2015](https://d3i71xaburhd42.cloudfront.net/b775eecd0bbbda04e45e1217e74a3d0e69835d5f/5-Figure1-1.png)
+
+### 中国によるSNS検閲
+
+中国ではTwitterなどは利用できないが、類似のサービスが利用されているが、検閲されているかもしれない。
+
+$\leadsto$[とある研究](https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=199708&item_no=1&page_id=13&block_id=8)によって、情報を隠すという検閲により、隠したい中国政府の意図が分かってしまった。
+
+どうやって検閲を見つけるのか？
+
+1. 人力検閲で削除される前に**スクレイピング**する。
+1. 実際に中国のSNSアカウントを作り、投稿する。
+1. 実際に中国のSNSサービスを作り、マニュアルを見る。
+
+自動検閲される確率は（2013年時点では）ほとんどない。
+
+![@king2014](figures/censorship1.png)
+
+中国で検閲されやすい内容は
+
+1. デモや集会に繋がる行動
+1. 検閲の批判
+1. ポルノグラフィー
+
+に関するものである。
+
+![@king2013](figures/censorship2.png)
+
+検閲される確率は政府に対して肯定的であるか批判的であるかは「関係がない」。
+
+- 天安門事件に関する投稿だからといって削除されるとは限らない。
+
+![@king2013](figures/censorship3.png)
+
+中国のSNSでは五毛党 (50 Cent Party) が世論誘導 (astroturfing) を行っていると考えられている。
+
+- とある地区の五毛党のリストがリークした。
+
+$\leadsto$機械学習によって五毛党のアカウントを予測し、それらの投稿の内容も分類できる。
+
+五毛党は協調して投稿している。
+
+五毛党は外国の批判や論争への参加は**していない**。
+
+- 愛国心を煽る表現
+- 政府の政策の紹介
+- 論争的ではない政府の称賛
+
+$\leadsto$政府の意見を広めるというより、不都合な情報から目を逸らそうとしているのでは？
+
+![@king2017](figures/censorship4.png)
+
+![@king2017](figures/censorship5.png)
+
+### オンライン実験
+
+**A/Bテスト**とはランダムに異なるウェブサイトを表示し、収益の高いウェブサイトを見つける実験のことである。^[実験については統計的因果推論において解説する。]
+
+- オバマ元大統領は選挙資金の寄付を受け付けるサイトのデザインでA/Bテストを行い、約6000万ドルの寄付増加に繋がったと言われている。
+
+![[あの大統領も140%の成果改善。アメリカ大統領とA/Bテストの意外な関係](https://juicer.cc/articles/archives/1273/)](https://juicer.cc/articles/wordpress/wp-content/uploads/2016/11/82330bae6a74b04d00872164d66bb35a-1.png)
+
+オンライン上では（しばしば利用者が知らないうちに）実験が行われている。
+
+- Facebookの[選挙実験](https://www.afpbb.com/articles/-/2900894)では友人が投票に行ったことを知ると、投票率が上がることが分かった。
+
+![@bond2012](https://media.springernature.com/w300/springer-static/image/art%3A10.1038%2Fnature.2012.11401/MediaObjects/41586_2012_Article_BFnature201211401_Figa_HTML.jpg)
+
+- Facebookの[感情実験](https://www.itmedia.co.jp/news/articles/1406/29/news007.html)ではTL上にネガティブな投稿が表示されなくなると、ポジティブな投稿が増える（その逆も然り）ことが分かった。
+
+![@kramer2014](https://image.itmedia.co.jp/news/articles/1406/29/yu_emotion.jpg)
+
+ただし、インターネットを含めてマスメディアの影響を過大評価するべきではない。
+
+- メディアの効果に関するサーベイとして @inamasu2022 を参照。
+
+## 資源としてのデータ
+
+機械学習が調理法だとすれば、データは食材と言える。
+
+$\leadsto$近年の機械学習の発展（後述）により、データの価値が発見（21世紀の資源と呼ばれることも）
+
+- データそれ自体に価値があるわけではない。
+  - 適切な調理法（と下ごしらえ）がなければ宝の持ち腐れ。
+
+機械学習において、データの量が多いことは性能の向上に繋がる[スケーリング則](https://deeplearning.hatenablog.com/entry/scaling_law)が発見されている。
+
+![@kaplan2020](https://wirelesswire.jp/wp-content/uploads/2023/02/e047e8f1cde575800c5ef4f18b15239a.png)
+
+$\leadsto$資源としてデータは足りるのか？
+
+質の良いテキストデータは近いうちに[枯渇する可能性](https://www.technologyreview.jp/s/291329/we-could-run-out-of-data-to-train-ai-language-programs/)が指摘されている。
+
+- 非デジタル情報のデジタル化？
+- ネットユーザーの拡大？
+- AI利用者の入力データの利用？
