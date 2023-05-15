@@ -1,0 +1,236 @@
+---
+title: "人工知能のための機械学習"
+subtitle: "技術政策学（データ科学編）"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+```
+
+## はじめに {.unnumbered}
+
+:::{.callout-warning}
+日進月歩の分野なので、本章の内容はすぐに古いものになる（or既にそうであるかもしれない）点に注意。
+:::
+
+ビッグデータは魅力的な資源（材料）だが、有効な利用法（調理法）があって初めて価値を持つ。
+
+$\leadsto$近年のデータ科学における2つの変革
+
+1. 機械学習：データから一定のパターンを機械（パソコン）が学習し、**予測をする**。
+1. 因果推論：データから因果関係（因果効果）を学習する。
+
+$\leadsto$いわゆる（最近において）人工知能と呼ばれるものは機械学習（予測）
+
+- 現在は第3次人工知能ブームと言われている。
+- クオリティが高いがゆえに、あたかも機械が人間のように思考しているように見えてしまう。
+- 自然言語処理に関するタスク[SuperGLUE](https://super.gluebenchmark.com/)では人間を越えている。
+
+::: {.content-visible when-format="html"}
+::: {.column-screen-right}
+<iframe src="https://super.gluebenchmark.com/leaderboard" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
+:::
+:::
+
+**生成 (generative) AI**：ある情報から、別の情報を出力するモデル
+
+- **大規模言語モデル** (large language model: LLM)：大量のテキストを使い、巨大なモデルを学習した生成AIで代表的なものに[ChatGPT](https://openai.com/blog/chatgpt)、[Google Bard](https://bard.google.com/)、[Microsoft Bing AI](https://www.microsoft.com/ja-jp/bing?form=MA13FJ)などがある。
+  - まずは、[OpenAIのPlayground](https://platform.openai.com/examples)で遊んでみよう。
+- 画像生成の性能が向上し[DALL·E 2](https://openai.com/dall-e-2/) 、[midjourney](https://www.midjourney.com/) 、[stable difffusion](https://huggingface.co/spaces/stabilityai/stable-diffusion) などがある。
+
+生成モデルも実は予測の組み合わせである。
+
+- [DeepL](https://www.deepl.com/translator)$\leadsto$ある言語の文章から他の言語の文章を予測する。
+- チャットbot、文書要約、コード生成$\leadsto$ある文章から返答、要約、次に来る文章を予測する。
+- AmazonやNetflixの推薦$\leadsto$これまでの購入履歴やウォッチリストから次に購入する商品を予測する。
+- 学習過程にテキストデータを含めることで、テキストから画像生成できる (vision and language) 。
+
+代表的な機械学習の分類
+
+1. **教師あり学習**：特徴量 (feature) から対象を予測する。
+1. **教師なし学習**：多様な特徴量から重要なものを抽出する。
+1. **強化学習**：フィードバックを通じて最適な方策 (policy) を発見する。
+
+$\leadsto$これらの概要を理解し、生成AIが何をしているかを理解する。
+
+## 教師あり学習
+
+教師あり学習とは、機械に人間の判断のパターンを学習させ、模倣できるようにすること。
+
+$\leadsto$言い換えれば、**予測** (prediction) というタスクを実行できるように訓練する。
+
+- 写真とその内容のペアのデータを機械に覚えさせる。
+- 住宅の情報（間取り、最寄り駅までの距離……etc）と価格を機械に覚えさせる。
+
+![[教師あり学習のイメージ](https://www.sbbit.jp/article/cont1/49067)](https://www.sbbit.jp/article/image/49067/l_bit202012111543429711.jpg)
+
+$\leadsto$ある情報を入力すると、それに対応する情報を出力する。
+
+- 入力情報に対応する出力（正解）を人間が判断する**アノテーション**が重要になる。
+
+### 回帰分析
+
+シンプルで、広く使われている教師あり学習の手法として**回帰分析** (regression analysis) がある。
+
+- 例えば、北海道の中古マンション価格の教師あり学習を行ってみる。
+
+```{r}
+read_csv("data/01.csv") %>% 
+  rename(area = "面積（㎡）", distance = "最寄駅：距離（分）", 
+         price = "取引価格（総額）_log") %>% 
+  filter(area <= 200) %>% 
+  mutate(distance = parse_number(distance)) %>% 
+  ggplot(aes(x = area, y = exp(price))) + 
+  geom_point(alpha = 0.3) + 
+  geom_smooth(method = "lm") + 
+  labs(x = "広さ（平米）", y = "取引額")
+```
+
+
+$$
+価格 = 335.58 + 11.84 \times 広さ
+$$
+
+**最小二乗法** (ordinary least squares: OLS) はデータとの誤差が最も小さくなる直線を計算する。
+
+- 予測値を一次関数（直線）で予測する。
+
+$$
+i\textrm{の予測値} = \hat{y}_i = \underbrace{\hat{\alpha}}_{\textrm{切片 (intercept)}} 
++ \underbrace{\hat{\beta}}_{\textrm{傾き (slope)}} x_i
+$$
+
+- 上手く予測できるような$\hat{\alpha}, \hat{\beta}$をデータから求める（学習する）。
+- 真の値と予測値のズレ、誤差 (error) が小さい方がいいはず。
+
+$$
+i\textrm{の予測誤差} = i\textrm{の真の値} - i\textrm{の予測値} = y_i - \hat{y}_i
+$$
+
+- ズレはプラスにもマイナスにもなるので、プラスの値しか取らない距離や面積に変換する。
+- 通常は誤差を二乗して、面積にする。
+
+$$
+i\textrm{の予測誤差の二乗} = i\textrm{の真の値} - i\textrm{の予測値} = (y_i - \hat{y}_i)^2
+$$
+
+- 個々の誤差をデータ全体について計算し、合計する。
+
+$$
+i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots
+$$
+
+$\leadsto$これを最小にする$\hat{\alpha}, \hat{\beta}$をデータから求める！（パソコンが計算してくれる）^[最適化（偏微分係数が0となる値を求める）によって明示的に解くことができる。]
+
+- $\hat{\alpha}, \hat{\beta}$は$\hat{y}_i$の中に入っていることに注意。
+
+::: {.content-visible when-format="html"}
+::: {.column-screen-right}
+<iframe src="https://setosa.io/ev/ordinary-least-squares-regression/" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
+:::
+:::
+
+予測に使う情報（特徴量）は1つである必要はない。
+
+$$
+価格 = 396.27 + 12.50 \times 広さ -10.57 \times 距離
+$$
+
+- パターンを学習しているだけであり、機械がマンションについて理解しているわけではない。
+
+予測対象がカテゴリーの場合はどうするのか？
+
+- 機械学習の代表的なデータセットに[タイタニック号の乗客データ](https://www.kaggle.com/competitions/titanic)がある。
+- このときの予測対象は乗客が生存したかどうかというカテゴリー
+
+$\leadsto$**ロジスティック関数**（シグモイド関数）を使って変形すると、0から1の間に収まる。
+
+```{r}
+x <- seq(-3, 3, length.out = 100)
+
+bind_rows(tibble(x = x, y = x, type = "直線"), 
+          tibble(x = x, y = plogis(x), type = "ロジスティック関数")) %>% 
+  ggplot() + 
+  geom_line(aes(x = x, y = y)) + 
+  facet_wrap(~ type)
+```
+
+### 決定木
+
+回帰分析以外の代表的な教師あり学習の手法として**決定木** (decision tree) がある。
+
+![[決定木のイメージ](https://www.nttcoms.com/service/research/dataanalysis/decision-tree/)](https://www.nttcoms.com/service/research/dataanalysis/decision-tree/images/image001.png)
+
+$\leadsto$弱い決定木をたくさん集めた**ランダム・フォレスト**（やその発展形^[XGBoostやLightGBMなど。]）がよく使われている。
+
+- 三人寄れば文殊の知恵？　陪審定理？
+
+### 深層学習
+
+深層学習 (deep learning) は深層ニューラル・ネットワーク (deep neural network: DNN) とも呼ばれる。
+
+$\leadsto$もともとは人間のニューロンをマシン上で再現すれば人工知能ができるかもという期待
+
+- 閾値を超えると発火して信号を送信する。
+
+```{r}
+x <- seq(-3, 3, length.out = 100)
+
+tibble(x = x, y = if_else(x < 0, 0, 1)) %>% 
+  ggplot() + 
+  geom_line(aes(x = x, y = y))
+```
+
+$\leadsto$回帰分析をニューロンとして見て^[厳密に言えば、活性化関数を挟む。]、これをたくさん作る。
+
+![ロジスティック回帰のイメージ](figures/logistic_regression.drawio.png)
+
+![深層ニューラル・ネットワークのイメージ](figures/deep_learning.drawio.png)
+
+なぜ深層学習はすごいのか？
+
+1. 隠れ層を増やせば増やすほど柔軟な予測ができる。
+    - 隠れ層の数$\approx$モデルのサイズ
+1. 特徴量を人間が作らなくてよい。
+    - むしろ、重要な特徴量がなにかを学習する（**表現学習**）。
+1. 学習済みモデルを使える。
+    - 必要に応じて出力側を再学習（**ファイン・チューニング**）する。
+1. 様々な形式のデータ（テキスト、画像、音声……）を同じ枠組みで分析できる。
+    - vision and languageなど**マルチモーダル**なモデルの開発
+    
+$\leadsto$LLMは与えられた単語の列から、次に来そうな、もっともらしい単語を予測している（だけ）！
+
+![[LLMのイメージ](https://www.itmedia.co.jp/news/articles/2303/17/news200_2.html)](https://image.itmedia.co.jp/news/articles/2303/17/mt1626333_OIUBCRXE4.jpg)
+
+- 同じ入力に対して同じ回答をしないように、ある程度ランダムに予測をしている。
+  - GPTにおけるtemparatureはランダム度合いを指定している。
+- 人工知能の獲得か？（例、中国語の部屋）
+
+### プロンプト・エンジニアリング
+
+ChatGPTなどの最近のLLMがすごいのは、タスクも指示するだけでよいこと。
+
+- 翻訳、要約、質疑応答などのタスクごとにモデルを作らなくて良い。
+
+$\leadsto$入力する指示文（**プロンプト**）をどのようにするのかが重要。
+
+- プロンプトの書き方を工夫することをプロンプト・エンジニアリングなどと呼ぶ。
+- いくつかの具体例を提示すると、性能が良くなる、安定する**few shot learning**という現象（？）
+
+## 教師なし学習
+
+### 単語埋め込み
+
+### 注意機構
+
+### 自己教師学習
+
+## 強化学習
+
+## 人工知能の社会的課題

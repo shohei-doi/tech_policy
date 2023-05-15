@@ -16,6 +16,7 @@ website:
     contents:
       - index.qmd
       - big_data.qmd
+      - machine_learning.qmd
 
 format:
   html:
