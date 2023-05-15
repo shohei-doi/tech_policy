@@ -185,17 +185,17 @@
 \makeatother
 \subtitle{技術政策学（データ科学編）}
 \author{土井翔平}
-\date{2023-05-14}
+\date{2023-05-15}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, frame hidden, enhanced, interior hidden, sharp corners, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, breakable, sharp corners, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
 
 \hypertarget{ux306fux3058ux3081ux306b}{%
 \section*{はじめに}\label{ux306fux3058ux3081ux306b}}
 \addcontentsline{toc}{section}{はじめに}
 
-\begin{tcolorbox}[enhanced jigsaw, breakable, bottomtitle=1mm, colframe=quarto-callout-warning-color-frame, toprule=.15mm, rightrule=.15mm, left=2mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, coltitle=black, titlerule=0mm, colbacktitle=quarto-callout-warning-color!10!white, opacityback=0, leftrule=.75mm, colback=white, arc=.35mm, toptitle=1mm, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, toptitle=1mm, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, left=2mm, toprule=.15mm, colback=white, arc=.35mm, bottomrule=.15mm, titlerule=0mm, bottomtitle=1mm, coltitle=black, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, breakable, rightrule=.15mm, opacityback=0, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white]
 
 日進月歩の分野なので、本章の内容はすぐに古いものになる（or既にそうであるかもしれない）点に注意。
 
@@ -684,6 +684,67 @@ and Trump voters live in separate online bubbles, MIT analysis shows}}
 
 \end{figure}
 
+\hypertarget{snsux3068ux5206ux6975ux5316ux5206ux65ad}{%
+\subsection{SNSと分極化・分断}\label{snsux3068ux5206ux6975ux5316ux5206ux65ad}}
+
+分極化
+(polarization)：社会において意見（特にイデオロギー）が分断し、それぞれ極端になっていく現象
+
+\(\leadsto\)インターネットは分極化を加速させるのか？
+
+\citet[第5章]{inamasu2022}によれば、そこまでの影響力は大きくない。
+
+\begin{itemize}
+\tightlist
+\item
+  アルゴリズムによる表示 (exposed) よりも、自身の選択 (selected)
+  の方が異なるイデオロギーの記事にアクセスしにくい（あるいは大差はない）。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/bakshy.png}
+
+}
+
+\caption{bakshy2015}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  ニュースアグリゲーターよりもSNSなどのほうが多様な意見のサイトにアクセスしやすい。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/flaxman1.jpeg}
+
+}
+
+\caption{\citet{flaxman2016}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  ニュースアグリゲーターやSNSは異なる意見のサイトにアクセスしやすい。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/flaxman2.jpeg}
+
+}
+
+\caption{\citet{flaxman2016}}
+
+\end{figure}
+
+\(\leadsto\)アルゴリズムによる分断よりも、自らの選択？
+
 \hypertarget{ux4e2dux56fdux306bux3088ux308bsnsux691cux95b2}{%
 \subsection{中国によるSNS検閲}\label{ux4e2dux56fdux306bux3088ux308bsnsux691cux95b2}}
 
@@ -858,6 +919,54 @@ and Trump voters live in separate online bubbles, MIT analysis shows}}
 }
 
 \caption{\citet{kramer2014}}
+
+\end{figure}
+
+\hypertarget{ux5f71ux97ffux5de5ux4f5c}{%
+\subsection{影響工作}\label{ux5f71ux97ffux5de5ux4f5c}}
+
+影響工作 (influence
+operation)：フェイクニュースなどを通じて世論に影響を与えようとする行動
+
+\(\leadsto\)インターネット空間ではボットによる情報提供が容易に\citep{lazer2009, ferrara2016}。
+
+\begin{itemize}
+\tightlist
+\item
+  2016年のアメリカ大統領選ではトランプ支持のツイートを（特に接戦州で）ボットが共有
+\item
+  イギリスのEU離脱投票の際にも賛成派と反対派のボットが情報を拡散
+\end{itemize}
+
+信頼のできないボット（赤い点）が特定のユーザーをリツイートしている。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{big_data_files/mediabag/42001_2021_139_Fig1_.png}
+
+}
+
+\caption{\citet{xu2022}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  信頼のできないボットは陰謀論者をリツイート
+\item
+  スーパスプレッダーとなるボット
+\end{itemize}
+
+\href{https://www.natureasia.com/ja-jp/ndigest/v15/n5/\%E3\%83\%95\%E3\%82\%A7\%E3\%82\%A4\%E3\%82\%AF\%E3\%83\%8B\%E3\%83\%A5\%E3\%83\%BC\%E3\%82\%B9\%E3\%81\%AF\%E9\%80\%9F\%E3\%81\%8F\%E5\%BA\%83\%E3\%81\%8F\%E4\%BC\%9D\%E3\%82\%8F\%E3\%82\%8B/92004}{とある研究}によれば、フェイクニュースは正しいニュースよりもリツイートされやすく、早く、広く拡散する。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/vosoughi.jpeg}
+
+}
+
+\caption{\citet{vosoughi2018}}
 
 \end{figure}
 

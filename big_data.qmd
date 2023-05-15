@@ -241,6 +241,28 @@ $\leadsto$（本人の意図によらず）見たくない情報がSNS上から�
 
 ![@barbera2015](https://d3i71xaburhd42.cloudfront.net/b775eecd0bbbda04e45e1217e74a3d0e69835d5f/5-Figure1-1.png)
 
+### SNSと分極化・分断
+
+分極化 (polarization)：社会において意見（特にイデオロギー）が分断し、それぞれ極端になっていく現象
+
+$\leadsto$インターネットは分極化を加速させるのか？
+
+@inamasu2022[第5章]によれば、そこまでの影響力は大きくない。
+
+- アルゴリズムによる表示 (exposed) よりも、自身の選択 (selected) の方が異なるイデオロギーの記事にアクセスしにくい（あるいは大差はない）。
+
+![bakshy2015](figures/bakshy.png)
+
+- ニュースアグリゲーターよりもSNSなどのほうが多様な意見のサイトにアクセスしやすい。
+
+![@flaxman2016](figures/flaxman1.jpeg)
+
+- ニュースアグリゲーターやSNSは異なる意見のサイトにアクセスしやすい。
+
+![@flaxman2016](figures/flaxman2.jpeg)
+
+$\leadsto$アルゴリズムによる分断よりも、自らの選択？
+
 ### 中国によるSNS検閲
 
 中国ではTwitterなどは利用できないが、類似のサービスが利用されているが、検閲されているかもしれない。
@@ -310,6 +332,26 @@ $\leadsto$政府の意見を広めるというより、不都合な情報から�
 - Facebookの[感情実験](https://www.itmedia.co.jp/news/articles/1406/29/news007.html)ではTL上にネガティブな投稿が表示されなくなると、ポジティブな投稿が増える（その逆も然り）ことが分かった。
 
 ![@kramer2014](https://image.itmedia.co.jp/news/articles/1406/29/yu_emotion.jpg)
+
+### 影響工作
+
+影響工作 (influence operation)：フェイクニュースなどを通じて世論に影響を与えようとする行動
+
+$\leadsto$インターネット空間ではボットによる情報提供が容易に[@lazer2009; @ferrara2016]。
+
+- 2016年のアメリカ大統領選ではトランプ支持のツイートを（特に接戦州で）ボットが共有
+- イギリスのEU離脱投票の際にも賛成派と反対派のボットが情報を拡散
+
+信頼のできないボット（赤い点）が特定のユーザーをリツイートしている。
+
+![@xu2022](https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs42001-021-00139-3/MediaObjects/42001_2021_139_Fig1_HTML.png)
+
+- 信頼のできないボットは陰謀論者をリツイート
+- スーパスプレッダーとなるボット
+
+[とある研究](https://www.natureasia.com/ja-jp/ndigest/v15/n5/%E3%83%95%E3%82%A7%E3%82%A4%E3%82%AF%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%81%AF%E9%80%9F%E3%81%8F%E5%BA%83%E3%81%8F%E4%BC%9D%E3%82%8F%E3%82%8B/92004)によれば、フェイクニュースは正しいニュースよりもリツイートされやすく、早く、広く拡散する。
+
+![@vosoughi2018](figures/vosoughi.jpeg)
 
 ただし、インターネットを含めてマスメディアの影響を過大評価するべきではない。
 
