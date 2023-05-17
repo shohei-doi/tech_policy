@@ -221,6 +221,12 @@ $\leadsto$政治信条や性的志向が暴露されてしまう危険性があ�
 
 ![[Journalists and Trump voters live in separate online bubbles, MIT analysis shows](https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows)](figures/twitter1.png)
 
+- 同じ党派性のアカウントをフォロー、リツイートする。
+
+![@halberstam2016](figures/homophily1.png)
+
+![@halberstam2016](figures/homophily2.png)
+
 同質的なコミュニティで意見が反射、増幅して信念が強化される**エコー・チェンバー**が生じる。
 
 - 人種差別についてリベラルでしか議論されない。
@@ -233,6 +239,12 @@ SNSがパーソナライズされる（フォローの推薦）ことで投稿�
 $\leadsto$（本人の意図によらず）見たくない情報がSNS上から除去される**フィルター・バブル**ができる。
 
 ![[Journalists and Trump voters live in separate online bubbles, MIT analysis shows](https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows)](figures/twitter3.png)
+
+- 共和党支持者は気候変動は嘘であると信じ、民主党支持者は遺伝子組み換え食品を危険だと思っている。
+- 教育水準が高ければ、科学的知識を身につけるとは限らない。
+
+![[The More Education Republicans Have, the
+Less They Tend to Believe in Climate Change](https://www.nytimes.com/interactive/2017/11/14/upshot/climate-change-by-education.html)](figures/partisanship_climate_change.png)
 
 ホモフィリーが正しいのだとすれば、SNS上の繋がりから政治的イデオロギーも分かる。
 
@@ -262,6 +274,10 @@ $\leadsto$インターネットは分極化を加速させるのか？
 ![@flaxman2016](figures/flaxman2.jpeg)
 
 $\leadsto$アルゴリズムによる分断よりも、自らの選択？
+
+異なる意見・民族の人との接触は偏見を減らす[@paluck2019]。
+
+- 単なる接触だけでは不十分かも？
 
 ### 中国によるSNS検閲
 
@@ -342,6 +358,10 @@ $\leadsto$インターネット空間ではボットによる情報提供が容�
 - 2016年のアメリカ大統領選ではトランプ支持のツイートを（特に接戦州で）ボットが共有
 - イギリスのEU離脱投票の際にも賛成派と反対派のボットが情報を拡散
 
+![@gorodnichenko2021](figures/bot1.jpg)
+
+![@gorodnichenko2021](figures/bot2.jpg)
+
 信頼のできないボット（赤い点）が特定のユーザーをリツイートしている。
 
 ![@xu2022](https://media.springernature.com/lw685/springer-static/image/art%3A10.1007%2Fs42001-021-00139-3/MediaObjects/42001_2021_139_Fig1_HTML.png)
@@ -355,6 +375,8 @@ $\leadsto$インターネット空間ではボットによる情報提供が容�
 
 ただし、インターネットを含めてマスメディアの影響を過大評価するべきではない。
 
+- インターネットではない伝統的メディアでも同様の問題は起こっている。
+  - オフラインでも党派性に従ってニュースを消費している[@gentzkow2011; @martin2017]。
 - メディアの効果に関するサーベイとして @inamasu2022 を参照。
 
 ## 資源としてのデータ
