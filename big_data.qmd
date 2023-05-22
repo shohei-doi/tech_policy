@@ -236,6 +236,8 @@ $\leadsto$政治信条や性的志向が暴露されてしまう危険性があ�
 
 SNSがパーソナライズされる（フォローの推薦）ことで投稿内容やユーザーが限定される。
 
+- [2023年3月31日に公開されたTwitterの「おすすめ」アルゴリズム](https://gigazine.net/news/20230403-twitter-recommend-algorithm/)
+
 $\leadsto$（本人の意図によらず）見たくない情報がSNS上から除去される**フィルター・バブル**ができる。
 
 ![[Journalists and Trump voters live in separate online bubbles, MIT analysis shows](https://www.vice.com/en/article/d3xamx/journalists-and-trump-voters-live-in-separate-online-bubbles-mit-analysis-shows)](figures/twitter3.png)
@@ -378,6 +380,16 @@ $\leadsto$インターネット空間ではボットによる情報提供が容�
 - インターネットではない伝統的メディアでも同様の問題は起こっている。
   - オフラインでも党派性に従ってニュースを消費している[@gentzkow2011; @martin2017]。
 - メディアの効果に関するサーベイとして @inamasu2022 を参照。
+
+### 新しい戦場
+
+軍事行動や社会活動が情報化
+$\leadsto$宇宙空間とインターネット空間も戦場？
+
+- 偵察衛星や通信衛星、GPSは軍事行動において必要不可欠
+- 社会的インフラへのサイバー攻撃やフェイクニュースの拡散によって社会を混乱させる？
+
+$\leadsto$問題は攻撃側をどのように特定するのか、物理的な報復手段が許されるのか
 
 ## 資源としてのデータ
 

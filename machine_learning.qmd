@@ -1,5 +1,5 @@
 ---
-title: "人工知能のための機械学習"
+title: "人工知能の機械学習"
 subtitle: "技術政策学（データ科学編）"
 author: "土井翔平"
 date: today
@@ -40,9 +40,12 @@ $\leadsto$いわゆる（最近において）人工知能と呼ばれるもの�
 
 **生成 (generative) AI**：ある情報から、別の情報を出力するモデル
 
-- **大規模言語モデル** (large language model: LLM)：大量のテキストを使い、巨大なモデルを学習した生成AIで代表的なものに[ChatGPT](https://openai.com/blog/chatgpt)、[Google Bard](https://bard.google.com/)、[Microsoft Bing AI](https://www.microsoft.com/ja-jp/bing?form=MA13FJ)などがある。
+- **大規模言語モデル** (large language model: LLM)：大量のテキストを使い、巨大なモデルを学習した生成AI
+  - [ChatGPT](https://openai.com/blog/chatgpt)、[Google Bard](https://bard.google.com/)、[Microsoft Bing AI](https://www.microsoft.com/ja-jp/bing)など
+  - GPT=**Generative** Pre-trained Trensformer
   - まずは、[OpenAIのPlayground](https://platform.openai.com/examples)で遊んでみよう。
-- 画像生成の性能が向上し[DALL·E 2](https://openai.com/dall-e-2/) 、[midjourney](https://www.midjourney.com/) 、[stable difffusion](https://huggingface.co/spaces/stabilityai/stable-diffusion) などがある。
+- 画像生成の性能も向上、Vision and Languageの発展
+  - [DALL·E 2](https://openai.com/dall-e-2/) 、[midjourney](https://www.midjourney.com/) 、[stable difffusion](https://huggingface.co/spaces/stabilityai/stable-diffusion) など
 
 生成モデルも実は予測の組み合わせである。
 
@@ -94,7 +97,7 @@ read_csv("data/01.csv") %>%
 
 
 $$
-価格 = 335.58 + 11.84 \times 広さ
+\textrm{価格} = 335.58 + 11.84 \times \textrm{広さ}
 $$
 
 **最小二乗法** (ordinary least squares: OLS) はデータとの誤差が最も小さくなる直線を計算する。
@@ -106,6 +109,7 @@ i\textrm{の予測値} = \hat{y}_i = \underbrace{\hat{\alpha}}_{\textrm{切片 (
 + \underbrace{\hat{\beta}}_{\textrm{傾き (slope)}} x_i
 $$
 
+- $i$は個体ごとに異なる値を取るということを意味している。
 - 上手く予測できるような$\hat{\alpha}, \hat{\beta}$をデータから求める（学習する）。
 - 真の値と予測値のズレ、誤差 (error) が小さい方がいいはず。
 
@@ -139,7 +143,7 @@ $\leadsto$これを最小にする$\hat{\alpha}, \hat{\beta}$をデータから�
 予測に使う情報（特徴量）は1つである必要はない。
 
 $$
-価格 = 396.27 + 12.50 \times 広さ -10.57 \times 距離
+\textrm{価格} = 396.27 + 12.50 \times \textrm{広さ} -10.57 \times \textrm{距離}
 $$
 
 - パターンを学習しているだけであり、機械がマンションについて理解しているわけではない。
@@ -196,17 +200,19 @@ $\leadsto$回帰分析をニューロンとして見て^[厳密に言えば、�
 なぜ深層学習はすごいのか？
 
 1. 隠れ層を増やせば増やすほど柔軟な予測ができる。
-    - 隠れ層の数$\approx$モデルのサイズ
+    - パラメータの数（隠れ層の数に比例）$\approx$モデルのサイズ
+    - 例えば$$\hat{y}_i = \hat{\alpha} + \hat{\beta} x_i$$のパラメータの数は2
 1. 特徴量を人間が作らなくてよい。
     - むしろ、重要な特徴量がなにかを学習する（**表現学習**）。
 1. 学習済みモデルを使える。
-    - 必要に応じて出力側を再学習（**ファイン・チューニング**）する。
+    - タスクに応じて出力側を再学習（**ファイン・チューニング**）する。
+    - GPT=Generative **Pre-trained** Trensformer
 1. 様々な形式のデータ（テキスト、画像、音声……）を同じ枠組みで分析できる。
     - vision and languageなど**マルチモーダル**なモデルの開発
     
-$\leadsto$LLMは与えられた単語の列から、次に来そうな、もっともらしい単語を予測している（だけ）！
+$\leadsto$生成AI（LLM含む）は与えられた単語の列から、次に来そうな、もっともらしい単語を予測している（だけ）！
 
-![[LLMのイメージ](https://www.itmedia.co.jp/news/articles/2303/17/news200_2.html)](https://image.itmedia.co.jp/news/articles/2303/17/mt1626333_OIUBCRXE4.jpg)
+![[LLMによる文書生成のイメージ](https://huggingface.co/learn/nlp-course/ja/chapter1/4)](figures/causal_modeling.png)
 
 - 同じ入力に対して同じ回答をしないように、ある程度ランダムに予測をしている。
   - GPTにおけるtemparatureはランダム度合いを指定している。
@@ -223,14 +229,316 @@ $\leadsto$入力する指示文（**プロンプト**）をどのようにする
 - プロンプトの書き方を工夫することをプロンプト・エンジニアリングなどと呼ぶ。
 - いくつかの具体例を提示すると、性能が良くなる、安定する**few shot learning**という現象（？）
 
+### 拡散モデル
+
+拡散モデル：画像にノイズを追加していって、それを取り除くプロセスを学習
+
+![[拡散モデルのイメージ](https://gigazine.net/news/20221006-visuals-explaining-stable-diffusion/)](https://i.gzn.jp/img/2022/10/06/visuals-explaining-stable-diffusion/06_m.png)
+
+![[拡散モデルのイメージ](https://gigazine.net/news/20221006-visuals-explaining-stable-diffusion/)](https://i.gzn.jp/img/2022/10/06/visuals-explaining-stable-diffusion/08_m.png)
+
+$\leadsto$テキストからの画像生成もテキスト→画像の予測を行っている。
+
 ## 教師なし学習
+
+数値ではない文書データをどのようにデータ分析するのか？
+
+- シンプルな方法は**bag of words**（単語の出現頻度を特徴量とする）アプローチ
+
+$\leadsto$教師なし学習によってデータから特徴量を抽出する。
 
 ### 単語埋め込み
 
-### 注意機構
+**単語埋め込み** (word embedding)：単語を低次元空間のベクトルに変換する
 
-### 自己教師学習
+$\leadsto$単語のベクトル（位置）$\approx$意味？
+
+![[単語埋め込みのイメージ](https://towardsdatascience.com/creating-word-embeddings-coding-the-word2vec-algorithm-in-python-using-deep-learning-b337d0ba17a8)](figures/word_embeddings.png)
+
+- 単語の意味は周辺の単語によって決まるはず。
+
+![[単語埋め込みの学習のイメージ](https://ainow.ai/2021/04/08/254071/)](figures/word_embeddings2.png)
+
+$\leadsto$周辺の単語をうまく予測できるベクトルを学習する。
+
+- 画像も同様に埋め込むことで、テキスト→画像の予測が可能となる。
+
+### 自己注意機構
+
+近年の自然言語処理の飛躍的発展のキーは**Transformer**[@vaswani2017]の登場^[Transformerを提案したのはGoogleの研究者たち。]
+
+- BERT=Bidirectional Encoder Representations from **Transformers**
+- GPT=Generative Pre-trained **Trensformer**
+
+![[TransformerベースのLLM](https://huggingface.co/learn/nlp-course/ja/chapter1/4?)](figures/transformers.png)
+
+$\leadsto$特に**自己注意機構** (self-attention mechanism) が重要（と言われている）
+
+- ある単語を処理する際に、他のどの単語に注目すればよいのかを学習する。
+- "Attention is all you need"[@vaswani2017]
+
+![[自己注意機構のイメージ](https://jalammar.github.io/illustrated-transformer/)](https://jalammar.github.io/images/t/transformer_self-attention_visualization.png)
+
+- 離れた単語も踏まえた学習ができる。
+- 学習速度が高速になる。^[並列化が可能になるため。]
 
 ## 強化学習
 
+一部のモデルでは強化学習を用いて、更に性能を向上させている。
+
+- 例、GPT-3やそれ以上のベースと考えられているInstructGPT
+
+強化学習では機械が最適なアクションを見つける。
+
+- データからパターンを発見するわけではない。
+- エージェントが状態→行動→環境→報酬・状態を繰り返し、報酬を大きくする行動を発見する。
+
+![[強化学習のイメージ](https://commons.wikimedia.org/wiki/File:Reinforcement_learning_diagram.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png)
+
+### AlphaGo
+
+AlphaGoは強化学習で囲碁のアルゴリズムを学習し2016年に世界トップ棋士に勝利
+
+- 初期設定として実際の棋譜データから学習したアルゴリズムを使用
+- 2つのエージェント（機械）が対戦する中で大量にデータを生成し、学習
+
+![@silver2016](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fnature16961/MediaObjects/41586_2016_BFnature16961_Fig1_HTML.jpg)
+
+### 人間のフィードバック
+
+InstructGPTでは人間のフィードバックからの強化学習 (Reinforcement Learning from Human Feedback: RLHF) を用いている。
+
+1. プロンプトと（人間の作った）回答のデータから教師あり学習
+1. 1で作ったモデルの回答結果と人間の採点結果のデータから教師あり学習
+1. 1と2のモデルを使ってプロンプト→回答→採点の強化学習
+
+![[Aligning language models to follow instructions](https://openai.com/research/instruction-following)](figures/instructGPT.png)
+
 ## 人工知能の社会的課題
+
+あらゆる技術がそうであるように、新しい技術の登場、急速な普及は様々な問題を引き起こしうる。
+
+- G7広島サミットで生成AIに関するルールを策定する広島AIプロセスの立ち上げに合意
+
+### 人工知能の使い方
+
+#### 人工知能の悪用
+
+AIを悪用$\leadsto$偽の情報を作り、拡散
+
+- 文書生成 $\leadsto$ [フェイクニュース](https://www.itmedia.co.jp/business/articles/2007/29/news025_4.html)
+- 物体検出 & 画像生成 $\leadsto$ [Deep Fake](https://wired.jp/2018/09/14/deepfake-fake-videos-ai/)
+
+$\leadsto$Deep Fakeはオンラインの画像や映像を加工$\leadsto$フェイクポルノなど深刻な被害の可能性
+
+![Deep Fakeの例](https://equity.jiji.com/storage/news/2021050400388g/20210504ax05S_o.jpg){width=50%}
+
+- ちなみに、スクリーンショットの捏造は人工知能を使わなくても簡単にできる。
+
+どんな技術も悪用しようと思えばできる$\leadsto$（個人的に）重要なのは、悪用よりも誤用
+
+#### 人工知能の誤用
+
+**統計的差別** (statistical discrimination) ：個人の属性（属する集団）に基づく差別
+
+- 学歴、性別、人種などで就職活動、賃貸契約、判決が異なる。
+
+$\leadsto$機械学習はあくまで「人間を模倣」するので、人間に（無意識でも）差別があれば、[機械はそれを学習](https://ainow.ai/2020/02/17/183256/)する。
+
+アメリカの一部の州では保釈や刑期を決定する際にCOMPASというシステムでリスク評価を行っていた。
+
+- 黒人では「再犯する」と予測されたが「再犯しなかった」という間違いが多かった。
+- 白人では「再犯しない」と予測されたが「再犯した」という間違いが多かった。
+
+![[COMPASSによる再犯予測](https://www.axion.zone/is-the-recidivism-prediction-algorithm-fair-to-race/)](https://www.axion.zone/content/images/2019/12/F1.large.jpg)
+
+学習に用いるデータが偏っている$\leadsto$予測も偏る。
+
+![[偏ったデータによる学習](https://gigazine.net/news/20200702-twitter-ai-machine-learning-racism/)](https://i.gzn.jp/img/2020/07/02/twitter-ai-machine-learning-racism/00_m.jpg)
+
+$\leadsto$公平性のある機械学習を行う必要がある。
+
+**敵対的攻撃** (adversarial attack) ：あえてAIを騙すような情報入力
+
+![[敵対的攻撃](https://gigazine.net/news/20211130-universal-naturalistic-adversarial-patches/)](https://i.gzn.jp/img/2021/11/30/universal-naturalistic-adversarial-patches/00_m.jpg)
+
+ChatGPTなどで指摘されているのは**幻覚** (hallucination) と呼ばれる現象
+
+- 正しくない回答をあたかも正しいものと堂々と提示する。
+
+意図せざる形での著作権侵害や個人情報流出も？
+
+- 学習に使用されたデータがほとんどそのまま出力される可能性
+
+$\leadsto$AIだからといって客観的であるわけでも、常識的であるわけでもない。
+
+- 特に深層学習の中身はブラックボックスであり、**説明可能性**に欠けている。
+- 回帰分析や決定木は分かりやすい。
+
+#### 人工知能と倫理
+
+AI倫理、公平性のあるAIなどが必要
+
+$\leadsto$AIが守るべき倫理、公平性とは？
+
+自動運転車がトロッコ問題に遭遇したとき、どうすべきなのか？
+
+[モラル・マシン](https://www.moralmachine.net/hl/ja)というアンケートに答えることで、どのような命を重視するのかが分かる。
+
+::: {.content-visible when-format="html"}
+::: {.column-screen-right}
+<iframe src="https://www.moralmachine.net/hl/ja" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
+:::
+:::
+
+- 「審査を始める」を押す。
+- 直進する場合は左の絵を、曲がる場合は右の絵をクリックする。
+    - ドクロマークがついている人が死んでしまうとする。
+
+![@awad2018](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-018-0637-6/MediaObjects/41586_2018_637_Fig2_HTML.png)
+
+倫理観は国ごとに異なる。
+
+![[AI倫理観の地域ごとの違い](https://www.nature.com/articles/d41586-018-07135-0)](https://media.nature.com/lw800/magazine-assets/d41586-018-07135-0/d41586-018-07135-0_16219594.png)
+
+[日本の場合は](https://www.technologyreview.com/2018/10/24/139313/a-global-ethics-study-aims-to-help-ai-solve-the-self-driving-trolley-problem/)、
+
+1. お年寄りを助け、
+1. より多くの人を助けるわけではなく、
+1. 歩行者を助ける
+
+傾向にあるらしい。
+
+1. 人工知能は人間に代わって倫理的判断を行うわけではない。
+    - 人工知能に期待する倫理も人々、国々の間で同じではない。
+1. 人工知能は誤作動も起こりうる。
+
+$\leadsto$人工知能の責任はどこにあるのか？
+
+- [生成AI（Generative AI）の倫理的・法的・社会的課題（ELSI）論点の概観：2023年3月版（大阪大学）](https://elsi.osaka-u.ac.jp/research/2120)
+
+#### 人工知能と兵器
+
+無人兵器とAI技術の発展は[自律型致死兵器システム](https://www.mofa.go.jp/mofaj/dns/ca/page24_001191.html) (Lethal Autonomous Weapons Systems: LAWS) の可能性を現実のものとしつつある。
+
+- 人間の代わりに戦闘をさせることで人命の損失を減らせる／戦争やテロリズムが起こりやすくなる？
+- 人道法の違反（文民の殺害など）を起こす？
+  - 誤作動だけでなく、現在のAI技術ではAIの判断を人間が理解できない可能性
+
+$\leadsto$[LAWS規制に関する議論の指針](https://jsil.jp/archives/expert/2020-10)が2019年に定まったばかり。
+
+### 人工知能と社会
+
+#### 人工知能と政治
+
+AIと民主主義の関わりに着目されつつある？
+
+- AIが人間に代わって政策を決定する。
+- AIが個人の思考を学習して人間の代わりに政治（議論や投票……）をする。
+- AIが議論や情報収集をアシストする。
+
+科学技術を巡って展開される政治がある。
+
+$\leadsto$なぜ、特定の技術が**グローバル・スタンダード**として支配的になるのだろうか？
+
+::: {.content-visible when-format="html"}
+
+::: {layout-ncol=2}
+
+![Windows vs Mac](https://anteku.jp/blog/wp-content/uploads/2021/12/applewindows_logo.jpg)
+
+![QWERTY配列](https://upload.wikimedia.org/wikipedia/commons/9/9f/Qwerty.png)
+
+![VHS vs Beta](https://www.netquest.com/hs-fs/hubfs/Imported_Blog_Media/vhsbeta-1.png)
+
+![エアバスvsボーイング](https://www.wingsoverquebec.com/wp-content/uploads/2019/12/Duopole-Airbus-Boeing-800x445.jpg)
+
+![左側通行vs右側通行](https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Countries_driving_on_the_left_or_right.svg/1280px-Countries_driving_on_the_left_or_right.svg.png)
+
+![摂氏vs華氏](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Countries_that_use_Fahrenheit.svg/1280px-Countries_that_use_Fahrenheit.svg.png)
+
+:::
+
+:::
+
+**ネットワーク外部性**：利用者が多いと、利用するメリットが増える。
+
+$\leadsto$ある程度の規模の人々（クリティカル・マス）がその製品や技術を用いる$\leadsto$他の人も使うようになる。
+
+**規模の経済**：生産量が増えると、平均的な費用が低下する。
+
+$\leadsto$単独で市場のニーズを満たすことができる。
+
+特にLLMの場合は初期投資が莫大$\leadsto$新規参入が更に困難
+
+- 現在のLLMで重要なのは計算資源$\times$データ量$\times$モデルのサイズ$\leadsto$資金＆時間
+
+![@kaplan2020](https://wirelesswire.jp/wp-content/uploads/2023/02/e047e8f1cde575800c5ef4f18b15239a.png)
+
+![[LLMの規模の発展](https://huggingface.co/learn/nlp-course/ja/chapter1/4?fw=pt)](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/model_parameters.png)
+
+- GPT-3は1750億、GPT-4は5000億?以上
+
+$\leadsto$先に行動する側に**先行者利益** (first-mover advantage) がある。
+
+- [イーロン・マスクらがAIの開発モラトリアムを要求](https://jp.reuters.com/article/elon-musk-ai-idJPKBN2VV0CW)し、[サム・アルトマンはAI規制の導入を主張](https://www.bloomberg.co.jp/news/articles/2023-05-16/RUREP2T0G1KW01)
+
+一度、スタンダードになると（たとえ不便でも）それが利用され続ける。
+
+- **経路依存性** (path dependency)：過去の偶然の事象が長い期間に渡って影響すること
+
+日本は鉄道や原子力発電所などのインフラ輸出に力を入れている。
+
+- ネットワーク効果によって、その国のスタンダードになりうる。
+- 輸入国は特定の国への依存を避けるため、複数の国から導入したい。
+
+先進国による5Gにおけるファーウェイの排除は安全保障だけが理由ではない。
+
+- ネットワーク効果によってグローバル・スタンダードとなってしまう。
+- 中国に依存せざるを得なくなる、いわゆる[技術覇権](https://www.jiia.or.jp/column/post-30.html)への懸念
+
+#### 人工知能と環境
+
+LLMの開発には大規模な計算が必要$\leadsto$莫大な電力消費と環境不可
+
+![[LLMの環境負荷](https://www.gizmodo.jp/2023/04/chatgpt-ai-openai-carbon-emissions-stanford-report.html)](figures/ai_co2.png)
+
+#### 人工知能と労働
+
+AIの発展によって雇用は減るのか？
+
+- ラッダイト運動：産業革命$\leadsto$繊維産業の自動化$\leadsto$熟練工の抗議    
+  - 自動化によって新しい雇用の創出＆効率的な生産による生活水準の向上
+  - 1755-1802年の労働者の実質賃金は半減、生活環境の悪化
+
+![@acemoglu2020](figures/acemoglu.png)
+
+製造の自動化とは異なり、LLM（やその他の生成AI）によって代替される職業は？[@eloundou2023]
+
+## 機械学習の実践
+
+機械学習を初めとするデータ分析は様々な教材・資料がオンラインに無料で公開されている。
+
+人工知能（の基盤にある機械学習）の多くは**Python**というプログラミング言語で実行
+
+- 制約付きではあるが[Google Colaboratory](https://colab.research.google.com/)でオンラインで実行できる。
+- Python自体も無料なので、自分のPCにインストールして実行できる。
+  - 環境構築はちょっとめんどくさい
+  - jupyter notebookやvisual studio codeなどが人気のある**統合開発環境** (integrated development environment: IDE)
+
+パッケージをインストール・読み込む$\leadsto$様々な分析
+
+- [pandas](https://pandas.pydata.org/)：データの読み込み、処理
+- [matpoltlib](https://matplotlib.org/), [seaborn](https://seaborn.pydata.org/)：グラフの作成
+- [sicikit-learn](https://scikit-learn.org/stable/)：（深層学習を除く）機械学習
+- [statsmodels](https://www.statsmodels.org/stable/)：統計分析
+
+深層学習のライブラリとして[TensorFlow](https://www.tensorflow.org/)、[PyTorch](https://pytorch.org/)、[keras](https://keras.io/ja/)など
+
+- [TensorFlow Coreのチュートリアル](https://www.tensorflow.org/tutorials)や[TensorFlow Hubのチュートリアル](https://www.tensorflow.org/hub/tutorials)ではGoogle Colaboratoryで試すことができる。
+- まずは学習済みモデルを利用
+
+[Kaggle](https://www.kaggle.com/)や[Signate](https://signate.jp/)、[Nishika](https://www.nishika.com/)などのデータ分析コンペ
+
+- 学生向けのイベントもあり
+- 就職活動でアピールできる（かも）
