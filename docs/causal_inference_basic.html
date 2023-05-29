@@ -95,7 +95,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">技術政策学</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./causal_inference_basic.html">政策効果の検証：基礎</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -136,6 +136,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./machine_learning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">人工知能の機械学習</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causal_inference_basic.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">政策効果の検証：基礎</span></a>
   </div>
 </li>
     </ul>
@@ -606,7 +612,21 @@ div.csl-indent {
 </ul>
 <p>無作為割り当てができていても無作為抽出をしていなければ、分析結果が元々の集団に当てはまるかは分からない。</p>
 <ul>
-<li>手元にあるサンプルにおいて正しく因果推論はできているという意味では間違っていない。</li>
+<li>もちろん、無作為抽出でも別の集団については当てはまるか分からない。</li>
+</ul>
+<p>オンラインのサンプルは市民を代表しているのか？</p>
+<ul>
+<li>（スペインとアメリカでは）Twitterユーザーは男性、都市部の住民、政治的に極端な人が多い、あるいは多くのツイートをしている<span class="citation" data-cites="barbera2015b">(<a href="#ref-barbera2015b" role="doc-biblioref">Barberá と Rivero 2015</a>)</span></li>
+<li>（アメリカでは）調査会社のサンプルに比べてクラウドソーシングの参加者の属性は偏っている<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/weinberg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="weinberg2014">Weinberg, Freese, と McElhattan (<a href="#ref-weinberg2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>ただし、RCTの結果はどちらでも同じような傾向を持つ<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
 </ul>
 </section>
 <section id="一般均衡効果" class="level3" data-number="5.2">
@@ -618,7 +638,7 @@ div.csl-indent {
 <ul>
 <li>職業訓練や教育が賃金を上げるとしても、全員がプログラムを受けるとその効果は相殺？</li>
 </ul>
-<p>効果が波及する場合はRCTは適切に政策の効果を推定できない。</p>
+<p>効果が波及する場合：RCTは適切に政策の効果を推定できない。</p>
 </section>
 <section id="実行可能性" class="level3 page-columns page-full" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="実行可能性"><span class="header-section-number">5.3</span> 実行可能性</h3>
@@ -660,6 +680,9 @@ Alesina, Alberto, Armando Miano, と Stefanie Stantcheva. 2023. <span>「Immigra
 <div id="ref-banerjee2012" class="csl-entry" role="listitem">
 Banerjee, Abhijit V., と Esther Duflo. 2012. <em>貧乏人の経済学 : もういちど貧困問題を根っこから考える</em>. みすず書房.
 </div>
+<div id="ref-barbera2015b" class="csl-entry" role="listitem">
+Barberá, Pablo, と Gonzalo Rivero. 2015. <span>「Understanding the political representativeness of Twitter users」</span>. <em>Social Science Computer Review</em> 33 (6): 712–29.
+</div>
 <div id="ref-barrera2020" class="csl-entry" role="listitem">
 Barrera, Oscar, Sergei Guriev, Emeric Henry, と Ekaterina Zhuravskaya. 2020. <span>「Facts, alternative facts, and fact checking in times of post-truth politics」</span>. <em>Journal of public economics</em> 182: 104123.
 </div>
@@ -692,6 +715,9 @@ Song, Jaehyun, と 秦正樹. 2020. <span>「オンライン・サーベイ実�
 </div>
 <div id="ref-tsugawa2017" class="csl-entry" role="listitem">
 Tsugawa, Yusuke, Anupam B Jena, Jose F Figueroa, E John Orav, Daniel M Blumenthal, と Ashish K Jha. 2017. <span>「Comparison of hospital mortality and readmission rates for Medicare patients treated by male vs female physicians」</span>. <em>JAMA internal medicine</em> 177 (2): 206–13.
+</div>
+<div id="ref-weinberg2014" class="csl-entry" role="listitem">
+Weinberg, Jill D, Jeremy Freese, と David McElhattan. 2014. <span>「Comparing data characteristics and results of an online factorial survey between a population-based and a crowdsource-recruited sample.」</span> <em>Sociological Science</em> 1.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

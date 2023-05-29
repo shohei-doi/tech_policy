@@ -189,7 +189,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, interior hidden, sharp corners, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, breakable, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, interior hidden, sharp corners, enhanced, breakable, frame hidden]}{\end{tcolorbox}}\fi
 
 \hypertarget{ux306fux3058ux3081ux306b}{%
 \section*{はじめに}\label{ux306fux3058ux3081ux306b}}
@@ -238,7 +238,7 @@
 
 \(\leadsto\)この授業では証拠＝政策効果として議論する。
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, arc=.35mm, breakable, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, toprule=.15mm, coltitle=black, bottomrule=.15mm, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, bottomtitle=1mm, opacityback=0, toptitle=1mm, titlerule=0mm, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-warning-color-frame, breakable, left=2mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, coltitle=black, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, titlerule=0mm, toprule=.15mm, bottomrule=.15mm, opacityback=0, leftrule=.75mm]
 
 講師は政策評価の専門家ではないので、他の授業（例えば、政策評価論や行政学系のもの）では異なる説明があると思われる。どちらが正しいというものではないことに留意。
 
@@ -728,7 +728,7 @@ SDB)：回答者は社会的に望ましい答えをしようとして本音を�
 \hypertarget{ux7d71ux8a08ux7684ux4eeeux8aacux691cux5b9a}{%
 \section{統計的仮説検定}\label{ux7d71ux8a08ux7684ux4eeeux8aacux691cux5b9a}}
 
-\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-warning-color!10!white, arc=.35mm, breakable, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, toprule=.15mm, coltitle=black, bottomrule=.15mm, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, bottomtitle=1mm, opacityback=0, toptitle=1mm, titlerule=0mm, rightrule=.15mm, left=2mm, opacitybacktitle=0.6, colback=white]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, colback=white, arc=.35mm, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-warning-color-frame, breakable, left=2mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, coltitle=black, colbacktitle=quarto-callout-warning-color!10!white, toptitle=1mm, titlerule=0mm, toprule=.15mm, bottomrule=.15mm, opacityback=0, leftrule=.75mm]
 
 統計的仮説検定は非常に難しいので、分からなくても構わない。講師を含めてちゃんと理解できているか怪しい。
 
@@ -870,7 +870,33 @@ p値が有意水準以下であるかどうかで二者択一の判断をする�
 \begin{itemize}
 \tightlist
 \item
-  手元にあるサンプルにおいて正しく因果推論はできているという意味では間違っていない。
+  もちろん、無作為抽出でも別の集団については当てはまるか分からない。
+\end{itemize}
+
+オンラインのサンプルは市民を代表しているのか？
+
+\begin{itemize}
+\tightlist
+\item
+  （スペインとアメリカでは）Twitterユーザーは男性、都市部の住民、政治的に極端な人が多い、あるいは多くのツイートをしている\citep{barbera2015b}
+\item
+  （アメリカでは）調査会社のサンプルに比べてクラウドソーシングの参加者の属性は偏っている\citep{weinberg2014}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/weinberg.png}
+
+}
+
+\caption{\citet{weinberg2014}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  ただし、RCTの結果はどちらでも同じような傾向を持つ\citep{weinberg2014}
 \end{itemize}
 
 \hypertarget{ux4e00ux822cux5747ux8861ux52b9ux679c}{%
@@ -890,7 +916,7 @@ RCTでは集団全体から一部を取り出して、政策の有無を決定�
   職業訓練や教育が賃金を上げるとしても、全員がプログラムを受けるとその効果は相殺？
 \end{itemize}
 
-効果が波及する場合はRCTは適切に政策の効果を推定できない。
+効果が波及する場合：RCTは適切に政策の効果を推定できない。
 
 \hypertarget{ux5b9fux884cux53efux80fdux6027}{%
 \subsection{実行可能性}\label{ux5b9fux884cux53efux80fdux6027}}
