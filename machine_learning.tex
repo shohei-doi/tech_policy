@@ -185,17 +185,17 @@
 \makeatother
 \subtitle{技術政策学（データ科学編）}
 \author{土井翔平}
-\date{2023-05-22}
+\date{2023-05-28}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, sharp corners, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, enhanced, frame hidden, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners, boxrule=0pt]}{\end{tcolorbox}}\fi
 
 \hypertarget{ux306fux3058ux3081ux306b}{%
 \section*{はじめに}\label{ux306fux3058ux3081ux306b}}
 \addcontentsline{toc}{section}{はじめに}
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, colbacktitle=quarto-callout-warning-color!10!white, leftrule=.75mm, titlerule=0mm, arc=.35mm, left=2mm, coltitle=black, breakable, colframe=quarto-callout-warning-color-frame, bottomtitle=1mm, toptitle=1mm, toprule=.15mm, colback=white, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, bottomrule=.15mm, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, toptitle=1mm, breakable, left=2mm, rightrule=.15mm, toprule=.15mm, colback=white, coltitle=black, opacitybacktitle=0.6, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{警告}, titlerule=0mm, bottomtitle=1mm, bottomrule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colframe=quarto-callout-warning-color-frame, leftrule=.75mm, opacityback=0]
 
 日進月歩の分野なので、本章の内容はすぐに古いものになる（or既にそうであるかもしれない）点に注意。
 
@@ -754,7 +754,7 @@ embedding)：単語を低次元空間のベクトルに変換する
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics{machine_learning_files/mediabag/1024px-Reinforcement.png}
+{\centering \includegraphics{figures/Reinforcement_learning_diagram.svg.png}
 
 }
 
@@ -873,7 +873,25 @@ Fakeはオンラインの画像や映像を加工\(\leadsto\)フェイクポル�
 \tightlist
 \item
   学歴、性別、人種などで就職活動、賃貸契約、判決が異なる。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    白人っぽい名前の履歴書と黒人っぽい名前の履歴書だと前者のほうが選考を通りやすい\citep{agan2018}。
+  \item
+    特に犯罪歴の記入要求を禁止 (ban the bpx) の後に顕著。
+  \end{itemize}
 \end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/agan.jpeg}
+
+}
+
+\caption{\citet{agan2018}}
+
+\end{figure}
 
 \(\leadsto\)機械学習はあくまで「人間を模倣」するので、人間に（無意識でも）差別があれば、\href{https://ainow.ai/2020/02/17/183256/}{機械はそれを学習}する。
 
@@ -1161,6 +1179,21 @@ AIと民主主義の関わりに着目されつつある？
   中国に依存せざるを得なくなる、いわゆる\href{https://www.jiia.or.jp/column/post-30.html}{技術覇権}への懸念
 \end{itemize}
 
+ネットワーク効果\(\leadsto\)みんながそのスタンダードを使うことが重要\(\leadsto\)\textbf{非国家アクター}にもスタンダードを決める力
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{私的権威} (private
+  authority)：国家ではなく非国家アクター（企業や国際機関、テロリスト）が持つ権威\citep{hall2002}
+\item
+  \textbf{国際標準化機構} (International Organization for
+  Standardization: ISO) が様々な規格を定める。
+\item
+  \textbf{ICANN} (The Internet Corporation for Assigned Names and
+  Numbers) がインターネットの運用を行っている。
+\end{itemize}
+
 \hypertarget{ux4ebaux5de5ux77e5ux80fdux3068ux74b0ux5883}{%
 \subsubsection{人工知能と環境}\label{ux4ebaux5de5ux77e5ux80fdux3068ux74b0ux5883}}
 
@@ -1209,6 +1242,26 @@ AIの発展によって雇用は減るのか？
 
 \hypertarget{ux6a5fux68b0ux5b66ux7fd2ux306eux5b9fux8df5}{%
 \section{機械学習の実践}\label{ux6a5fux68b0ux5b66ux7fd2ux306eux5b9fux8df5}}
+
+とりあえずデータに触れてみよう！
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.google.co.jp/publicdata/directory}{Google Public
+  Data Explorer}
+\item
+  \href{https://www.tableau.com/learn/articles/free-public-data-sets}{Google
+  Looker Studio}
+\item
+  \href{https://public.tableau.com/app/discover}{Tableau Public}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Tableauが公開している公的データは\href{https://www.tableau.com/learn/articles/free-public-data-sets}{こちら}
+  \end{itemize}
+\end{itemize}
 
 機械学習を初めとするデータ分析は様々な教材・資料がオンラインに無料で公開されている。
 

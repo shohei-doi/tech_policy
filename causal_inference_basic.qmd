@@ -1,0 +1,352 @@
+---
+title: "政策効果の検証：基礎"
+subtitle: "技術政策学（データ科学編）"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+```
+
+## はじめに {.unnumbered}
+
+近年、[**証拠に基づく政策立案**](https://www.cao.go.jp/others/kichou/ebpm/ebpm.html) (evidence-based policy making: EBPM) の重要性が主張されている。
+
+- 行政官の経験や勘に頼らない意思決定
+- policy-based evidence makingの回避
+- [Google Trendsの傾向](https://trends.google.co.jp/trends/explore?date=today%205-y&geo=JP&q=EBPM&hl=ja)
+
+$\leadsto$証拠とはなにか？
+
+1. 政策の効果：ある政策によってどの程度、目標のアウトカムは変化したのか？
+    - 政策効果と[政策評価](https://www.soumu.go.jp/main_sosiki/hyouka/seisaku_n/portal/index.html)とは似て非なるもの。
+    - 政策評価：目標をどの程度、実現したのか？
+    - 例：訪日観光客$n$万人という目標の実現と、観光政策によって訪日観光客がどの程度増えたのかは別
+2. [ロジックモデル](https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/5535bc46-b873-42a7-99d6-bb0b70e2470d/20211104_meeting_EBPM_17.pdf)：政策資源の投入から政策成果までの論理的繋がりを可視化し、KPIを定めたもの。
+    - あくまで、論理を可視化するもので、それ自体が証拠ではない。
+
+$\leadsto$この授業では証拠＝政策効果として議論する。
+
+::: {.callout-warning}
+講師は政策評価の専門家ではないので、他の授業（例えば、政策評価論や行政学系のもの）では異なる説明があると思われる。どちらが正しいというものではないことに留意。
+:::
+
+- [統計的因果推論の例](https://cyberagentailab.github.io/EBPMDB/)
+- 統計的**因果推論** (statistical causal inference)：原因と結果の関係（効果）を統計的に分析する
+  - マーケティングなどでも役に立つ
+  - 事例研究をするときにも（データを使わなくても）役に立つ（かも）
+
+## 交絡
+
+### ワクチンの効果
+
+**データ＝証拠ではない！**
+
+- [新型コロナワクチンを例に](https://www.covid-datascience.com/post/israeli-data-how-can-efficacy-vs-severe-disease-be-strong-when-60-of-hospitalized-are-vaccinated)
+
+ワクチン接種者の方が重症者 (sever cases) が多い？
+
+![Israeli data: How can efficacy vs. severe disease be strong when 60% of hospitalized are vaccinated?](figures/covid1.png)
+
+$67.5%$の人はワクチンを打っていれば重症化しなかった？
+
+![Israeli data: How can efficacy vs. severe disease be strong when 60% of hospitalized are vaccinated?](figures/covid2.png)
+
+- 有効性：$(16.4 - 5.3)/16.4 \approx 67.5\%$
+
+世代で分けると有効性が変わる？
+
+![Israeli data: How can efficacy vs. severe disease be strong when 60% of hospitalized are vaccinated?](figures/covid3.png)
+
+ワクチンを接種するかどうかは（パンデミック初期は）重症化のしやすさに影響を受けていた。
+
+```{r}
+#| fig-cap: "ワクチン接種と重症化の架空の例"
+
+n <- 500
+
+bind_rows(tibble(d = rbinom(n, 1, 0.2), 
+                 x = 0, 
+                 y = 0 - 1*d + rnorm(n), 
+                 l = "若年者"), 
+          tibble(d = rbinom(n, 1, 0.8), 
+                 x = 0, 
+                 y = 4 - 1*d + rnorm(n), 
+                 l = "高齢者")) %>% 
+  mutate(d = as.factor(d)) %>% 
+  ggplot() + 
+  geom_jitter(aes(x = d, y = y)) + 
+  geom_hline(aes(yintercept = y, linetype = d), 
+             data = . %>% 
+               group_by(d) %>% 
+               summarise(y = mean(y))) + 
+  labs(x = "ワクチン接種", y = "重症化度", linetype = "ワクチン接種", color = "世代")
+```
+
+```{r}
+#| fig-cap: "ワクチン接種と重症化の架空の例"
+
+n <- 500
+
+bind_rows(tibble(d = rbinom(n, 1, 0.2), 
+                 x = 0, 
+                 y = 0 - 1*d + rnorm(n), 
+                 l = "若年者"), 
+          tibble(d = rbinom(n, 1, 0.8), 
+                 x = 0, 
+                 y = 4 - 1*d + rnorm(n), 
+                 l = "高齢者")) %>% 
+  mutate(d = as.factor(d)) %>% 
+  ggplot() + 
+  geom_jitter(aes(x = d, y = y, color = l)) + 
+  geom_hline(aes(yintercept = y, linetype = d, color = l), 
+             data = . %>% 
+               group_by(d, l) %>% 
+               summarise(y = mean(y))) + 
+  labs(x = "ワクチン接種", y = "重症化度", linetype = "ワクチン接種", color = "世代")
+```
+
+$\leadsto$原因（政策）の有無で結果の違いが生じていても、効果とは言えない！
+
+### 交絡
+
+なぜ、単純な比較をするだけでは正しく効果を計算できなかったのか？
+
+**交絡** (confounding)：原因と関係し、結果にも影響するような第三の要因がある状況
+
+- そのような要因を交絡因子 (confounder) や共変量 (covariate) と呼ぶ。
+
+![交絡の可視化](figures/confounding1.drawio.png)
+
+- 原因→結果の関係を知りたいけれど、原因↔交絡因子→結果の関係（バックドアパス）があるので、正確に分析できない。
+- 因果関係ではないけれど相関関係が生じていることを見かけの相関 (spurious correlation) と呼ぶ。^[本来は[無関係なものが相関している](https://www.tylervigen.com/spurious-correlations)状況を指していた。]
+  - 相関関係は因果関係の前提と言われることがあるが、そうではない点に注意。
+
+どのような交絡の例があるだろうか？
+
+$\leadsto$交絡を取り除かない限り、データから効果を示すことはできない。
+
+- 事例分析をする際も同様
+  - ある政策を行った自治体とそうではない自治体
+  - ある自治体がある政策を行う前と後
+
+## ランダム化比較試験
+
+理想：全く同じ人がワクチンを受けた場合と受けなかった場合に重症化するかどうかを比較する。
+
+$\leadsto$不可能
+
+現実：同じような集団がワクチンを受けた場合と受けなかった場合に重症化するかどうかを比較する。
+
+$\leadsto$どのようにして「同じような集団」を作るのか？
+
+シンプルかつ強力な方法としての**ランダム化比較試験** (randomized controlled trial: RCT)
+
+- RCT：対象をランダムに分割して、一方には原因を与え、他方には原因を与えず、集団の結果を比較する。
+
+![RCTのイメージ](figures/randomization.drawio.png)
+
+RCTで交絡（バックドア・パス）を消す！
+
+- ランダムにワクチンを摂取すれば年齢などとは無関係なはず。
+
+![RCTの可視化](figures/confounding2.drawio.png)
+
+### フィールド実験
+
+フィールド実験：現実世界にランダムに介入して、**実際の行動**の変化を分析
+
+- A/Bテストを初めとするオンラインテスト
+- 実際に政策をランダムに試行する。
+
+開発経済学を中心にRCTが活用[@banerjee2012; @leigh2020]
+
+- 貧困層が移住しないのは資金が足りないからなのか、情報が足りないからなのか？[@bryan2014]
+
+![@bryan2014](figures/bryan.png)
+
+- 中等教育は経済的に豊かになるのか？[@duflo2021]
+
+![@duflo2021](figures/duflo.png)
+
+- どのようなメッセージだと人々は投票へ行くのか？[@gerber2008]
+
+![@gerber2008](figures/gerber.png)
+
+### サーベイ実験
+
+サーベイ実験：世論調査（サーベイ）にランダムな項目を入れ、**表明された意見**の変化を分析[@song2020]
+
+サーベイ実験は政治学や社会学を中心に利用
+
+- 人々は移民に関する事実を知ると寛容になるのか？[@alesina2023; @barrera2020]
+  - 人々は移民の割合などを過大に評価している。
+
+![@alesina2023](figures/alesina1.png)
+
+- 移民の事実に関する質問と再配分政策への意見に関する質問の順番をランダムにする。
+  - 移民の事実に関する誤解に気づいた人は再配分に寛容になる？
+
+![@alesina2023](figures/alesina2.png)
+
+- 移民に関する情報を以下のうちから1つだけランダムに提示し、マリーヌ・ル・ペンへの支持を調査
+
+1. なにも示さない
+1. マリーヌ・ル・ペンの主張（事実ではない）
+1. 事実
+1. 2と3の両方
+
+![@barrera2020](figures/barrera.jpg)
+
+#### コンジョイント実験
+
+コンジョイント実験：2つ（以上）の選択肢を提示し、その要因をランダムに変化させ、どの要因が選択に影響を与えているのかを分析
+
+- 人々はどのような政策を重視して投票するのか？
+  - [衆院総選挙、緊急解析！　データが明かした有権者の本音](https://business.nikkei.com/atcl/seminar/19/00059/120200330/)
+  - [マニフェスト選挙を疑え：2021年総選挙の計量政治学](https://business.nikkei.com/atcl/gen/19/00351/120200011/)
+  
+![コンジョイント分析の例](figures/hyo02.jpg)
+
+![コンジョイント分析の結果](figures/f3.jpg)
+
+#### リスト実験
+
+**社会的望ましさバイアス** (social desirebility bias: SDB)：回答者は社会的に望ましい答えをしようとして本音を話さない傾向
+
+リスト実験：該当する項目の数を尋ねることでSDBを回避する実験手法
+
+- 人々はどの程度、人種差別をしているのか？[@kuklinski1997]
+
+![@kuklinski1997](figures/kuklinski.png)
+
+- 知りたい項目が入っているものと、そうでないものをランダムに表示させ、該当数を尋ねる。
+
+## 自然実験
+
+**自然実験** (natural experiment)：RCTではないがRCTと同じような状況
+
+- ナショナリズムの高揚は武力紛争に繋がるのか？[@bertoli2017]
+
+![@bertoli2017](figures/bertoli.jpeg)
+
+- 政治的指導者の交代は民主化や平和に繋がるのか？[@jones2009]
+
+![@jones2009](figures/jones1.png)
+
+![@jones2009](figures/jones2.png)
+
+- 女性医師による治療は死亡率に影響するのか？[@tsugawa2017]
+
+![@tsugawa2017](figures/tsugawa.png)
+
+## 統計的仮説検定
+
+::: {.callout-warning}
+統計的仮説検定は非常に難しいので、分からなくても構わない。講師を含めてちゃんと理解できているか怪しい。
+:::
+
+RCTや自然実験であれば、因果効果の大きさは明らかにできる？
+
+$\leadsto$偶然、（本来は効果がないはずなのに）2つのグループで差が出てしまった可能性
+
+**統計的仮説検定**：効果が現れたのが偶然ではないかどうかを判別する方法
+
+1. **仮に**本当は効果がないとする（帰無仮説: null hypothesis）
+1. 本当は効果がないのに、効果があるように見える実際のデータが生じる確率（p値: p-value）を求める。
+    - p値を求めるときには推定結果の不確実性を表す標準誤差 (standard error: SE) を用いる。
+1. p値が予め設定しておいた値（例えば$5\%$）を下回っている場合、**統計的に有意**であると呼ぶ。^[効果の値を標準誤差で割ったものが、およそ$2$以上であれば$5\%$有意水準で統計的に有意である。]
+    - 本当は効果がないのに$5\%$の確率で生じる結果が出たのだとしたら、もはや「効果がない」という前提がおかしいのではないか。
+    
+$\leadsto$とりあえず、統計的に有意でなければ効果があると強く主張できない。
+
+1. 上記の代わりに信頼区間を求めて、信頼区間が0（などの基準点）を含まなかったら統計的に有意であると判断する方法もある。
+
+```{r}
+e <- rnorm(1)
+
+tibble(x = 1, xmin = 0.5, xmax = 1.5, y = 0) %>% 
+  ggplot() + 
+  geom_pointrange(aes(x = x, xmin = x - e, xmax = x + e, y = 0)) + 
+  geom_vline(aes(xintercept = 0), linetype = "dashed") + 
+  labs(x = "推定値", y = "")
+```
+
+
+### 誤解・注意事項
+
+1. p値が低ければ効果が大きい
+1. 統計的に有意ではないから関係ない
+1. p値は「効果がない」確率ではない
+
+### 問題点
+
+p値が有意水準以下であるかどうかで二者択一の判断をすることが問題視
+
+- p-hacking：データや分析手法を変えて、統計的有意になるようにする
+- 出版バイアス：統計的に有意ではない結果 (null result) は出版されにくい。
+- HARKing (hypothesizing after the results are known)：データ分析を行い、統計的に有意な結果から仮説を後付けする。
+
+![@brodeur2020](figures/brodeur.png)
+
+## RCTの限界・注意点
+
+交絡がある限り、単純な比較では効果は分からない！
+
+$\leadsto$RCTや自然実験のように、同じようなグループを作り出す工夫
+
+- 比較事例分析をする場合は、同じようだけど関心のある原因だけは異なるような事例を見つけてくる。
+
+### サンプルの代表性
+
+無作為化比較試験：無作為に処置を割り当て$\leadsto$効果を推定
+
+- **内的妥当性** (internal validity)：手元にあるデータの中で正しく因果推論できる
+
+無作為抽出 (random sampling)：特定の集団から一部を無作為に取り出すこと
+
+- **外的妥当性** (external validity) ：分析結果が分析に用いたデータ以外にも当てはまる
+  - （サンプルの）代表性：サンプルにおける属性（性別や年齢など）の割合が本当に知りたい集団と似ている。
+  - たとえ実験ではなくても世論調査などをする場合は無作為抽出は必要
+
+無作為割り当てができていても無作為抽出をしていなければ、分析結果が元々の集団に当てはまるかは分からない。
+
+- 手元にあるサンプルにおいて正しく因果推論はできているという意味では間違っていない。
+
+### 一般均衡効果
+
+RCTでは集団全体から一部を取り出して、政策の有無を決定する。
+
+$\leadsto$実際に政策を受けるのは全体から見るとごく一部
+
+政策として集団全体に実施した場合は、RCT通りの結果にならないかもしれない。
+
+$\leadsto$集団全体における効果（一般均衡効果）が生じる。
+
+- 職業訓練や教育が賃金を上げるとしても、全員がプログラムを受けるとその効果は相殺？
+
+効果が波及する場合はRCTは適切に政策の効果を推定できない。
+
+### 実行可能性
+
+RCTや自然実験は因果推論における強力な手法だが、実行可能？
+
+- 多くの場合、個人を対象とするミクロな分析
+  - 投票行動や消費者行動とは親和性が高いが、国家の行動や状態を分析することは困難
+- 処置が倫理的に問題がある可能性^[実験を行う場合は大学の倫理審査委員会で審査を受け、認可される必要がある。]
+  - 嘘の情報や心理的に負担となる情報を与える。
+  - 資金やトレーニングの提供など一部の人に有利（不利）なものかも
+- 高額な資金が必要かも
+  - サーベイ実験の場合、オンラインのクラウドソーシングのサービス^[Yahoo!クラウドソーシング、Amazon Mechanical Turk、LUCID Marketplaceなど。]を利用すれば比較的安価に行える。
+  - 調査会社のサンプルプールを利用する場合は高額
+  - フィールド実験の場合は運営費用＆現地のパートナーを確保
+- （特にサーベイ実験の場合）表明選好に過ぎず、顕示選好ではないかも？
+  - 質問への回答$\neq$現実の政治的行動
+- 都合の良い自然実験はなかなか起こらない。
+
+$\leadsto$RCTや自然実験以外に政策効果を検証できないか？

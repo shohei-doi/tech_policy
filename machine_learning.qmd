@@ -293,7 +293,7 @@ $\leadsto$特に**自己注意機構** (self-attention mechanism) が重要（�
 - データからパターンを発見するわけではない。
 - エージェントが状態→行動→環境→報酬・状態を繰り返し、報酬を大きくする行動を発見する。
 
-![[強化学習のイメージ](https://commons.wikimedia.org/wiki/File:Reinforcement_learning_diagram.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Reinforcement_learning_diagram.svg/1024px-Reinforcement_learning_diagram.svg.png)
+![[強化学習のイメージ](https://commons.wikimedia.org/wiki/File:Reinforcement_learning_diagram.svg)](figures/Reinforcement_learning_diagram.svg.png)
 
 ### AlphaGo
 
@@ -342,6 +342,10 @@ $\leadsto$Deep Fakeはオンラインの画像や映像を加工$\leadsto$フェ
 **統計的差別** (statistical discrimination) ：個人の属性（属する集団）に基づく差別
 
 - 学歴、性別、人種などで就職活動、賃貸契約、判決が異なる。
+  - 白人っぽい名前の履歴書と黒人っぽい名前の履歴書だと前者のほうが選考を通りやすい[@agan2018]。
+  - 特に犯罪歴の記入要求を禁止 (ban the bpx) の後に顕著。
+
+![@agan2018](figures/agan.jpeg)
 
 $\leadsto$機械学習はあくまで「人間を模倣」するので、人間に（無意識でも）差別があれば、[機械はそれを学習](https://ainow.ai/2020/02/17/183256/)する。
 
@@ -497,6 +501,12 @@ $\leadsto$先に行動する側に**先行者利益** (first-mover advantage) �
 - ネットワーク効果によってグローバル・スタンダードとなってしまう。
 - 中国に依存せざるを得なくなる、いわゆる[技術覇権](https://www.jiia.or.jp/column/post-30.html)への懸念
 
+ネットワーク効果$\leadsto$みんながそのスタンダードを使うことが重要$\leadsto$**非国家アクター**にもスタンダードを決める力
+
+- **私的権威** (private authority)：国家ではなく非国家アクター（企業や国際機関、テロリスト）が持つ権威[@hall2002]
+- **国際標準化機構** (International Organization for Standardization: ISO) が様々な規格を定める。
+- **ICANN** (The Internet Corporation for Assigned Names and Numbers) がインターネットの運用を行っている。
+
 #### 人工知能と環境
 
 LLMの開発には大規模な計算が必要$\leadsto$莫大な電力消費と環境不可
@@ -516,6 +526,13 @@ AIの発展によって雇用は減るのか？
 製造の自動化とは異なり、LLM（やその他の生成AI）によって代替される職業は？[@eloundou2023]
 
 ## 機械学習の実践
+
+とりあえずデータに触れてみよう！
+
+- [Google Public Data Explorer](https://www.google.co.jp/publicdata/directory)
+- [Google Looker Studio](https://www.tableau.com/learn/articles/free-public-data-sets)
+- [Tableau Public](https://public.tableau.com/app/discover)
+  - Tableauが公開している公的データは[こちら](https://www.tableau.com/learn/articles/free-public-data-sets)
 
 機械学習を初めとするデータ分析は様々な教材・資料がオンラインに無料で公開されている。
 
