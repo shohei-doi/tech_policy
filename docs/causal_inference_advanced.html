@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -62,10 +81,12 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 <meta name="robots" content="noindex">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -74,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">技術政策学</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./causal_inference_advanced.html">政策効果の検証：発展</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -123,6 +144,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">政策効果の検証：基礎</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causal_inference_advanced.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">政策効果の検証：発展</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -138,18 +165,33 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#マッチング" id="toc-マッチング" class="nav-link" data-scroll-target="#マッチング"><span class="header-section-number">1.1</span> マッチング</a></li>
   <li><a href="#回帰分析" id="toc-回帰分析" class="nav-link" data-scroll-target="#回帰分析"><span class="header-section-number">1.2</span> 回帰分析</a></li>
+  <li><a href="#統制の限界" id="toc-統制の限界" class="nav-link" data-scroll-target="#統制の限界"><span class="header-section-number">1.3</span> 統制の限界</a></li>
   </ul></li>
   <li><a href="#回帰不連続デザイン" id="toc-回帰不連続デザイン" class="nav-link" data-scroll-target="#回帰不連続デザイン"><span class="header-section-number">2</span> 回帰不連続デザイン</a></li>
-  <li><a href="#差分の差" id="toc-差分の差" class="nav-link" data-scroll-target="#差分の差"><span class="header-section-number">3</span> 差分の差</a></li>
-  <li><a href="#合成統制法" id="toc-合成統制法" class="nav-link" data-scroll-target="#合成統制法"><span class="header-section-number">4</span> 合成統制法</a></li>
-  <li><a href="#操作変数法" id="toc-操作変数法" class="nav-link" data-scroll-target="#操作変数法"><span class="header-section-number">5</span> 操作変数法</a></li>
-  <li><a href="#観察データの限界注意点" id="toc-観察データの限界注意点" class="nav-link" data-scroll-target="#観察データの限界注意点"><span class="header-section-number">6</span> 観察データの限界・注意点</a></li>
-  <li><a href="#事例研究" id="toc-事例研究" class="nav-link" data-scroll-target="#事例研究"><span class="header-section-number">7</span> 事例研究</a></li>
+  <li><a href="#差分の差" id="toc-差分の差" class="nav-link" data-scroll-target="#差分の差"><span class="header-section-number">3</span> 差分の差</a>
+  <ul class="collapse">
+  <li><a href="#前後即因果の誤謬" id="toc-前後即因果の誤謬" class="nav-link" data-scroll-target="#前後即因果の誤謬"><span class="header-section-number">3.1</span> 前後即因果の誤謬</a></li>
+  <li><a href="#差分の差-1" id="toc-差分の差-1" class="nav-link" data-scroll-target="#差分の差-1"><span class="header-section-number">3.2</span> 差分の差</a></li>
+  <li><a href="#前後比較が可能な状況" id="toc-前後比較が可能な状況" class="nav-link" data-scroll-target="#前後比較が可能な状況"><span class="header-section-number">3.3</span> 前後比較が可能な状況</a></li>
+  <li><a href="#合成統制法" id="toc-合成統制法" class="nav-link" data-scroll-target="#合成統制法"><span class="header-section-number">3.4</span> 合成統制法</a></li>
+  </ul></li>
+  <li><a href="#操作変数法" id="toc-操作変数法" class="nav-link" data-scroll-target="#操作変数法"><span class="header-section-number">4</span> 操作変数法</a></li>
+  <li><a href="#因果推論の注意点" id="toc-因果推論の注意点" class="nav-link" data-scroll-target="#因果推論の注意点"><span class="header-section-number">5</span> 因果推論の注意点</a>
+  <ul class="collapse">
+  <li><a href="#サンプルの代表性" id="toc-サンプルの代表性" class="nav-link" data-scroll-target="#サンプルの代表性"><span class="header-section-number">5.1</span> サンプルの代表性</a></li>
+  <li><a href="#不均一効果" id="toc-不均一効果" class="nav-link" data-scroll-target="#不均一効果"><span class="header-section-number">5.2</span> 不均一効果</a></li>
+  <li><a href="#一般均衡効果" id="toc-一般均衡効果" class="nav-link" data-scroll-target="#一般均衡効果"><span class="header-section-number">5.3</span> 一般均衡効果</a></li>
+  </ul></li>
+  <li><a href="#実証分析への示唆" id="toc-実証分析への示唆" class="nav-link" data-scroll-target="#実証分析への示唆"><span class="header-section-number">6</span> 実証分析への示唆</a>
+  <ul class="collapse">
+  <li><a href="#計量分析" id="toc-計量分析" class="nav-link" data-scroll-target="#計量分析"><span class="header-section-number">6.1</span> 計量分析</a></li>
+  <li><a href="#事例分析" id="toc-事例分析" class="nav-link" data-scroll-target="#事例分析"><span class="header-section-number">6.2</span> 事例分析</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/causal_inference_advanced.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -171,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年5月29日</p>
+      <p class="date">2023年6月4日</p>
     </div>
   </div>
   
@@ -183,38 +225,517 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="はじめに" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>政策の効果（因果関係）をデータから明らかにする<span class="math inline">\(\leadsto\)</span><strong>交絡</strong>の除去</p>
+<ul>
+<li>交絡：原因と結果の両方に影響しているような第三の要因（交絡因子）が存在する状況</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/confounding1.drawio.png" class="quarto-discovered-preview-image img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">交絡のイメージ</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>理想としてのRCT（および自然実験）／常に実行可能とは限らない</p>
+<p><span class="math inline">\(\leadsto\)</span>その他の分析手法の開発</p>
 </section>
-<section id="統制" class="level2" data-number="1">
+<section id="統制" class="level2 page-columns page-full" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="統制"><span class="header-section-number">1</span> 統制</h2>
-<section id="マッチング" class="level3" data-number="1.1">
+<p>RCTのポイント：原因のある（政策を受けた）集団と原因のない（政策を受けなかった）集団の性質がほとんど同じである</p>
+<p><span class="math inline">\(\leadsto\)</span>事後的に同じような集団を作ればよい？</p>
+<ul>
+<li>性質を一致させるという意味で<strong>統制</strong> (control) と呼ぶ。</li>
+</ul>
+<section id="マッチング" class="level3 page-columns page-full" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="マッチング"><span class="header-section-number">1.1</span> マッチング</h3>
+<div class="page-columns page-full"><p><strong>マッチング</strong>：原因のある集団とない集団から同じような対象を取り出して比較する。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;似たような発想で重み付け (weighting) と呼ばれる手法も用いられる。</p></li></div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/matching.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">マッチングのイメージ</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>同じような対象を常に取り出せるとは限らない。</p>
+<ul>
+<li>1990年に東京で生まれた生物学上の男性で大学院卒で大学教員として札幌に住んでいるビール好き？</li>
+</ul>
 </section>
 <section id="回帰分析" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="回帰分析"><span class="header-section-number">1.2</span> 回帰分析</h3>
+<p>もっぱら社会科学で広く使われているのは<strong>回帰分析</strong><span class="citation" data-cites="kasuya2018">(<a href="#ref-kasuya2018" role="doc-biblioref">粕谷 2018</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/kasuya.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="kasuya2018">粕谷 (<a href="#ref-kasuya2018" role="doc-biblioref">2018</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-2_35c2e2b3b50d444a737fd4074a0751df">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">豊かさと平均寿命</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[
+\textrm{平均寿命} = -9.101 + 8.405 \times \log(\textrm{一人あたりGDP})
+\]</span></p>
+<ul>
+<li>毎年、一人あたりGDPも平均寿命も増加しているだけでは？</li>
+</ul>
+<p><span class="math display">\[
+\textrm{平均寿命} = -391.051 + 7.770 \times \log(\textrm{一人あたりGDP}) + 0.195 \times \textrm{年}
+\]</span></p>
+<p><span class="math inline">\(\leadsto\)</span>回帰分析に入れた特徴量の交絡は取り除くことができる。</p>
+<ul>
+<li>特定の年において一人あたりGDPが増えた時に平均寿命がどの程度増えるのかを示している。</li>
+</ul>
+<p>マッチングも回帰分析も（後述する手法よりも）簡単に交絡を取り除ける。</p>
+</section>
+<section id="統制の限界" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="統制の限界"><span class="header-section-number">1.3</span> 統制の限界</h3>
+<p>マッチングも回帰分析も分析に用いた特徴量の交絡のみ取り除く。</p>
+<p><span class="math inline">\(\leadsto\)</span>分析に用いていない（データとして存在しない）特徴量の交絡は取り除くことはできない。</p>
+<ul>
+<li>平均寿命と一人あたりGDPの交絡因子の候補は？</li>
+</ul>
+<p>分析に用いた特徴量以外に交絡因子が存在しないことを証明することは不可能（悪魔の証明）</p>
+<p><span class="math inline">\(\leadsto\)</span>もう少し因果関係と言いやすいような状況はないだろうか？</p>
+<ul>
+<li>経済学、公衆衛生学、政治学……における因果推論革命、識別革命</li>
+</ul>
 </section>
 </section>
 <section id="回帰不連続デザイン" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="回帰不連続デザイン"><span class="header-section-number">2</span> 回帰不連続デザイン</h2>
+<p><strong>回帰不連続デザイン</strong> (regression discontinuity design: RDD)：ある基準を満たすかどうかで、原因の有無が分かるような状況を使ってみる。</p>
+<ul>
+<li>とある資格（例えば英検）を取るといい給料の仕事に就職しやすくなるのか？</li>
+</ul>
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-3_d3ee7d3bd01a5bd783d28bdd878a2804">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">RDDのイメージ</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>基準をぎりぎり満たした人と満たせなかった人はほとんど同じような集団かも？</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>もし基準の前後で「ジャンプ」が存在していれば、それは効果と言えそう。</p>
+<ul>
+<li>医療費負担の引き下げは健康に資するのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/shigeoka1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="shigeoka2014">Shigeoka (<a href="#ref-shigeoka2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/shigeoka2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="shigeoka2014">Shigeoka (<a href="#ref-shigeoka2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>少人数教育は学力の向上に資するのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/angrist1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="angrist1999">Angrist と Lavy (<a href="#ref-angrist1999" role="doc-biblioref">1999</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/angrist2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="angrist1999">Angrist と Lavy (<a href="#ref-angrist1999" role="doc-biblioref">1999</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>女性政治家（市長）は男性と異なるのか？
+<ul>
+<li>政治学でよく使われるのは、ギリギリ当選した場合と落選した場合の比較</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/brollo1.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="brollo2016">Brollo と Troiano (<a href="#ref-brollo2016" role="doc-biblioref">2016</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/brollo2.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="brollo2016">Brollo と Troiano (<a href="#ref-brollo2016" role="doc-biblioref">2016</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>選挙広告は投票率を上げるのか？
+<ul>
+<li>地理的境界線もよく使われている。</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/keele.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="keele2015">Keele と Titiunik (<a href="#ref-keele2015" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
 </section>
 <section id="差分の差" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="差分の差"><span class="header-section-number">3</span> 差分の差</h2>
+<section id="前後即因果の誤謬" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="前後即因果の誤謬"><span class="header-section-number">3.1</span> 前後即因果の誤謬</h3>
+<p>前後即因果の誤謬：結果の前に生じたものを原因とみなす誤り</p>
+<p><span class="math inline">\(\leadsto\)</span>ある事象Aが起きた後に事象Bが生じたからといってAがBの原因とは言い切れない</p>
+<ul>
+<li>とある資格（例えば英検）を取るといい給料の仕事に就職しやすくなるのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/did1.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">前後比較のイメージ</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/did2.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">前後即因果の誤謬のイメージ</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>もちろん、原因の有無で比較しても意味はない。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/did3.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">グループ間比較のイメージ</figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="合成統制法" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="合成統制法"><span class="header-section-number">4</span> 合成統制法</h2>
+<section id="差分の差-1" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="差分の差-1"><span class="header-section-number">3.2</span> 差分の差</h3>
+<p>なぜ前後比較はダメなのか？<span class="math inline">\(\leadsto\)</span><strong>時間トレンド</strong>があるから</p>
+<ul>
+<li>時間トレンド：原因の有無にかかわらず一定の方向へ変化する傾向</li>
+</ul>
+<p><strong>差分の差</strong> (difference in differences: DID) ：原因のなかったグループで時間トレンドを計算し、原因のあったグループの時間トレンドを除去する。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/did4.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">グループ間比較のイメージ</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>資格を取った人の給料の増加分から資格を取らなかったひとの給料の増加分（時間トレンド）を引く。</li>
+<li>最低賃金の上昇は雇用を減らすのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/card1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="card1994">Card と Krueger (<a href="#ref-card1994" role="doc-biblioref">1994</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>難民の受け入れは賃金や個用を悪化させるのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/card2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="card1990">Card (<a href="#ref-card1990" role="doc-biblioref">1990</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/card3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="card1990">Card (<a href="#ref-card1990" role="doc-biblioref">1990</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>ヒトラーの演説はナチスへの支持を高めたのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/selb1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="selb2018">Selb と Munzert (<a href="#ref-selb2018" role="doc-biblioref">2018</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/selb2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="selb2018">Selb と Munzert (<a href="#ref-selb2018" role="doc-biblioref">2018</a>)</span></figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="操作変数法" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="操作変数法"><span class="header-section-number">5</span> 操作変数法</h2>
+<section id="前後比較が可能な状況" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="前後比較が可能な状況"><span class="header-section-number">3.3</span> 前後比較が可能な状況</h3>
+<p>時間トレンドが無視可能な状況であれば、前後比較による効果が分かる。</p>
+<ol type="1">
+<li>偶然（予期しない）出来事が起こった場合
+<ul>
+<li>テロリズムは政府への支持を高めるか？</li>
+</ul></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/kishida.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://news.yahoo.co.jp/articles/b37de4c74732c92657c5d55d485852f611bc1540">NNN読売世論調査</a></figcaption><p></p>
+</figure>
+</div>
+<ol start="2" type="1">
+<li>出来事の直前と直後（RDDの応用）を比較する場合
+<ul>
+<li>首脳の訪問は好感度を上げるのか？</li>
+</ul></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/goldsmith.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="goldsmith2021">Goldsmith, Horiuchi, と Matush (<a href="#ref-goldsmith2021" role="doc-biblioref">2021</a>)</span></figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="観察データの限界注意点" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="観察データの限界注意点"><span class="header-section-number">6</span> 観察データの限界・注意点</h2>
+<section id="合成統制法" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="合成統制法"><span class="header-section-number">3.4</span> 合成統制法</h3>
+<p><strong>合成統制法</strong> (synthetic control method: SCM)：政策が起こった対象が「もし政策を行っていなかった場合」をその他の事例から合成して比較する</p>
+<ul>
+<li>経済の自由化は経済成長に貢献するのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/billmeier.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="billmeier2013">Billmeier と Nannicini (<a href="#ref-billmeier2013" role="doc-biblioref">2013</a>)</span></figcaption><p></p>
+</figure>
+</div>
 </section>
-<section id="事例研究" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="事例研究"><span class="header-section-number">7</span> 事例研究</h2>
+</section>
+<section id="操作変数法" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="操作変数法"><span class="header-section-number">4</span> 操作変数法</h2>
+<p><strong>操作変数法</strong> (intrumental variable: IV)：原因のみに影響し、結果には直接影響しない要因（操作変数）を用いて交絡を除去する</p>
+<ul>
+<li>とある資格（例えば英検）を取るといい給料の仕事に就職しやすくなるのか？
+<ul>
+<li>とある資格を取るための補助をランダムに行う<span class="math inline">\(\leadsto\)</span>その補助を受けて資格を取れるかどうかはランダム</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/instrumental_variable.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">操作変数のイメージ</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>民主主義は経済成長に貢献するのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/acemoglu1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="acemoglu2001">Acemoglu, Johnson, と Robinson (<a href="#ref-acemoglu2001" role="doc-biblioref">2001</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/acemoglu2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="acemoglu2001">Acemoglu, Johnson, と Robinson (<a href="#ref-acemoglu2001" role="doc-biblioref">2001</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>ナチスはプロパガンダによって支持を獲得できたのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/adena1.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="adena2015">Adena ほか (<a href="#ref-adena2015" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/adena2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="adena2015">Adena ほか (<a href="#ref-adena2015" role="doc-biblioref">2015</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="因果推論の注意点" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="因果推論の注意点"><span class="header-section-number">5</span> 因果推論の注意点</h2>
+<section id="サンプルの代表性" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="サンプルの代表性"><span class="header-section-number">5.1</span> サンプルの代表性</h3>
+<p>無作為化比較試験：無作為に処置を割り当て<span class="math inline">\(\leadsto\)</span>効果を推定</p>
+<ul>
+<li><strong>内的妥当性</strong> (internal validity)：手元にあるデータの中で正しく因果推論できる</li>
+</ul>
+<p>無作為抽出 (random sampling)：特定の集団から一部を無作為に取り出すこと</p>
+<ul>
+<li><strong>外的妥当性</strong> (external validity) ：分析結果が分析に用いたデータ以外にも当てはまる
+<ul>
+<li>（サンプルの）代表性：サンプルにおける属性（性別や年齢など）の割合が本当に知りたい集団と似ている。</li>
+<li>たとえ実験ではなくても世論調査などをする場合は無作為抽出は必要</li>
+</ul></li>
+</ul>
+<p>無作為割り当てができていても無作為抽出をしていなければ、分析結果が元々の集団に当てはまるかは分からない。</p>
+<ul>
+<li>もちろん、無作為抽出でも別の集団については当てはまるか分からない。</li>
+</ul>
+<p>オンラインのサンプルは市民を代表しているのか？</p>
+<ul>
+<li>（スペインとアメリカでは）Twitterユーザーは男性、都市部の住民、政治的に極端な人が多い、あるいは多くのツイートをしている<span class="citation" data-cites="barbera2015b">(<a href="#ref-barbera2015b" role="doc-biblioref">Barberá と Rivero 2015</a>)</span></li>
+<li>（アメリカでは）調査会社のサンプルに比べてクラウドソーシングの参加者の属性は偏っている<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/weinberg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="weinberg2014">Weinberg, Freese, と McElhattan (<a href="#ref-weinberg2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>ただし、RCTの結果はどちらでも同じような傾向を持つ<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
+</ul>
+</section>
+<section id="不均一効果" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="不均一効果"><span class="header-section-number">5.2</span> 不均一効果</h3>
+<p>政策の効果はあらゆる集団に対して同じとは限らない。</p>
+<ul>
+<li>年齢や性別、学歴、経済状況……などによって効果は変わりうる。</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/interaction.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">条件付き効果</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>条件ごとに集団を分割して効果を推定する。</p>
+</section>
+<section id="一般均衡効果" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="一般均衡効果"><span class="header-section-number">5.3</span> 一般均衡効果</h3>
+<p>RCTでは集団全体から一部を取り出して、政策の有無を決定する。</p>
+<p><span class="math inline">\(\leadsto\)</span>実際に政策を受けるのは全体から見るとごく一部</p>
+<p>政策として集団全体に実施した場合は、RCT通りの結果にならないかもしれない。</p>
+<p><span class="math inline">\(\leadsto\)</span>集団全体における効果（一般均衡効果）が生じる。</p>
+<ul>
+<li>職業訓練や教育が賃金を上げるとしても、全員がプログラムを受けるとその効果は相殺？</li>
+<li>少人数にSNSをやらせても意味はない？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/diffusion.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">効果の波及</figcaption><p></p>
+</figure>
+</div>
+<p>効果が波及する場合：RCTは適切に政策の効果を推定できない。</p>
+</section>
+</section>
+<section id="実証分析への示唆" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="実証分析への示唆"><span class="header-section-number">6</span> 実証分析への示唆</h2>
+<p>実際に因果推論しなくても、実証分析をする上で重要な点はある（と信じている）</p>
+<section id="計量分析" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="計量分析"><span class="header-section-number">6.1</span> 計量分析</h3>
+<p>とりあえず実際のデータに触れてみるという姿勢は大事</p>
+<p>関係分野のデータ分析の研究に触れてみるのも大事</p>
+<ul>
+<li>案外、反直観的な（予想と異なる）結果が得られることはある。</li>
+<li>政治学や経済学の一般向けの本<span class="citation" data-cites="banerjee2020 kitamura2020">(<a href="#ref-banerjee2020" role="doc-biblioref">Banerjee と Duflo 2020</a>; <a href="#ref-kitamura2020" role="doc-biblioref">北村 2022</a>)</span></li>
+</ul>
+<p>データ分析だからといって鵜呑みにするのも危険</p>
+<ul>
+<li>どのようなデータと手法を用いているのかを確認</li>
+<li>「データの読み方」を学ぶ<span class="citation" data-cites="sugawara2022 ogiwara2023 tsutsui2023">(<a href="#ref-sugawara2022" role="doc-biblioref">菅原 2022</a>; <a href="#ref-ogiwara2023" role="doc-biblioref">荻原 2023</a>; <a href="#ref-tsutsui2023" role="doc-biblioref">筒井 2023</a>)</span></li>
+</ul>
+</section>
+<section id="事例分析" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="事例分析"><span class="header-section-number">6.2</span> 事例分析</h3>
+<p>事例分析をする際にも効果を示す際には注意が必要<span class="citation" data-cites="kume2013 ito2022">(<a href="#ref-kume2013" role="doc-biblioref">久米 2013</a>; <a href="#ref-ito2022" role="doc-biblioref">伊藤 2022</a>)</span></p>
+<ul>
+<li>差異法：同じような事例だが、原因の有無が異なるような事例を比較する
+<ul>
+<li>理想としては原因がランダムに生じている状況</li>
+<li>原因が生じた直前と直後の比較</li>
+<li>時間トレンドの確認</li>
+</ul></li>
+<li>一致法：異なる事例だが、原因と結果が生じている事例を比較する
+<ul>
+<li>有力な原因を提案できるが、因果関係・効果を主張するのは難しい</li>
+</ul></li>
+<li>反実仮想：仮に原因がなかったらどうなっていたのかを明らかにして、原因であることを説得する</li>
+<li>過程追跡：原因から結果での出来事の連鎖を辿って、因果関係・プロセスを示す</li>
+<li>逸脱事例：通説では説明できない事例を提示して、通説を修正する</li>
+</ul>
 
 
+
+</section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-acemoglu2001" class="csl-entry" role="listitem">
+Acemoglu, Daron, Simon Johnson, と James A Robinson. 2001. <span>「The colonial origins of comparative development: An empirical investigation」</span>. <em>American economic review</em> 91 (5): 1369–1401.
+</div>
+<div id="ref-adena2015" class="csl-entry" role="listitem">
+Adena, Maja, Ruben Enikolopov, Maria Petrova, Veronica Santarosa, と Ekaterina Zhuravskaya. 2015. <span>「Radio and the Rise of the Nazis in Prewar Germany」</span>. <em>The Quarterly Journal of Economics</em> 130 (4): 1885–1939.
+</div>
+<div id="ref-angrist1999" class="csl-entry" role="listitem">
+Angrist, Joshua D, と Victor Lavy. 1999. <span>「Using Maimonides’ rule to estimate the effect of class size on scholastic achievement」</span>. <em>The Quarterly journal of economics</em> 114 (2): 533–75.
+</div>
+<div id="ref-banerjee2020" class="csl-entry" role="listitem">
+Banerjee, Abhijit V., と Esther Duflo. 2020. <em>絶望を希望に変える経済学 : 社会の重大問題をどう解決するか</em>. 日経BP日本経済新聞出版本部; 日経BPマーケティング (発売).
+</div>
+<div id="ref-barbera2015b" class="csl-entry" role="listitem">
+Barberá, Pablo, と Gonzalo Rivero. 2015. <span>「Understanding the political representativeness of Twitter users」</span>. <em>Social Science Computer Review</em> 33 (6): 712–29.
+</div>
+<div id="ref-billmeier2013" class="csl-entry" role="listitem">
+Billmeier, Andreas, と Tommaso Nannicini. 2013. <span>「Assessing economic liberalization episodes: A synthetic control approach」</span>. <em>Review of Economics and Statistics</em> 95 (3): 983–1001.
+</div>
+<div id="ref-brollo2016" class="csl-entry" role="listitem">
+Brollo, Fernanda, と Ugo Troiano. 2016. <span>「What happens when a woman wins an election? Evidence from close races in Brazil」</span>. <em>Journal of Development Economics</em> 122: 28–45.
+</div>
+<div id="ref-card1990" class="csl-entry" role="listitem">
+Card, David. 1990. <span>「The impact of the Mariel boatlift on the Miami labor market」</span>. <em>Ilr Review</em> 43 (2): 245–57.
+</div>
+<div id="ref-card1994" class="csl-entry" role="listitem">
+Card, David, と Alan B Krueger. 1994. <span>「Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania」</span>. <em>The American Economic Review</em>, 772–93.
+</div>
+<div id="ref-goldsmith2021" class="csl-entry" role="listitem">
+Goldsmith, Benjamin E, Yusaku Horiuchi, と Kelly Matush. 2021. <span>「Does public diplomacy sway foreign public opinion? Identifying the effect of high-level visits」</span>. <em>American Political Science Review</em> 115 (4): 1342–57.
+</div>
+<div id="ref-keele2015" class="csl-entry" role="listitem">
+Keele, Luke J, と Rocio Titiunik. 2015. <span>「Geographic boundaries as regression discontinuities」</span>. <em>Political Analysis</em> 23 (1): 127–55.
+</div>
+<div id="ref-selb2018" class="csl-entry" role="listitem">
+Selb, Peter, と Simon Munzert. 2018. <span>「Examining a most likely case for strong campaign effects: Hitler’s speeches and the rise of the Nazi party, 1927–1933」</span>. <em>American Political Science Review</em> 112 (4): 1050–66.
+</div>
+<div id="ref-shigeoka2014" class="csl-entry" role="listitem">
+Shigeoka, Hitoshi. 2014. <span>「The effect of patient cost sharing on utilization, health, and risk protection」</span>. <em>American Economic Review</em> 104 (7): 2152–84.
+</div>
+<div id="ref-weinberg2014" class="csl-entry" role="listitem">
+Weinberg, Jill D, Jeremy Freese, と David McElhattan. 2014. <span>「Comparing data characteristics and results of an online factorial survey between a population-based and a crowdsource-recruited sample.」</span> <em>Sociological Science</em> 1.
+</div>
+<div id="ref-kume2013" class="csl-entry" role="listitem">
+久米郁男. 2013. <em>原因を推論する : 政治分析方法論のすゝめ</em>. 有斐閣.
+</div>
+<div id="ref-ito2022" class="csl-entry" role="listitem">
+伊藤修一郎. 2022. <em>政策リサーチ入門 : 仮説検証による問題解決の技法</em>. 増補版. 東京大学出版会.
+</div>
+<div id="ref-kitamura2020" class="csl-entry" role="listitem">
+北村周平. 2022. <em>民主主義の経済学 : 社会変革のための思考法</em>. 日経BP.
+</div>
+<div id="ref-tsutsui2023" class="csl-entry" role="listitem">
+筒井淳也. 2023. <em>数字のセンスを磨く : データの読み方・活かし方</em>. 光文社新書. 光文社.
+</div>
+<div id="ref-kasuya2018" class="csl-entry" role="listitem">
+粕谷祐子. 2018. <span>「政治学における「因果推論革命」の進行 (特集 変わる世界、変わる研究 – ディシプリン/トピック編)」</span>. <em>アジ研ワールド・トレンド</em> 269 (3月): 70–71.
+</div>
+<div id="ref-ogiwara2023" class="csl-entry" role="listitem">
+荻原和樹. 2023. <em>データ思考入門</em>. 講談社現代新書. 講談社.
+</div>
+<div id="ref-sugawara2022" class="csl-entry" role="listitem">
+菅原琢. 2022. <em>データ分析読解の技術</em>. 中公新書ラクレ. 中央公論新社.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

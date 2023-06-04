@@ -18,6 +18,7 @@ website:
       - big_data.qmd
       - machine_learning.qmd
       - causal_inference_basic.qmd
+      - causal_inference_advanced.qmd
 
 format:
   html:

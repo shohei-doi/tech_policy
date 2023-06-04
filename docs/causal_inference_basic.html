@@ -144,6 +144,12 @@ div.csl-indent {
  <span class="menu-text">政策効果の検証：基礎</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causal_inference_advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">政策効果の検証：発展</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -165,18 +171,16 @@ div.csl-indent {
   <li><a href="#フィールド実験" id="toc-フィールド実験" class="nav-link" data-scroll-target="#フィールド実験"><span class="header-section-number">2.1</span> フィールド実験</a></li>
   <li><a href="#サーベイ実験" id="toc-サーベイ実験" class="nav-link" data-scroll-target="#サーベイ実験"><span class="header-section-number">2.2</span> サーベイ実験</a></li>
   </ul></li>
-  <li><a href="#自然実験" id="toc-自然実験" class="nav-link" data-scroll-target="#自然実験"><span class="header-section-number">3</span> 自然実験</a></li>
+  <li><a href="#自然実験" id="toc-自然実験" class="nav-link" data-scroll-target="#自然実験"><span class="header-section-number">3</span> 自然実験</a>
+  <ul class="collapse">
+  <li><a href="#ランダムな公共政策" id="toc-ランダムな公共政策" class="nav-link" data-scroll-target="#ランダムな公共政策"><span class="header-section-number">3.1</span> ランダムな公共政策</a></li>
+  </ul></li>
   <li><a href="#統計的仮説検定" id="toc-統計的仮説検定" class="nav-link" data-scroll-target="#統計的仮説検定"><span class="header-section-number">4</span> 統計的仮説検定</a>
   <ul class="collapse">
   <li><a href="#誤解注意事項" id="toc-誤解注意事項" class="nav-link" data-scroll-target="#誤解注意事項"><span class="header-section-number">4.1</span> 誤解・注意事項</a></li>
   <li><a href="#問題点" id="toc-問題点" class="nav-link" data-scroll-target="#問題点"><span class="header-section-number">4.2</span> 問題点</a></li>
   </ul></li>
-  <li><a href="#rctの限界注意点" id="toc-rctの限界注意点" class="nav-link" data-scroll-target="#rctの限界注意点"><span class="header-section-number">5</span> RCTの限界・注意点</a>
-  <ul class="collapse">
-  <li><a href="#サンプルの代表性" id="toc-サンプルの代表性" class="nav-link" data-scroll-target="#サンプルの代表性"><span class="header-section-number">5.1</span> サンプルの代表性</a></li>
-  <li><a href="#一般均衡効果" id="toc-一般均衡効果" class="nav-link" data-scroll-target="#一般均衡効果"><span class="header-section-number">5.2</span> 一般均衡効果</a></li>
-  <li><a href="#実行可能性" id="toc-実行可能性" class="nav-link" data-scroll-target="#実行可能性"><span class="header-section-number">5.3</span> 実行可能性</a></li>
-  </ul></li>
+  <li><a href="#rctの限界" id="toc-rctの限界" class="nav-link" data-scroll-target="#rctの限界"><span class="header-section-number">5</span> RCTの限界</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/causal_inference_basic.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
@@ -203,7 +207,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年5月29日</p>
+      <p class="date">2023年6月4日</p>
     </div>
   </div>
   
@@ -526,6 +530,28 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption"><span class="citation" data-cites="tsugawa2017">Tsugawa ほか (<a href="#ref-tsugawa2017" role="doc-biblioref">2017</a>)</span></figcaption><p></p>
 </figure>
 </div>
+<section id="ランダムな公共政策" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="ランダムな公共政策"><span class="header-section-number">3.1</span> ランダムな公共政策</h3>
+<p>行政がランダムな施策を行う場合、それはRCTとみなせる。</p>
+<ul>
+<li>女性の政治参加は重要なのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/chattopadhyay.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="chattopadhyay2004">Chattopadhyay と Duflo (<a href="#ref-chattopadhyay2004" role="doc-biblioref">2004</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>汚職の監査には効果があるのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/ferraz.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="ferraz2008">Ferraz と Finan (<a href="#ref-ferraz2008" role="doc-biblioref">2008</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</section>
 </section>
 <section id="統計的仮説検定" class="level2 page-columns page-full" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="統計的仮説検定"><span class="header-section-number">4</span> 統計的仮説検定</h2>
@@ -589,64 +615,16 @@ div.csl-indent {
 </div>
 </section>
 </section>
-<section id="rctの限界注意点" class="level2 page-columns page-full" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="rctの限界注意点"><span class="header-section-number">5</span> RCTの限界・注意点</h2>
+<section id="rctの限界" class="level2 page-columns page-full" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="rctの限界"><span class="header-section-number">5</span> RCTの限界</h2>
 <p>交絡がある限り、単純な比較では効果は分からない！</p>
 <p><span class="math inline">\(\leadsto\)</span>RCTや自然実験のように、同じようなグループを作り出す工夫</p>
-<ul>
-<li>比較事例分析をする場合は、同じようだけど関心のある原因だけは異なるような事例を見つけてくる。</li>
-</ul>
-<section id="サンプルの代表性" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="サンプルの代表性"><span class="header-section-number">5.1</span> サンプルの代表性</h3>
-<p>無作為化比較試験：無作為に処置を割り当て<span class="math inline">\(\leadsto\)</span>効果を推定</p>
-<ul>
-<li><strong>内的妥当性</strong> (internal validity)：手元にあるデータの中で正しく因果推論できる</li>
-</ul>
-<p>無作為抽出 (random sampling)：特定の集団から一部を無作為に取り出すこと</p>
-<ul>
-<li><strong>外的妥当性</strong> (external validity) ：分析結果が分析に用いたデータ以外にも当てはまる
-<ul>
-<li>（サンプルの）代表性：サンプルにおける属性（性別や年齢など）の割合が本当に知りたい集団と似ている。</li>
-<li>たとえ実験ではなくても世論調査などをする場合は無作為抽出は必要</li>
-</ul></li>
-</ul>
-<p>無作為割り当てができていても無作為抽出をしていなければ、分析結果が元々の集団に当てはまるかは分からない。</p>
-<ul>
-<li>もちろん、無作為抽出でも別の集団については当てはまるか分からない。</li>
-</ul>
-<p>オンラインのサンプルは市民を代表しているのか？</p>
-<ul>
-<li>（スペインとアメリカでは）Twitterユーザーは男性、都市部の住民、政治的に極端な人が多い、あるいは多くのツイートをしている<span class="citation" data-cites="barbera2015b">(<a href="#ref-barbera2015b" role="doc-biblioref">Barberá と Rivero 2015</a>)</span></li>
-<li>（アメリカでは）調査会社のサンプルに比べてクラウドソーシングの参加者の属性は偏っている<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/weinberg.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><span class="citation" data-cites="weinberg2014">Weinberg, Freese, と McElhattan (<a href="#ref-weinberg2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>ただし、RCTの結果はどちらでも同じような傾向を持つ<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
-</ul>
-</section>
-<section id="一般均衡効果" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="一般均衡効果"><span class="header-section-number">5.2</span> 一般均衡効果</h3>
-<p>RCTでは集団全体から一部を取り出して、政策の有無を決定する。</p>
-<p><span class="math inline">\(\leadsto\)</span>実際に政策を受けるのは全体から見るとごく一部</p>
-<p>政策として集団全体に実施した場合は、RCT通りの結果にならないかもしれない。</p>
-<p><span class="math inline">\(\leadsto\)</span>集団全体における効果（一般均衡効果）が生じる。</p>
-<ul>
-<li>職業訓練や教育が賃金を上げるとしても、全員がプログラムを受けるとその効果は相殺？</li>
-</ul>
-<p>効果が波及する場合：RCTは適切に政策の効果を推定できない。</p>
-</section>
-<section id="実行可能性" class="level3 page-columns page-full" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="実行可能性"><span class="header-section-number">5.3</span> 実行可能性</h3>
 <p>RCTや自然実験は因果推論における強力な手法だが、実行可能？</p>
 <ul>
 <li>多くの場合、個人を対象とするミクロな分析
 <ul>
-<li>投票行動や消費者行動とは親和性が高いが、国家の行動や状態を分析することは困難</li>
+<li>投票行動や消費者行動とは親和性が高い</li>
+<li>国家の行動や状態を分析することは困難</li>
 </ul></li>
 <li>処置が倫理的に問題がある可能性<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
 <ul>
@@ -670,7 +648,6 @@ div.csl-indent {
 
 
 </section>
-</section>
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
@@ -679,9 +656,6 @@ Alesina, Alberto, Armando Miano, と Stefanie Stantcheva. 2023. <span>「Immigra
 </div>
 <div id="ref-banerjee2012" class="csl-entry" role="listitem">
 Banerjee, Abhijit V., と Esther Duflo. 2012. <em>貧乏人の経済学 : もういちど貧困問題を根っこから考える</em>. みすず書房.
-</div>
-<div id="ref-barbera2015b" class="csl-entry" role="listitem">
-Barberá, Pablo, と Gonzalo Rivero. 2015. <span>「Understanding the political representativeness of Twitter users」</span>. <em>Social Science Computer Review</em> 33 (6): 712–29.
 </div>
 <div id="ref-barrera2020" class="csl-entry" role="listitem">
 Barrera, Oscar, Sergei Guriev, Emeric Henry, と Ekaterina Zhuravskaya. 2020. <span>「Facts, alternative facts, and fact checking in times of post-truth politics」</span>. <em>Journal of public economics</em> 182: 104123.
@@ -695,8 +669,14 @@ Brodeur, Abel, Nikolai Cook, と Anthony Heyes. 2020. <span>「Methods matter: P
 <div id="ref-bryan2014" class="csl-entry" role="listitem">
 Bryan, Gharad, Shyamal Chowdhury, と Ahmed Mushfiq Mobarak. 2014. <span>「Underinvestment in a profitable technology: The case of seasonal migration in Bangladesh」</span>. <em>Econometrica</em> 82 (5): 1671–1748.
 </div>
+<div id="ref-chattopadhyay2004" class="csl-entry" role="listitem">
+Chattopadhyay, Raghabendra, と Esther Duflo. 2004. <span>「Women as policy makers: Evidence from a randomized policy experiment in India」</span>. <em>Econometrica</em> 72 (5): 1409–43.
+</div>
 <div id="ref-duflo2021" class="csl-entry" role="listitem">
 Duflo, Esther, Pascaline Dupas, と Michael Kremer. 2021. <span>「The impact of free secondary education: Experimental evidence from Ghana」</span>. National Bureau of Economic Research.
+</div>
+<div id="ref-ferraz2008" class="csl-entry" role="listitem">
+Ferraz, Claudio, と Frederico Finan. 2008. <span>「Exposing corrupt politicians: the effects of Brazil’s publicly released audits on electoral outcomes」</span>. <em>The Quarterly journal of economics</em> 123 (2): 703–45.
 </div>
 <div id="ref-gerber2008" class="csl-entry" role="listitem">
 Gerber, Alan S, Donald P Green, と Christopher W Larimer. 2008. <span>「Social pressure and voter turnout: Evidence from a large-scale field experiment」</span>. <em>American political Science review</em> 102 (1): 33–48.
@@ -715,9 +695,6 @@ Song, Jaehyun, と 秦正樹. 2020. <span>「オンライン・サーベイ実�
 </div>
 <div id="ref-tsugawa2017" class="csl-entry" role="listitem">
 Tsugawa, Yusuke, Anupam B Jena, Jose F Figueroa, E John Orav, Daniel M Blumenthal, と Ashish K Jha. 2017. <span>「Comparison of hospital mortality and readmission rates for Medicare patients treated by male vs female physicians」</span>. <em>JAMA internal medicine</em> 177 (2): 206–13.
-</div>
-<div id="ref-weinberg2014" class="csl-entry" role="listitem">
-Weinberg, Jill D, Jeremy Freese, と David McElhattan. 2014. <span>「Comparing data characteristics and results of an online factorial survey between a population-based and a crowdsource-recruited sample.」</span> <em>Sociological Science</em> 1.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
