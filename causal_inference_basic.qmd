@@ -272,12 +272,95 @@ $\leadsto$偶然、（本来は効果がないはずなのに）2つのグルー
 1. **仮に**本当は効果がないとする（帰無仮説: null hypothesis）
 1. 本当は効果がないのに、効果があるように見える実際のデータが生じる確率（p値: p-value）を求める。
     - p値を求めるときには推定結果の不確実性を表す標準誤差 (standard error: SE) を用いる。
-1. p値が予め設定しておいた値（例えば$5\%$）を下回っている場合、**統計的に有意**であると呼ぶ。^[効果の値を標準誤差で割ったものが、およそ$2$以上であれば$5\%$有意水準で統計的に有意である。]
+1. p値が予め設定しておいた値（例えば$5\%$）を下回っている場合、**統計的に有意**であると呼ぶ。
     - 本当は効果がないのに$5\%$の確率で生じる結果が出たのだとしたら、もはや「効果がない」という前提がおかしいのではないか。
     
 $\leadsto$とりあえず、統計的に有意でなければ効果があると強く主張できない。
 
-1. 上記の代わりに信頼区間を求めて、信頼区間が0（などの基準点）を含まなかったら統計的に有意であると判断する方法もある。
+```{r}
+#| fig-cap: "効果の大きさと統計的有意性"
+
+set.seed(334)
+
+n <- 200
+eff <- c(0, 0.2, 0.4, 0.6)
+
+df_pval <- NULL
+
+for (e in eff) {
+  
+  temp <- bind_rows(tibble(x = rnorm(n), 
+                           g = "原因なし", 
+                           e = e), 
+                    tibble(x = rnorm(n) + e, 
+                           g = "原因あり", 
+                           e = e))
+  
+  df_pval <- bind_rows(df_pval, 
+                       temp %>% 
+                         mutate(p.val = t.test(x ~ g, data = temp)$p.value %>% 
+                                  round(5)))
+  
+}
+
+df_pval %>% 
+  ggplot() + 
+  geom_histogram(aes(x = x, fill = g), 
+                 alpha = 0.5, position = position_identity()) + 
+  geom_vline(aes(xintercept = x, color = g), 
+             data = . %>% 
+               group_by(p.val, g) %>% 
+               summarise(x = mean(x))) + 
+  scale_color_brewer(palette = "Set2") + 
+  scale_fill_brewer(palette = "Set2") + 
+  facet_wrap(~ p.val) + 
+  labs(x = "", y = "", fill = "", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "サンプルの大きさと統計的有意性"
+
+set.seed(334)
+
+n <- c(50, 100, 200, 500)
+e <- 0.3
+
+df_pval <- NULL
+
+for (i in n) {
+  
+  temp <- bind_rows(tibble(x = rnorm(i), 
+                           g = "原因なし", 
+                           e = e), 
+                    tibble(x = rnorm(i) + e, 
+                           g = "原因あり", 
+                           e = e))
+  
+  df_pval <- bind_rows(df_pval, 
+                       temp %>% 
+                         mutate(p.val = t.test(x ~ g, data = temp)$p.value %>% 
+                                  round(5)))
+  
+}
+
+df_pval %>% 
+  ggplot() + 
+  geom_histogram(aes(x = x, fill = g), 
+                 alpha = 0.5, position = position_identity()) + 
+  geom_vline(aes(xintercept = x, color = g), 
+             data = . %>% 
+               group_by(p.val, g) %>% 
+               summarise(x = mean(x))) + 
+  scale_color_brewer(palette = "Set2") + 
+  scale_fill_brewer(palette = "Set2") + 
+  facet_wrap(~ p.val) + 
+  labs(x = "", y = "", fill = "", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+1. 上記の代わりに、効果の値を標準誤差で割ったもの（$z$値や$t$値）が、およそ$2$以上であれば$5\%$有意水準で統計的に有意である。
+1. 信頼区間を求めて、信頼区間が0（などの基準点）を含まなかったら統計的に有意であると判断する方法もある。
 
 ```{r}
 e <- rnorm(1)
@@ -289,6 +372,8 @@ tibble(x = 1, xmin = 0.5, xmax = 1.5, y = 0) %>%
   labs(x = "推定値", y = "")
 ```
 
+
+$\textrm{5\%水準で統計的に有意} \Leftrightarrow \textrm{p値が0.05以下} \Leftrightarrow \textrm{z値やt値が約2以上} \Leftrightarrow \textrm{95\%信頼区間が0を含まない}$
 
 ### 誤解・注意事項
 

@@ -169,11 +169,11 @@
 \makeatother
 \subtitle{技術政策学（データ科学編）}
 \author{土井翔平}
-\date{2023-06-04}
+\date{2023-06-05}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, sharp corners, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, frame hidden, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, sharp corners, boxrule=0pt, frame hidden, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
 
 \hypertarget{ux306fux3058ux3081ux306b}{%
 \section*{はじめに}\label{ux306fux3058ux3081ux306b}}
@@ -310,6 +310,53 @@ RCTのポイント：原因のある（政策を受けた）集団と原因の�
   経済学、公衆衛生学、政治学\ldots\ldots における因果推論革命、識別革命
 \end{itemize}
 
+\hypertarget{ux76f8ux95a2ux4fc2ux6570}{%
+\subsection{相関係数}\label{ux76f8ux95a2ux4fc2ux6570}}
+
+\textbf{相関係数}：2つの変数の関係が、どの程度、直線的であるのかを示す指標
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-3-1.png}
+
+}
+
+\caption{相関係数と傾き}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  相関係数が高い\(\neq\)影響が大きい
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-4-1.png}
+
+}
+
+\caption{相関係数と傾き}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  非線形な関係は分からない
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-5-1.png}
+
+}
+
+\caption{相関係数と非線形性}
+
+\end{figure}
+
 \hypertarget{ux56deux5e30ux4e0dux9023ux7d9aux30c7ux30b6ux30a4ux30f3}{%
 \section{回帰不連続デザイン}\label{ux56deux5e30ux4e0dux9023ux7d9aux30c7ux30b6ux30a4ux30f3}}
 
@@ -324,7 +371,7 @@ RDD)：ある基準を満たすかどうかで、原因の有無が分かるよ�
 
 \begin{figure}[htpb]
 
-{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-3-1.png}
+{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-6-1.png}
 
 }
 

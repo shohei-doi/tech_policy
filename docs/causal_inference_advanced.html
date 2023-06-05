@@ -166,6 +166,7 @@ div.csl-indent {
   <li><a href="#マッチング" id="toc-マッチング" class="nav-link" data-scroll-target="#マッチング"><span class="header-section-number">1.1</span> マッチング</a></li>
   <li><a href="#回帰分析" id="toc-回帰分析" class="nav-link" data-scroll-target="#回帰分析"><span class="header-section-number">1.2</span> 回帰分析</a></li>
   <li><a href="#統制の限界" id="toc-統制の限界" class="nav-link" data-scroll-target="#統制の限界"><span class="header-section-number">1.3</span> 統制の限界</a></li>
+  <li><a href="#相関係数" id="toc-相関係数" class="nav-link" data-scroll-target="#相関係数"><span class="header-section-number">1.4</span> 相関係数</a></li>
   </ul></li>
   <li><a href="#回帰不連続デザイン" id="toc-回帰不連続デザイン" class="nav-link" data-scroll-target="#回帰不連続デザイン"><span class="header-section-number">2</span> 回帰不連続デザイン</a></li>
   <li><a href="#差分の差" id="toc-差分の差" class="nav-link" data-scroll-target="#差分の差"><span class="header-section-number">3</span> 差分の差</a>
@@ -213,7 +214,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年6月4日</p>
+      <p class="date">2023年6月5日</p>
     </div>
   </div>
   
@@ -306,6 +307,46 @@ div.csl-indent {
 <li>経済学、公衆衛生学、政治学……における因果推論革命、識別革命</li>
 </ul>
 </section>
+<section id="相関係数" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="相関係数"><span class="header-section-number">1.4</span> 相関係数</h3>
+<p><strong>相関係数</strong>：2つの変数の関係が、どの程度、直線的であるのかを示す指標</p>
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-3_9c48ab6447b302be814810cfd32215b7">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">相関係数と傾き</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>相関係数が高い<span class="math inline">\(\neq\)</span>影響が大きい</li>
+</ul>
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-4_2ed01a93e7620ee86bb20b54f173ca35">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">相関係数と傾き</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>非線形な関係は分からない</li>
+</ul>
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-5_288236d08b94cec398b3a2414dc73d06">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">相関係数と非線形性</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="回帰不連続デザイン" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="回帰不連続デザイン"><span class="header-section-number">2</span> 回帰不連続デザイン</h2>
@@ -313,11 +354,11 @@ div.csl-indent {
 <ul>
 <li>とある資格（例えば英検）を取るといい給料の仕事に就職しやすくなるのか？</li>
 </ul>
-<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-3_d3ee7d3bd01a5bd783d28bdd878a2804">
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-6_a0a0714e8e6981ebbbf8924d2aeac030">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img"></p>
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">RDDのイメージ</figcaption><p></p>
 </figure>
 </div>

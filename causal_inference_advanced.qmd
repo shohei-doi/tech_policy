@@ -92,6 +92,90 @@ $\leadsto$もう少し因果関係と言いやすいような状況はないだ�
 
 - 経済学、公衆衛生学、政治学……における因果推論革命、識別革命
 
+### 相関係数
+
+**相関係数**：2つの変数の関係が、どの程度、直線的であるのかを示す指標
+
+```{r}
+#| fig-cap: "相関係数と傾き"
+
+set.seed(334)
+
+n <- 200
+sd <- c(0.5, 1, 1.5, 2)
+
+df_cor <- NULL
+
+for (s in sd) {
+  
+  temp <- tibble(x = rnorm(n), y = x + rnorm(n, 0, s))
+  
+  df_cor <- bind_rows(df_cor, 
+                      temp %>% 
+                        mutate(cor = cor(.$x, .$y) %>% 
+                                 round(3)))
+  
+}
+
+ggplot(df_cor) + 
+  geom_point(aes(x = x, y = y)) + 
+  facet_wrap(~ cor) + 
+  labs(x = "", y = "")
+```
+
+- 相関係数が高い$\neq$影響が大きい
+
+```{r}
+#| fig-cap: "相関係数と傾き"
+
+set.seed(334)
+
+n <- 200
+eff <- c(2, 3, 4, 5)
+
+df_cor <- NULL
+
+for (e in eff) {
+  
+  temp <- tibble(x = rnorm(n), y = e*x + rnorm(n))
+  
+  df_cor <- bind_rows(df_cor, 
+                      temp %>% 
+                        mutate(cor = cor(.$x, .$y) %>% 
+                                 round(3)))
+  
+}
+
+ggplot(df_cor) + 
+  geom_point(aes(x = x, y = y)) + 
+  facet_wrap(~ cor) + 
+  labs(x = "", y = "")
+```
+
+- 非線形な関係は分からない
+
+```{r}
+#| fig-cap: "相関係数と非線形性"
+
+n <- 100
+
+df_nonlin <- bind_rows(tibble(x = rnorm(n), 
+                              y = x^2 + rnorm(n), 
+                              g = "放物線"), 
+                       tibble(a = rnorm(n), 
+                              x = cos(pi*a) + rnorm(n, 0, 0.1), 
+                              y = sin(pi*a) + rnorm(n, 0, 0.1), 
+                              g = "円")) %>% 
+  group_by(g) %>% 
+  mutate(cor = cor(x, y) %>% 
+           round(5))
+
+ggplot(df_nonlin) + 
+  geom_point(aes(x = x, y = y)) + 
+  facet_wrap(~ cor, scales = "free") + 
+  labs(x = "", y = "")
+```
+
 ## 回帰不連続デザイン
 
 **回帰不連続デザイン** (regression discontinuity design: RDD)：ある基準を満たすかどうかで、原因の有無が分かるような状況を使ってみる。
