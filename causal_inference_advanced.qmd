@@ -11,6 +11,7 @@ date: today
 
 library(tidyverse)
 theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(MASS)
 ```
 
 ## はじめに {.unnumbered}
@@ -102,22 +103,29 @@ $\leadsto$もう少し因果関係と言いやすいような状況はないだ�
 set.seed(334)
 
 n <- 200
-sd <- c(0.5, 1, 1.5, 2)
+var <- c(1.1, 1.3, 1.5, 1.9)
 
 df_cor <- NULL
 
-for (s in sd) {
+Sigma <- matrix(rep(1, 4), nrow = 2)
+
+for (v in var) {
   
-  temp <- tibble(x = rnorm(n), y = x + rnorm(n, 0, s))
+  Sigma[1, 1] <- Sigma[2, 2] <- v
   
-  df_cor <- bind_rows(df_cor, 
-                      temp %>% 
-                        mutate(cor = cor(.$x, .$y) %>% 
-                                 round(3)))
+  xy <- mvrnorm(n = n, mu = c(0, 0), Sigma = Sigma)
+  
+  df_cor <- df_cor %>% 
+    bind_rows(tibble(x = xy[,1], y = xy[,2]) %>% 
+                mutate(g = v))
   
 }
 
-ggplot(df_cor) + 
+df_cor %>% 
+  group_by(g) %>% 
+  mutate(cor = cor(x, y) %>% 
+           round(3)) %>% 
+  ggplot() + 
   geom_point(aes(x = x, y = y)) + 
   facet_wrap(~ cor) + 
   labs(x = "", y = "")
@@ -131,22 +139,28 @@ ggplot(df_cor) +
 set.seed(334)
 
 n <- 200
-eff <- c(2, 3, 4, 5)
+eff <- c(0.5, 1, 2, 4)
 
 df_cor <- NULL
 
+Sigma <- matrix(c(1.1, 1, 1, 1.1), nrow = 2)
+
 for (e in eff) {
   
-  temp <- tibble(x = rnorm(n), y = e*x + rnorm(n))
+  xy <- mvrnorm(n = n, mu = c(0, 0), Sigma = Sigma)
   
-  df_cor <- bind_rows(df_cor, 
-                      temp %>% 
-                        mutate(cor = cor(.$x, .$y) %>% 
-                                 round(3)))
+  df_cor <- df_cor %>% 
+    bind_rows(tibble(x = xy[,1], y = xy[,2]) %>% 
+                mutate(y = e * y, 
+                       g = e))
   
 }
 
-ggplot(df_cor) + 
+df_cor %>% 
+  group_by(g) %>% 
+  mutate(cor = cor(x, y) %>% 
+           round(3)) %>% 
+  ggplot() + 
   geom_point(aes(x = x, y = y)) + 
   facet_wrap(~ cor) + 
   labs(x = "", y = "")
@@ -346,6 +360,49 @@ $\leadsto$ある事象Aが起きた後に事象Bが生じたからといってA�
 
 - ただし、RCTの結果はどちらでも同じような傾向を持つ[@weinberg2014]
 
+### 生態学的誤謬
+
+生態学的誤謬 (ecological fallacy)：集団レベルの結果と個人レベルの結果は同じになるとは限らない。
+
+- 平均収入と支持政党の関係は州と個人で一致するか？[@gelman2007]
+
+![@gelman2007](figures/gelman1.png)
+
+![@gelman2007](figures/gelman1.png)
+
+```{r}
+#| fig-cap: "生態学的誤謬のイメージ"
+
+n <- 100
+diff <- 1.5
+
+df_eco <- bind_rows(tibble(x = rnorm(n), 
+                           y = -x - rnorm(n), 
+                           g = "A") %>% 
+                      mutate(x = x - diff, y = y - diff), 
+                    tibble(x = rnorm(n), 
+                           y = -x + rnorm(n), 
+                           g = "B"), 
+                    tibble(x = rnorm(n), 
+                           y = -x + rnorm(n), 
+                           g = "C") %>% 
+                      mutate(x = x + diff, y = y + diff))
+
+ggplot(df_eco) + 
+  geom_point(aes(x = x, y = y)) + 
+  geom_smooth(aes(x = x, y = y), 
+              method = "lm", se = FALSE)
+
+ggplot(df_eco) + 
+  geom_point(aes(x = x, y = y, color = g)) + 
+  geom_smooth(aes(x = x, y = y, color = g), 
+              method = "lm", se = FALSE) + 
+  scale_color_brewer(palette = "Set2") + 
+  labs(x = "", y = "", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+
 ### 不均一効果
 
 政策の効果はあらゆる集団に対して同じとは限らない。
@@ -391,9 +448,30 @@ $\leadsto$集団全体における効果（一般均衡効果）が生じる。
 - どのようなデータと手法を用いているのかを確認
 - 「データの読み方」を学ぶ[@sugawara2022; @ogiwara2023; @tsutsui2023]
 
+### データの利用可能性
+
+#### ミクロデータ
+
+ミクロ（個票）データが利用可能であれば、様々な分析ができる。
+
+- 政治家は有能なのか？
+
+![@dal2017](figures/dalbo.png)
+
+$\leadsto$ミクロデータのほうが価値は高い。
+
+- ミクロデータ$\leadsto$マクロデータ（その逆ではない）
+
+#### 機械判読可能なデータ
+
+それ以前の問題として、公開されているデータを**機械判読可能な** (machine-readable) データとして公開する必要
+
+- [統計表における機械判読可能なデータの表記方法の統一ルールの策定](https://www.soumu.go.jp/menu_news/s-news/01toukatsu01_02000186.html)
+- [選挙関連資料](https://www.soumu.go.jp/senkyo/senkyo_s/data/index.html)
+
 ### 事例分析
 
-事例分析をする際にも効果を示す際には注意が必要[@kume2013; @ito2022]
+事例分析によって効果を示す際には注意が必要[@kume2013; @ito2022]
 
 - 差異法：同じような事例だが、原因の有無が異なるような事例を比較する
   - 理想としては原因がランダムに生じている状況
@@ -402,5 +480,8 @@ $\leadsto$集団全体における効果（一般均衡効果）が生じる。
 - 一致法：異なる事例だが、原因と結果が生じている事例を比較する
   - 有力な原因を提案できるが、因果関係・効果を主張するのは難しい
 - 反実仮想：仮に原因がなかったらどうなっていたのかを明らかにして、原因であることを説得する
+
+効果を示すという目標以外の方策も
+
 - 過程追跡：原因から結果での出来事の連鎖を辿って、因果関係・プロセスを示す
 - 逸脱事例：通説では説明できない事例を提示して、通説を修正する

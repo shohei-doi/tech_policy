@@ -169,11 +169,11 @@
 \makeatother
 \subtitle{技術政策学（データ科学編）}
 \author{土井翔平}
-\date{2023-06-05}
+\date{2023-06-11}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, sharp corners, boxrule=0pt, frame hidden, breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, sharp corners, interior hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, breakable, frame hidden]}{\end{tcolorbox}}\fi
 
 \hypertarget{ux306fux3058ux3081ux306b}{%
 \section*{はじめに}\label{ux306fux3058ux3081ux306b}}
@@ -859,6 +859,58 @@ IV)：原因のみに影響し、結果には直接影響しない要因（操�
   ただし、RCTの結果はどちらでも同じような傾向を持つ\citep{weinberg2014}
 \end{itemize}
 
+\hypertarget{ux751fux614bux5b66ux7684ux8aa4ux8b2c}{%
+\subsection{生態学的誤謬}\label{ux751fux614bux5b66ux7684ux8aa4ux8b2c}}
+
+生態学的誤謬 (ecological
+fallacy)：集団レベルの結果と個人レベルの結果は同じになるとは限らない。
+
+\begin{itemize}
+\tightlist
+\item
+  平均収入と支持政党の関係は州と個人で一致するか？\citep{gelman2007}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/gelman1.png}
+
+}
+
+\caption{\citet{gelman2007}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/gelman1.png}
+
+}
+
+\caption{\citet{gelman2007}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-7-1.png}
+
+}
+
+\caption{生態学的誤謬のイメージ}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{causal_inference_advanced_files/figure-pdf/unnamed-chunk-7-2.png}
+
+}
+
+\caption{生態学的誤謬のイメージ}
+
+\end{figure}
+
 \hypertarget{ux4e0dux5747ux4e00ux52b9ux679c}{%
 \subsection{不均一効果}\label{ux4e0dux5747ux4e00ux52b9ux679c}}
 
@@ -943,10 +995,56 @@ RCTでは集団全体から一部を取り出して、政策の有無を決定�
   「データの読み方」を学ぶ\citep{sugawara2022, ogiwara2023, tsutsui2023}
 \end{itemize}
 
+\hypertarget{ux30c7ux30fcux30bfux306eux5229ux7528ux53efux80fdux6027}{%
+\subsection{データの利用可能性}\label{ux30c7ux30fcux30bfux306eux5229ux7528ux53efux80fdux6027}}
+
+\hypertarget{ux30dfux30afux30edux30c7ux30fcux30bf}{%
+\subsubsection{ミクロデータ}\label{ux30dfux30afux30edux30c7ux30fcux30bf}}
+
+ミクロ（個票）データが利用可能であれば、様々な分析ができる。
+
+\begin{itemize}
+\tightlist
+\item
+  政治家は有能なのか？
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/dalbo.png}
+
+}
+
+\caption{\citet{dal2017}}
+
+\end{figure}
+
+\(\leadsto\)ミクロデータのほうが価値は高い。
+
+\begin{itemize}
+\tightlist
+\item
+  ミクロデータ\(\leadsto\)マクロデータ（その逆ではない）
+\end{itemize}
+
+\hypertarget{ux6a5fux68b0ux5224ux8aadux53efux80fdux306aux30c7ux30fcux30bf}{%
+\subsubsection{機械判読可能なデータ}\label{ux6a5fux68b0ux5224ux8aadux53efux80fdux306aux30c7ux30fcux30bf}}
+
+それ以前の問題として、公開されているデータを\textbf{機械判読可能な}
+(machine-readable) データとして公開する必要
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.soumu.go.jp/menu_news/s-news/01toukatsu01_02000186.html}{統計表における機械判読可能なデータの表記方法の統一ルールの策定}
+\item
+  \href{https://www.soumu.go.jp/senkyo/senkyo_s/data/index.html}{選挙関連資料}
+\end{itemize}
+
 \hypertarget{ux4e8bux4f8bux5206ux6790}{%
 \subsection{事例分析}\label{ux4e8bux4f8bux5206ux6790}}
 
-事例分析をする際にも効果を示す際には注意が必要\citep{kume2013, ito2022}
+事例分析によって効果を示す際には注意が必要\citep{kume2013, ito2022}
 
 \begin{itemize}
 \tightlist
@@ -972,6 +1070,12 @@ RCTでは集団全体から一部を取り出して、政策の有無を決定�
   \end{itemize}
 \item
   反実仮想：仮に原因がなかったらどうなっていたのかを明らかにして、原因であることを説得する
+\end{itemize}
+
+効果を示すという目標以外の方策も
+
+\begin{itemize}
+\tightlist
 \item
   過程追跡：原因から結果での出来事の連鎖を辿って、因果関係・プロセスを示す
 \item

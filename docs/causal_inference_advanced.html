@@ -180,13 +180,15 @@ div.csl-indent {
   <li><a href="#因果推論の注意点" id="toc-因果推論の注意点" class="nav-link" data-scroll-target="#因果推論の注意点"><span class="header-section-number">5</span> 因果推論の注意点</a>
   <ul class="collapse">
   <li><a href="#サンプルの代表性" id="toc-サンプルの代表性" class="nav-link" data-scroll-target="#サンプルの代表性"><span class="header-section-number">5.1</span> サンプルの代表性</a></li>
-  <li><a href="#不均一効果" id="toc-不均一効果" class="nav-link" data-scroll-target="#不均一効果"><span class="header-section-number">5.2</span> 不均一効果</a></li>
-  <li><a href="#一般均衡効果" id="toc-一般均衡効果" class="nav-link" data-scroll-target="#一般均衡効果"><span class="header-section-number">5.3</span> 一般均衡効果</a></li>
+  <li><a href="#生態学的誤謬" id="toc-生態学的誤謬" class="nav-link" data-scroll-target="#生態学的誤謬"><span class="header-section-number">5.2</span> 生態学的誤謬</a></li>
+  <li><a href="#不均一効果" id="toc-不均一効果" class="nav-link" data-scroll-target="#不均一効果"><span class="header-section-number">5.3</span> 不均一効果</a></li>
+  <li><a href="#一般均衡効果" id="toc-一般均衡効果" class="nav-link" data-scroll-target="#一般均衡効果"><span class="header-section-number">5.4</span> 一般均衡効果</a></li>
   </ul></li>
   <li><a href="#実証分析への示唆" id="toc-実証分析への示唆" class="nav-link" data-scroll-target="#実証分析への示唆"><span class="header-section-number">6</span> 実証分析への示唆</a>
   <ul class="collapse">
   <li><a href="#計量分析" id="toc-計量分析" class="nav-link" data-scroll-target="#計量分析"><span class="header-section-number">6.1</span> 計量分析</a></li>
-  <li><a href="#事例分析" id="toc-事例分析" class="nav-link" data-scroll-target="#事例分析"><span class="header-section-number">6.2</span> 事例分析</a></li>
+  <li><a href="#データの利用可能性" id="toc-データの利用可能性" class="nav-link" data-scroll-target="#データの利用可能性"><span class="header-section-number">6.2</span> データの利用可能性</a></li>
+  <li><a href="#事例分析" id="toc-事例分析" class="nav-link" data-scroll-target="#事例分析"><span class="header-section-number">6.3</span> 事例分析</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/causal_inference_advanced.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -214,7 +216,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年6月5日</p>
+      <p class="date">2023年6月11日</p>
     </div>
   </div>
   
@@ -310,7 +312,7 @@ div.csl-indent {
 <section id="相関係数" class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="相関係数"><span class="header-section-number">1.4</span> 相関係数</h3>
 <p><strong>相関係数</strong>：2つの変数の関係が、どの程度、直線的であるのかを示す指標</p>
-<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-3_9c48ab6447b302be814810cfd32215b7">
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-3_b814ed7d725d4e215f5cb4766c44f7ce">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -323,7 +325,7 @@ div.csl-indent {
 <ul>
 <li>相関係数が高い<span class="math inline">\(\neq\)</span>影響が大きい</li>
 </ul>
-<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-4_2ed01a93e7620ee86bb20b54f173ca35">
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-4_c3799a454419db27b685716763894ddc">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -637,8 +639,45 @@ div.csl-indent {
 <li>ただし、RCTの結果はどちらでも同じような傾向を持つ<span class="citation" data-cites="weinberg2014">(<a href="#ref-weinberg2014" role="doc-biblioref">Weinberg, Freese, と McElhattan 2014</a>)</span></li>
 </ul>
 </section>
-<section id="不均一効果" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="不均一効果"><span class="header-section-number">5.2</span> 不均一効果</h3>
+<section id="生態学的誤謬" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="生態学的誤謬"><span class="header-section-number">5.2</span> 生態学的誤謬</h3>
+<p>生態学的誤謬 (ecological fallacy)：集団レベルの結果と個人レベルの結果は同じになるとは限らない。</p>
+<ul>
+<li>平均収入と支持政党の関係は州と個人で一致するか？<span class="citation" data-cites="gelman2007">(<a href="#ref-gelman2007" role="doc-biblioref">Gelman ほか 2007</a>)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/gelman1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="gelman2007">Gelman ほか (<a href="#ref-gelman2007" role="doc-biblioref">2007</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/gelman1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="gelman2007">Gelman ほか (<a href="#ref-gelman2007" role="doc-biblioref">2007</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<div class="cell" data-hash="causal_inference_advanced_cache/html/unnamed-chunk-7_82f61b58765824bc3d82f2e080e0e9a6">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">生態学的誤謬のイメージ</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="causal_inference_advanced_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">生態学的誤謬のイメージ</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="不均一効果" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="不均一効果"><span class="header-section-number">5.3</span> 不均一効果</h3>
 <p>政策の効果はあらゆる集団に対して同じとは限らない。</p>
 <ul>
 <li>年齢や性別、学歴、経済状況……などによって効果は変わりうる。</li>
@@ -651,8 +690,8 @@ div.csl-indent {
 </div>
 <p><span class="math inline">\(\leadsto\)</span>条件ごとに集団を分割して効果を推定する。</p>
 </section>
-<section id="一般均衡効果" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="一般均衡効果"><span class="header-section-number">5.3</span> 一般均衡効果</h3>
+<section id="一般均衡効果" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="一般均衡効果"><span class="header-section-number">5.4</span> 一般均衡効果</h3>
 <p>RCTでは集団全体から一部を取り出して、政策の有無を決定する。</p>
 <p><span class="math inline">\(\leadsto\)</span>実際に政策を受けるのは全体から見るとごく一部</p>
 <p>政策として集団全体に実施した場合は、RCT通りの結果にならないかもしれない。</p>
@@ -687,9 +726,37 @@ div.csl-indent {
 <li>「データの読み方」を学ぶ<span class="citation" data-cites="sugawara2022 ogiwara2023 tsutsui2023">(<a href="#ref-sugawara2022" role="doc-biblioref">菅原 2022</a>; <a href="#ref-ogiwara2023" role="doc-biblioref">荻原 2023</a>; <a href="#ref-tsutsui2023" role="doc-biblioref">筒井 2023</a>)</span></li>
 </ul>
 </section>
-<section id="事例分析" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="事例分析"><span class="header-section-number">6.2</span> 事例分析</h3>
-<p>事例分析をする際にも効果を示す際には注意が必要<span class="citation" data-cites="kume2013 ito2022">(<a href="#ref-kume2013" role="doc-biblioref">久米 2013</a>; <a href="#ref-ito2022" role="doc-biblioref">伊藤 2022</a>)</span></p>
+<section id="データの利用可能性" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="データの利用可能性"><span class="header-section-number">6.2</span> データの利用可能性</h3>
+<section id="ミクロデータ" class="level4" data-number="6.2.1">
+<h4 data-number="6.2.1" class="anchored" data-anchor-id="ミクロデータ"><span class="header-section-number">6.2.1</span> ミクロデータ</h4>
+<p>ミクロ（個票）データが利用可能であれば、様々な分析ができる。</p>
+<ul>
+<li>政治家は有能なのか？</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/dalbo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="dal2017">Dal Bó ほか (<a href="#ref-dal2017" role="doc-biblioref">2017</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>ミクロデータのほうが価値は高い。</p>
+<ul>
+<li>ミクロデータ<span class="math inline">\(\leadsto\)</span>マクロデータ（その逆ではない）</li>
+</ul>
+</section>
+<section id="機械判読可能なデータ" class="level4" data-number="6.2.2">
+<h4 data-number="6.2.2" class="anchored" data-anchor-id="機械判読可能なデータ"><span class="header-section-number">6.2.2</span> 機械判読可能なデータ</h4>
+<p>それ以前の問題として、公開されているデータを<strong>機械判読可能な</strong> (machine-readable) データとして公開する必要</p>
+<ul>
+<li><a href="https://www.soumu.go.jp/menu_news/s-news/01toukatsu01_02000186.html">統計表における機械判読可能なデータの表記方法の統一ルールの策定</a></li>
+<li><a href="https://www.soumu.go.jp/senkyo/senkyo_s/data/index.html">選挙関連資料</a></li>
+</ul>
+</section>
+</section>
+<section id="事例分析" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="事例分析"><span class="header-section-number">6.3</span> 事例分析</h3>
+<p>事例分析によって効果を示す際には注意が必要<span class="citation" data-cites="kume2013 ito2022">(<a href="#ref-kume2013" role="doc-biblioref">久米 2013</a>; <a href="#ref-ito2022" role="doc-biblioref">伊藤 2022</a>)</span></p>
 <ul>
 <li>差異法：同じような事例だが、原因の有無が異なるような事例を比較する
 <ul>
@@ -702,6 +769,9 @@ div.csl-indent {
 <li>有力な原因を提案できるが、因果関係・効果を主張するのは難しい</li>
 </ul></li>
 <li>反実仮想：仮に原因がなかったらどうなっていたのかを明らかにして、原因であることを説得する</li>
+</ul>
+<p>効果を示すという目標以外の方策も</p>
+<ul>
 <li>過程追跡：原因から結果での出来事の連鎖を辿って、因果関係・プロセスを示す</li>
 <li>逸脱事例：通説では説明できない事例を提示して、通説を修正する</li>
 </ul>
@@ -739,6 +809,12 @@ Card, David. 1990. <span>「The impact of the Mariel boatlift on the Miami labor
 </div>
 <div id="ref-card1994" class="csl-entry" role="listitem">
 Card, David, と Alan B Krueger. 1994. <span>「Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania」</span>. <em>The American Economic Review</em>, 772–93.
+</div>
+<div id="ref-dal2017" class="csl-entry" role="listitem">
+Dal Bó, Ernesto, Frederico Finan, Olle Folke, Torsten Persson, と Johanna Rickne. 2017. <span>「Who becomes a politician?」</span> <em>The Quarterly Journal of Economics</em> 132 (4): 1877–1914.
+</div>
+<div id="ref-gelman2007" class="csl-entry" role="listitem">
+Gelman, Andrew, Boris Shor, Joseph Bafumi, と David Park. 2007. <span>「Rich State, Poor State, Red State, Blue State: What’s the Matter with Connecticut?」</span> <em>Quarterly Journal of Political Science</em> 2: 345–67.
 </div>
 <div id="ref-goldsmith2021" class="csl-entry" role="listitem">
 Goldsmith, Benjamin E, Yusaku Horiuchi, と Kelly Matush. 2021. <span>「Does public diplomacy sway foreign public opinion? Identifying the effect of high-level visits」</span>. <em>American Political Science Review</em> 115 (4): 1342–57.

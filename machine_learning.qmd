@@ -507,6 +507,16 @@ $\leadsto$先に行動する側に**先行者利益** (first-mover advantage) �
 - **国際標準化機構** (International Organization for Standardization: ISO) が様々な規格を定める。
 - **ICANN** (The Internet Corporation for Assigned Names and Numbers) がインターネットの運用を行っている。
 
+EUはデータやAIに関する規制に積極的
+
+- [一般データ保護規則](https://www.ppc.go.jp/enforcement/infoprovision/EU/) (General Data Protection Regulation: GDPR)
+- [人工知能規則](https://www.soumu.go.jp/main_content/000826707.pdf) (artificial intelligence act)
+
+$\leadsto$EUは**域外適用**を積極的に行う
+
+- 域外適用：EU域内に存在しない企業がEU市民にサービス提供などを行う場合にEUを適用
+- **ブリュッセル効果**：EU域外の企業がEU方に従わざるを得ず、EU法がグローバル・スタンダードになる現象
+
 #### 人工知能と環境
 
 LLMの開発には大規模な計算が必要$\leadsto$莫大な電力消費と環境不可
