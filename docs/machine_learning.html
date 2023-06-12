@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.290">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.3.290" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="土井翔平">
 
-<meta name="author" content="土井翔平" />
-
-<title>技術政策学 – 人工知能の機械学習</title>
+<title>技術政策学 - 人工知能の機械学習</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -44,7 +42,23 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,22 +86,17 @@ div.csl-indent {
 
 </head>
 
-<body>
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn"
-      data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
-      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える"
-      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <h1 class="quarto-secondary-nav-title"></h1>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
-      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える"
-      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./machine_learning.html">人工知能の機械学習</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -101,9 +110,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="/">
-      技術政策学
-      </a> 
+      <a href="./">技術政策学</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -115,44 +122,74 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">はじめに</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/big_data.html" class="sidebar-item-text sidebar-link">
+  <a href="./big_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">デジタル化する社会</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/machine_learning.html" class="sidebar-item-text sidebar-link active">
+  <a href="./machine_learning.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">人工知能の機械学習</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/causal_inference_basic.html" class="sidebar-item-text sidebar-link">
+  <a href="./causal_inference_basic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">政策効果の検証：基礎</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/causal_inference_advanced.html" class="sidebar-item-text sidebar-link">
+  <a href="./causal_inference_advanced.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">政策効果の検証：発展</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" ></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <div id="quarto-toc-target"></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#教師あり学習" id="toc-教師あり学習" class="nav-link" data-scroll-target="#教師あり学習"><span class="header-section-number">1</span> 教師あり学習</a>
+  <ul class="collapse">
+  <li><a href="#回帰分析" id="toc-回帰分析" class="nav-link" data-scroll-target="#回帰分析"><span class="header-section-number">1.1</span> 回帰分析</a></li>
+  <li><a href="#決定木" id="toc-決定木" class="nav-link" data-scroll-target="#決定木"><span class="header-section-number">1.2</span> 決定木</a></li>
+  <li><a href="#深層学習" id="toc-深層学習" class="nav-link" data-scroll-target="#深層学習"><span class="header-section-number">1.3</span> 深層学習</a></li>
+  <li><a href="#プロンプトエンジニアリング" id="toc-プロンプトエンジニアリング" class="nav-link" data-scroll-target="#プロンプトエンジニアリング"><span class="header-section-number">1.4</span> プロンプト・エンジニアリング</a></li>
+  <li><a href="#拡散モデル" id="toc-拡散モデル" class="nav-link" data-scroll-target="#拡散モデル"><span class="header-section-number">1.5</span> 拡散モデル</a></li>
+  </ul></li>
+  <li><a href="#教師なし学習" id="toc-教師なし学習" class="nav-link" data-scroll-target="#教師なし学習"><span class="header-section-number">2</span> 教師なし学習</a>
+  <ul class="collapse">
+  <li><a href="#単語埋め込み" id="toc-単語埋め込み" class="nav-link" data-scroll-target="#単語埋め込み"><span class="header-section-number">2.1</span> 単語埋め込み</a></li>
+  <li><a href="#自己注意機構" id="toc-自己注意機構" class="nav-link" data-scroll-target="#自己注意機構"><span class="header-section-number">2.2</span> 自己注意機構</a></li>
+  </ul></li>
+  <li><a href="#強化学習" id="toc-強化学習" class="nav-link" data-scroll-target="#強化学習"><span class="header-section-number">3</span> 強化学習</a>
+  <ul class="collapse">
+  <li><a href="#alphago" id="toc-alphago" class="nav-link" data-scroll-target="#alphago"><span class="header-section-number">3.1</span> AlphaGo</a></li>
+  <li><a href="#人間のフィードバック" id="toc-人間のフィードバック" class="nav-link" data-scroll-target="#人間のフィードバック"><span class="header-section-number">3.2</span> 人間のフィードバック</a></li>
+  </ul></li>
+  <li><a href="#人工知能の社会的課題" id="toc-人工知能の社会的課題" class="nav-link" data-scroll-target="#人工知能の社会的課題"><span class="header-section-number">4</span> 人工知能の社会的課題</a>
+  <ul class="collapse">
+  <li><a href="#人工知能の使い方" id="toc-人工知能の使い方" class="nav-link" data-scroll-target="#人工知能の使い方"><span class="header-section-number">4.1</span> 人工知能の使い方</a></li>
+  <li><a href="#人工知能と社会" id="toc-人工知能と社会" class="nav-link" data-scroll-target="#人工知能と社会"><span class="header-section-number">4.2</span> 人工知能と社会</a></li>
+  </ul></li>
+  <li><a href="#機械学習の実践" id="toc-機械学習の実践" class="nav-link" data-scroll-target="#機械学習の実践"><span class="header-section-number">5</span> 機械学習の実践</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/machine_learning.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -174,7 +211,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年6月7日</p>
+      <p class="date">2023年6月12日</p>
     </div>
   </div>
   
@@ -183,43 +220,13 @@ div.csl-indent {
   
 
 </header>
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">目次</h2>
-   
-  <ul>
-  <li><a href="#はじめに" id="toc-はじめに">はじめに</a></li>
-  <li><a href="#教師あり学習" id="toc-教師あり学習"><span class="header-section-number">1</span> 教師あり学習</a>
-  <ul>
-  <li><a href="#回帰分析" id="toc-回帰分析"><span class="header-section-number">1.1</span> 回帰分析</a></li>
-  <li><a href="#決定木" id="toc-決定木"><span class="header-section-number">1.2</span> 決定木</a></li>
-  <li><a href="#深層学習" id="toc-深層学習"><span class="header-section-number">1.3</span> 深層学習</a></li>
-  <li><a href="#プロンプトエンジニアリング" id="toc-プロンプトエンジニアリング"><span class="header-section-number">1.4</span> プロンプト・エンジニアリング</a></li>
-  <li><a href="#拡散モデル" id="toc-拡散モデル"><span class="header-section-number">1.5</span> 拡散モデル</a></li>
-  </ul></li>
-  <li><a href="#教師なし学習" id="toc-教師なし学習"><span class="header-section-number">2</span> 教師なし学習</a>
-  <ul>
-  <li><a href="#単語埋め込み" id="toc-単語埋め込み"><span class="header-section-number">2.1</span> 単語埋め込み</a></li>
-  <li><a href="#自己注意機構" id="toc-自己注意機構"><span class="header-section-number">2.2</span> 自己注意機構</a></li>
-  </ul></li>
-  <li><a href="#強化学習" id="toc-強化学習"><span class="header-section-number">3</span> 強化学習</a>
-  <ul>
-  <li><a href="#alphago" id="toc-alphago"><span class="header-section-number">3.1</span> AlphaGo</a></li>
-  <li><a href="#人間のフィードバック" id="toc-人間のフィードバック"><span class="header-section-number">3.2</span> 人間のフィードバック</a></li>
-  </ul></li>
-  <li><a href="#人工知能の社会的課題" id="toc-人工知能の社会的課題"><span class="header-section-number">4</span> 人工知能の社会的課題</a>
-  <ul>
-  <li><a href="#人工知能の使い方" id="toc-人工知能の使い方"><span class="header-section-number">4.1</span> 人工知能の使い方</a></li>
-  <li><a href="#人工知能と社会" id="toc-人工知能と社会"><span class="header-section-number">4.2</span> 人工知能と社会</a></li>
-  </ul></li>
-  <li><a href="#機械学習の実践" id="toc-機械学習の実践"><span class="header-section-number">5</span> 機械学習の実践</a></li>
-  </ul>
-</nav>
-<section id="はじめに" class="level2 unnumbered">
-<h2 class="unnumbered">はじめに</h2>
+
+<section id="はじめに" class="level2 unnumbered page-columns page-full">
+<h2 class="unnumbered anchored" data-anchor-id="はじめに">はじめに</h2>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 警告
@@ -273,8 +280,8 @@ div.csl-indent {
 </ol>
 <p><span class="math inline">\(\leadsto\)</span>これらの概要を理解し、生成AIが何をしているかを理解する。</p>
 </section>
-<section id="教師あり学習" class="level2" data-number="1">
-<h2 data-number="1"><span class="header-section-number">1</span> 教師あり学習</h2>
+<section id="教師あり学習" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="教師あり学習"><span class="header-section-number">1</span> 教師あり学習</h2>
 <p>教師あり学習とは、機械に人間の判断のパターンを学習させ、模倣できるようにすること。</p>
 <p><span class="math inline">\(\leadsto\)</span>言い換えれば、<strong>予測</strong> (prediction) というタスクを実行できるように訓練する。</p>
 <ul>
@@ -282,24 +289,24 @@ div.csl-indent {
 <li>住宅の情報（間取り、最寄り駅までの距離……etc）と価格を機械に覚えさせる。</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://www.sbbit.jp/article/image/49067/l_bit202012111543429711.jpg" class="quarto-discovered-preview-image img-fluid" /></p>
-<p><figcaption><a href="https://www.sbbit.jp/article/cont1/49067">教師あり学習のイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://www.sbbit.jp/article/image/49067/l_bit202012111543429711.jpg" class="quarto-discovered-preview-image img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.sbbit.jp/article/cont1/49067">教師あり学習のイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <p><span class="math inline">\(\leadsto\)</span>ある情報を入力すると、それに対応する情報を出力する。</p>
 <ul>
 <li>入力情報に対応する出力（正解）を人間が判断する<strong>アノテーション</strong>が重要になる。</li>
 </ul>
-<section id="回帰分析" class="level3" data-number="1.1">
-<h3 data-number="1.1"><span class="header-section-number">1.1</span> 回帰分析</h3>
+<section id="回帰分析" class="level3 page-columns page-full" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="回帰分析"><span class="header-section-number">1.1</span> 回帰分析</h3>
 <p>シンプルで、広く使われている教師あり学習の手法として<strong>回帰分析</strong> (regression analysis) がある。</p>
 <ul>
 <li>例えば、北海道の中古マンション価格の教師あり学習を行ってみる。</li>
 </ul>
 <div class="cell" data-hash="machine_learning_cache/html/unnamed-chunk-2_9c92b8f4a71c70ca0348bd272b51201a">
 <div class="cell-output-display">
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" /></p>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><span class="math display">\[
@@ -334,7 +341,7 @@ i\textrm{の予測誤差の二乗} = i\textrm{の真の値} - i\textrm{の予測
 <p><span class="math display">\[
 i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{y}_2)^2 + \cdots
 \]</span></p>
-<p><span class="math inline">\(\leadsto\)</span>これを最小にする<span class="math inline">\(\hat{\alpha}, \hat{\beta}\)</span>をデータから求める！（パソコンが計算してくれる）<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="page-columns page-full"><p><span class="math inline">\(\leadsto\)</span>これを最小にする<span class="math inline">\(\hat{\alpha}, \hat{\beta}\)</span>をデータから求める！（パソコンが計算してくれる）<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;最適化（偏微分係数が0となる値を求める）によって明示的に解くことができる。</p></li></div></div>
 <ul>
 <li><span class="math inline">\(\hat{\alpha}, \hat{\beta}\)</span>は<span class="math inline">\(\hat{y}_i\)</span>の中に入っていることに注意。</li>
 </ul>
@@ -357,26 +364,26 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <p><span class="math inline">\(\leadsto\)</span><strong>ロジスティック関数</strong>（シグモイド関数）を使って変形すると、0から1の間に収まる。</p>
 <div class="cell" data-hash="machine_learning_cache/html/unnamed-chunk-3_c428b56e756eb6fd975d180c61bd6351">
 <div class="cell-output-display">
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" /></p>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
-<section id="決定木" class="level3" data-number="1.2">
-<h3 data-number="1.2"><span class="header-section-number">1.2</span> 決定木</h3>
+<section id="決定木" class="level3 page-columns page-full" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="決定木"><span class="header-section-number">1.2</span> 決定木</h3>
 <p>回帰分析以外の代表的な教師あり学習の手法として<strong>決定木</strong> (decision tree) がある。</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://www.nttcoms.com/service/research/dataanalysis/decision-tree/images/image001.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://www.nttcoms.com/service/research/dataanalysis/decision-tree/">決定木のイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://www.nttcoms.com/service/research/dataanalysis/decision-tree/images/image001.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.nttcoms.com/service/research/dataanalysis/decision-tree/">決定木のイメージ</a></figcaption><p></p>
 </figure>
 </div>
-<p><span class="math inline">\(\leadsto\)</span>弱い決定木をたくさん集めた<strong>ランダム・フォレスト</strong>（やその発展形<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>）がよく使われている。</p>
+<div class="page-columns page-full"><p><span class="math inline">\(\leadsto\)</span>弱い決定木をたくさん集めた<strong>ランダム・フォレスト</strong>（やその発展形<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>）がよく使われている。</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;XGBoostやLightGBMなど。</p></li></div></div>
 <ul>
 <li>三人寄れば文殊の知恵？　陪審定理？</li>
 </ul>
 </section>
-<section id="深層学習" class="level3" data-number="1.3">
-<h3 data-number="1.3"><span class="header-section-number">1.3</span> 深層学習</h3>
+<section id="深層学習" class="level3 page-columns page-full" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="深層学習"><span class="header-section-number">1.3</span> 深層学習</h3>
 <p>深層学習 (deep learning) は深層ニューラル・ネットワーク (deep neural network: DNN) とも呼ばれる。</p>
 <p><span class="math inline">\(\leadsto\)</span>もともとは人間のニューロンをマシン上で再現すれば人工知能ができるかもという期待</p>
 <ul>
@@ -384,20 +391,20 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul>
 <div class="cell" data-hash="machine_learning_cache/html/unnamed-chunk-4_43553e9e95fd691e976e99b540dd63a5">
 <div class="cell-output-display">
-<p><img src="machine_learning_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" /></p>
+<p><img src="machine_learning_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><span class="math inline">\(\leadsto\)</span>回帰分析をニューロンとして見て<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>、これをたくさん作る。</p>
+<div class="page-columns page-full"><p><span class="math inline">\(\leadsto\)</span>回帰分析をニューロンとして見て<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>、これをたくさん作る。</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;厳密に言えば、活性化関数を挟む。</p></li></div></div>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/logistic_regression.drawio.png" class="img-fluid" /></p>
-<p><figcaption>ロジスティック回帰のイメージ</figcaption></p>
+<figure class="figure">
+<p><img src="figures/logistic_regression.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ロジスティック回帰のイメージ</figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/deep_learning.drawio.png" class="img-fluid" /></p>
-<p><figcaption>深層ニューラル・ネットワークのイメージ</figcaption></p>
+<figure class="figure">
+<p><img src="figures/deep_learning.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">深層ニューラル・ネットワークのイメージ</figcaption><p></p>
 </figure>
 </div>
 <p>なぜ深層学習はすごいのか？</p>
@@ -423,9 +430,9 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ol>
 <p><span class="math inline">\(\leadsto\)</span>生成AI（LLM含む）は与えられた単語の列から、次に来そうな、もっともらしい単語を予測している（だけ）！</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/causal_modeling.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://huggingface.co/learn/nlp-course/ja/chapter1/4">LLMによる文書生成のイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/causal_modeling.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://huggingface.co/learn/nlp-course/ja/chapter1/4">LLMによる文書生成のイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <ul>
@@ -437,7 +444,7 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul>
 </section>
 <section id="プロンプトエンジニアリング" class="level3" data-number="1.4">
-<h3 data-number="1.4"><span class="header-section-number">1.4</span> プロンプト・エンジニアリング</h3>
+<h3 data-number="1.4" class="anchored" data-anchor-id="プロンプトエンジニアリング"><span class="header-section-number">1.4</span> プロンプト・エンジニアリング</h3>
 <p>ChatGPTなどの最近のLLMがすごいのは、タスクも指示するだけでよいこと。</p>
 <ul>
 <li>翻訳、要約、質疑応答などのタスクごとにモデルを作らなくて良い。</li>
@@ -449,47 +456,47 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul>
 </section>
 <section id="拡散モデル" class="level3" data-number="1.5">
-<h3 data-number="1.5"><span class="header-section-number">1.5</span> 拡散モデル</h3>
+<h3 data-number="1.5" class="anchored" data-anchor-id="拡散モデル"><span class="header-section-number">1.5</span> 拡散モデル</h3>
 <p>拡散モデル：画像にノイズを追加していって、それを取り除くプロセスを学習</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://i.gzn.jp/img/2022/10/06/visuals-explaining-stable-diffusion/06_m.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://gigazine.net/news/20221006-visuals-explaining-stable-diffusion/">拡散モデルのイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://i.gzn.jp/img/2022/10/06/visuals-explaining-stable-diffusion/06_m.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://gigazine.net/news/20221006-visuals-explaining-stable-diffusion/">拡散モデルのイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://i.gzn.jp/img/2022/10/06/visuals-explaining-stable-diffusion/08_m.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://gigazine.net/news/20221006-visuals-explaining-stable-diffusion/">拡散モデルのイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://i.gzn.jp/img/2022/10/06/visuals-explaining-stable-diffusion/08_m.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://gigazine.net/news/20221006-visuals-explaining-stable-diffusion/">拡散モデルのイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <p><span class="math inline">\(\leadsto\)</span>テキストからの画像生成もテキスト→画像の予測を行っている。</p>
 </section>
 </section>
-<section id="教師なし学習" class="level2" data-number="2">
-<h2 data-number="2"><span class="header-section-number">2</span> 教師なし学習</h2>
+<section id="教師なし学習" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="教師なし学習"><span class="header-section-number">2</span> 教師なし学習</h2>
 <p>数値ではない文書データをどのようにデータ分析するのか？</p>
 <ul>
 <li>シンプルな方法は<strong>bag of words</strong>（単語の出現頻度を特徴量とする）アプローチ</li>
 </ul>
 <p><span class="math inline">\(\leadsto\)</span>教師なし学習によってデータから特徴量を抽出する。</p>
 <section id="単語埋め込み" class="level3" data-number="2.1">
-<h3 data-number="2.1"><span class="header-section-number">2.1</span> 単語埋め込み</h3>
+<h3 data-number="2.1" class="anchored" data-anchor-id="単語埋め込み"><span class="header-section-number">2.1</span> 単語埋め込み</h3>
 <p><strong>単語埋め込み</strong> (word embedding)：単語を低次元空間のベクトルに変換する</p>
 <p><span class="math inline">\(\leadsto\)</span>単語のベクトル（位置）<span class="math inline">\(\approx\)</span>意味？</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/word_embeddings.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://towardsdatascience.com/creating-word-embeddings-coding-the-word2vec-algorithm-in-python-using-deep-learning-b337d0ba17a8">単語埋め込みのイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/word_embeddings.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://towardsdatascience.com/creating-word-embeddings-coding-the-word2vec-algorithm-in-python-using-deep-learning-b337d0ba17a8">単語埋め込みのイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <ul>
 <li>単語の意味は周辺の単語によって決まるはず。</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/word_embeddings2.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://ainow.ai/2021/04/08/254071/">単語埋め込みの学習のイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/word_embeddings2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://ainow.ai/2021/04/08/254071/">単語埋め込みの学習のイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <p><span class="math inline">\(\leadsto\)</span>周辺の単語をうまく予測できるベクトルを学習する。</p>
@@ -497,17 +504,17 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>画像も同様に埋め込むことで、テキスト→画像の予測が可能となる。</li>
 </ul>
 </section>
-<section id="自己注意機構" class="level3" data-number="2.2">
-<h3 data-number="2.2"><span class="header-section-number">2.2</span> 自己注意機構</h3>
-<p>近年の自然言語処理の飛躍的発展のキーは<strong>Transformer</strong><span class="citation" data-cites="vaswani2017">(<a href="#ref-vaswani2017" role="doc-biblioref">Vaswani ほか 2017</a>)</span>の登場<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<section id="自己注意機構" class="level3 page-columns page-full" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="自己注意機構"><span class="header-section-number">2.2</span> 自己注意機構</h3>
+<div class="page-columns page-full"><p>近年の自然言語処理の飛躍的発展のキーは<strong>Transformer</strong><span class="citation" data-cites="vaswani2017">(<a href="#ref-vaswani2017" role="doc-biblioref">Vaswani ほか 2017</a>)</span>の登場<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;Transformerを提案したのはGoogleの研究者たち。</p></li></div></div>
 <ul>
 <li>BERT=Bidirectional Encoder Representations from <strong>Transformers</strong></li>
 <li>GPT=Generative Pre-trained <strong>Trensformer</strong></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/transformers.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://huggingface.co/learn/nlp-course/ja/chapter1/4?">TransformerベースのLLM</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/transformers.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://huggingface.co/learn/nlp-course/ja/chapter1/4?">TransformerベースのLLM</a></figcaption><p></p>
 </figure>
 </div>
 <p><span class="math inline">\(\leadsto\)</span>特に<strong>自己注意機構</strong> (self-attention mechanism) が重要（と言われている）</p>
@@ -516,19 +523,19 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>“Attention is all you need”<span class="citation" data-cites="vaswani2017">(<a href="#ref-vaswani2017" role="doc-biblioref">Vaswani ほか 2017</a>)</span></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://jalammar.github.io/images/t/transformer_self-attention_visualization.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://jalammar.github.io/illustrated-transformer/">自己注意機構のイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://jalammar.github.io/images/t/transformer_self-attention_visualization.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://jalammar.github.io/illustrated-transformer/">自己注意機構のイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <ul>
 <li>離れた単語も踏まえた学習ができる。</li>
 <li>学習速度が高速になる。<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
 </ul>
-</section>
+<div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;並列化が可能になるため。</p></li></div></section>
 </section>
 <section id="強化学習" class="level2" data-number="3">
-<h2 data-number="3"><span class="header-section-number">3</span> 強化学習</h2>
+<h2 data-number="3" class="anchored" data-anchor-id="強化学習"><span class="header-section-number">3</span> 強化学習</h2>
 <p>一部のモデルでは強化学習を用いて、更に性能を向上させている。</p>
 <ul>
 <li>例、GPT-3やそれ以上のベースと考えられているInstructGPT</li>
@@ -539,27 +546,27 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>エージェントが状態→行動→環境→報酬・状態を繰り返し、報酬を大きくする行動を発見する。</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/Reinforcement_learning_diagram.svg.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://commons.wikimedia.org/wiki/File:Reinforcement_learning_diagram.svg">強化学習のイメージ</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/Reinforcement_learning_diagram.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:Reinforcement_learning_diagram.svg">強化学習のイメージ</a></figcaption><p></p>
 </figure>
 </div>
 <section id="alphago" class="level3" data-number="3.1">
-<h3 data-number="3.1"><span class="header-section-number">3.1</span> AlphaGo</h3>
+<h3 data-number="3.1" class="anchored" data-anchor-id="alphago"><span class="header-section-number">3.1</span> AlphaGo</h3>
 <p>AlphaGoは強化学習で囲碁のアルゴリズムを学習し2016年に世界トップ棋士に勝利</p>
 <ul>
 <li>初期設定として実際の棋譜データから学習したアルゴリズムを使用</li>
 <li>2つのエージェント（機械）が対戦する中で大量にデータを生成し、学習</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fnature16961/MediaObjects/41586_2016_BFnature16961_Fig1_HTML.jpg" class="img-fluid" /></p>
-<p><figcaption><span class="citation" data-cites="silver2016">Silver ほか (<a href="#ref-silver2016" role="doc-biblioref">2016</a>)</span></figcaption></p>
+<figure class="figure">
+<p><img src="https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fnature16961/MediaObjects/41586_2016_BFnature16961_Fig1_HTML.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="silver2016">Silver ほか (<a href="#ref-silver2016" role="doc-biblioref">2016</a>)</span></figcaption><p></p>
 </figure>
 </div>
 </section>
 <section id="人間のフィードバック" class="level3" data-number="3.2">
-<h3 data-number="3.2"><span class="header-section-number">3.2</span> 人間のフィードバック</h3>
+<h3 data-number="3.2" class="anchored" data-anchor-id="人間のフィードバック"><span class="header-section-number">3.2</span> 人間のフィードバック</h3>
 <p>InstructGPTでは人間のフィードバックからの強化学習 (Reinforcement Learning from Human Feedback: RLHF) を用いている。</p>
 <ol type="1">
 <li>プロンプトと（人間の作った）回答のデータから教師あり学習</li>
@@ -567,23 +574,23 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>1と2のモデルを使ってプロンプト→回答→採点の強化学習</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/instructGPT.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://openai.com/research/instruction-following">Aligning language models to follow instructions</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/instructGPT.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://openai.com/research/instruction-following">Aligning language models to follow instructions</a></figcaption><p></p>
 </figure>
 </div>
 </section>
 </section>
-<section id="人工知能の社会的課題" class="level2" data-number="4">
-<h2 data-number="4"><span class="header-section-number">4</span> 人工知能の社会的課題</h2>
+<section id="人工知能の社会的課題" class="level2 page-columns page-full" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="人工知能の社会的課題"><span class="header-section-number">4</span> 人工知能の社会的課題</h2>
 <p>あらゆる技術がそうであるように、新しい技術の登場、急速な普及は様々な問題を引き起こしうる。</p>
 <ul>
 <li>G7広島サミットで生成AIに関するルールを策定する広島AIプロセスの立ち上げに合意</li>
 </ul>
-<section id="人工知能の使い方" class="level3" data-number="4.1">
-<h3 data-number="4.1"><span class="header-section-number">4.1</span> 人工知能の使い方</h3>
+<section id="人工知能の使い方" class="level3 page-columns page-full" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="人工知能の使い方"><span class="header-section-number">4.1</span> 人工知能の使い方</h3>
 <section id="人工知能の悪用" class="level4" data-number="4.1.1">
-<h4 data-number="4.1.1"><span class="header-section-number">4.1.1</span> 人工知能の悪用</h4>
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="人工知能の悪用"><span class="header-section-number">4.1.1</span> 人工知能の悪用</h4>
 <p>AIを悪用<span class="math inline">\(\leadsto\)</span>偽の情報を作り、拡散</p>
 <ul>
 <li>文書生成 <span class="math inline">\(\leadsto\)</span> <a href="https://www.itmedia.co.jp/business/articles/2007/29/news025_4.html">フェイクニュース</a></li>
@@ -591,9 +598,9 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul>
 <p><span class="math inline">\(\leadsto\)</span>Deep Fakeはオンラインの画像や映像を加工<span class="math inline">\(\leadsto\)</span>フェイクポルノなど深刻な被害の可能性</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://equity.jiji.com/storage/news/2021050400388g/20210504ax05S_o.jpg" class="img-fluid" style="width:50.0%" /></p>
-<p><figcaption>Deep Fakeの例</figcaption></p>
+<figure class="figure">
+<p><img src="https://equity.jiji.com/storage/news/2021050400388g/20210504ax05S_o.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Deep Fakeの例</figcaption><p></p>
 </figure>
 </div>
 <ul>
@@ -602,7 +609,7 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <p>どんな技術も悪用しようと思えばできる<span class="math inline">\(\leadsto\)</span>（個人的に）重要なのは、悪用よりも誤用</p>
 </section>
 <section id="人工知能の誤用" class="level4" data-number="4.1.2">
-<h4 data-number="4.1.2"><span class="header-section-number">4.1.2</span> 人工知能の誤用</h4>
+<h4 data-number="4.1.2" class="anchored" data-anchor-id="人工知能の誤用"><span class="header-section-number">4.1.2</span> 人工知能の誤用</h4>
 <p><strong>統計的差別</strong> (statistical discrimination) ：個人の属性（属する集団）に基づく差別</p>
 <ul>
 <li>学歴、性別、人種などで就職活動、賃貸契約、判決が異なる。
@@ -612,9 +619,9 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/agan.jpeg" class="img-fluid" /></p>
-<p><figcaption><span class="citation" data-cites="agan2018">Agan と Starr (<a href="#ref-agan2018" role="doc-biblioref">2018</a>)</span></figcaption></p>
+<figure class="figure">
+<p><img src="figures/agan.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="agan2018">Agan と Starr (<a href="#ref-agan2018" role="doc-biblioref">2018</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p><span class="math inline">\(\leadsto\)</span>機械学習はあくまで「人間を模倣」するので、人間に（無意識でも）差別があれば、<a href="https://ainow.ai/2020/02/17/183256/">機械はそれを学習</a>する。</p>
@@ -624,24 +631,24 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>白人では「再犯しない」と予測されたが「再犯した」という間違いが多かった。</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://www.axion.zone/content/images/2019/12/F1.large.jpg" class="img-fluid" /></p>
-<p><figcaption><a href="https://www.axion.zone/is-the-recidivism-prediction-algorithm-fair-to-race/">COMPASSによる再犯予測</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://www.axion.zone/content/images/2019/12/F1.large.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.axion.zone/is-the-recidivism-prediction-algorithm-fair-to-race/">COMPASSによる再犯予測</a></figcaption><p></p>
 </figure>
 </div>
 <p>学習に用いるデータが偏っている<span class="math inline">\(\leadsto\)</span>予測も偏る。</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://i.gzn.jp/img/2020/07/02/twitter-ai-machine-learning-racism/00_m.jpg" class="img-fluid" /></p>
-<p><figcaption><a href="https://gigazine.net/news/20200702-twitter-ai-machine-learning-racism/">偏ったデータによる学習</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://i.gzn.jp/img/2020/07/02/twitter-ai-machine-learning-racism/00_m.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://gigazine.net/news/20200702-twitter-ai-machine-learning-racism/">偏ったデータによる学習</a></figcaption><p></p>
 </figure>
 </div>
 <p><span class="math inline">\(\leadsto\)</span>公平性のある機械学習を行う必要がある。</p>
 <p><strong>敵対的攻撃</strong> (adversarial attack) ：あえてAIを騙すような情報入力</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://i.gzn.jp/img/2021/11/30/universal-naturalistic-adversarial-patches/00_m.jpg" class="img-fluid" /></p>
-<p><figcaption><a href="https://gigazine.net/news/20211130-universal-naturalistic-adversarial-patches/">敵対的攻撃</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://i.gzn.jp/img/2021/11/30/universal-naturalistic-adversarial-patches/00_m.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://gigazine.net/news/20211130-universal-naturalistic-adversarial-patches/">敵対的攻撃</a></figcaption><p></p>
 </figure>
 </div>
 <p>ChatGPTなどで指摘されているのは<strong>幻覚</strong> (hallucination) と呼ばれる現象</p>
@@ -658,8 +665,8 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>回帰分析や決定木は分かりやすい。</li>
 </ul>
 </section>
-<section id="人工知能と倫理" class="level4" data-number="4.1.3">
-<h4 data-number="4.1.3"><span class="header-section-number">4.1.3</span> 人工知能と倫理</h4>
+<section id="人工知能と倫理" class="level4 page-columns page-full" data-number="4.1.3">
+<h4 data-number="4.1.3" class="anchored" data-anchor-id="人工知能と倫理"><span class="header-section-number">4.1.3</span> 人工知能と倫理</h4>
 <p>AI倫理、公平性のあるAIなどが必要</p>
 <p><span class="math inline">\(\leadsto\)</span>AIが守るべき倫理、公平性とは？</p>
 <p>自動運転車がトロッコ問題に遭遇したとき、どうすべきなのか？</p>
@@ -676,16 +683,16 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-018-0637-6/MediaObjects/41586_2018_637_Fig2_HTML.png" class="img-fluid" /></p>
-<p><figcaption><span class="citation" data-cites="awad2018">Awad ほか (<a href="#ref-awad2018" role="doc-biblioref">2018</a>)</span></figcaption></p>
+<figure class="figure">
+<p><img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-018-0637-6/MediaObjects/41586_2018_637_Fig2_HTML.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="awad2018">Awad ほか (<a href="#ref-awad2018" role="doc-biblioref">2018</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>倫理観は国ごとに異なる。</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://media.nature.com/lw800/magazine-assets/d41586-018-07135-0/d41586-018-07135-0_16219594.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://www.nature.com/articles/d41586-018-07135-0">AI倫理観の地域ごとの違い</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://media.nature.com/lw800/magazine-assets/d41586-018-07135-0/d41586-018-07135-0_16219594.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.nature.com/articles/d41586-018-07135-0">AI倫理観の地域ごとの違い</a></figcaption><p></p>
 </figure>
 </div>
 <p><a href="https://www.technologyreview.com/2018/10/24/139313/a-global-ethics-study-aims-to-help-ai-solve-the-self-driving-trolley-problem/">日本の場合は</a>、</p>
@@ -708,7 +715,7 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul>
 </section>
 <section id="人工知能と兵器" class="level4" data-number="4.1.4">
-<h4 data-number="4.1.4"><span class="header-section-number">4.1.4</span> 人工知能と兵器</h4>
+<h4 data-number="4.1.4" class="anchored" data-anchor-id="人工知能と兵器"><span class="header-section-number">4.1.4</span> 人工知能と兵器</h4>
 <p>無人兵器とAI技術の発展は<a href="https://www.mofa.go.jp/mofaj/dns/ca/page24_001191.html">自律型致死兵器システム</a> (Lethal Autonomous Weapons Systems: LAWS) の可能性を現実のものとしつつある。</p>
 <ul>
 <li>人間の代わりに戦闘をさせることで人命の損失を減らせる／戦争やテロリズムが起こりやすくなる？</li>
@@ -721,9 +728,9 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </section>
 </section>
 <section id="人工知能と社会" class="level3" data-number="4.2">
-<h3 data-number="4.2"><span class="header-section-number">4.2</span> 人工知能と社会</h3>
+<h3 data-number="4.2" class="anchored" data-anchor-id="人工知能と社会"><span class="header-section-number">4.2</span> 人工知能と社会</h3>
 <section id="人工知能と政治" class="level4" data-number="4.2.1">
-<h4 data-number="4.2.1"><span class="header-section-number">4.2.1</span> 人工知能と政治</h4>
+<h4 data-number="4.2.1" class="anchored" data-anchor-id="人工知能と政治"><span class="header-section-number">4.2.1</span> 人工知能と政治</h4>
 <p>AIと民主主義の関わりに着目されつつある？</p>
 <ul>
 <li>AIが人間に代わって政策を決定する。</li>
@@ -736,35 +743,17 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://anteku.jp/blog/wp-content/uploads/2021/12/applewindows_logo.jpg" class="img-fluid" /></p>
-<p><figcaption>Windows vs Mac</figcaption></p>
+<figure class="figure">
+<p><img src="https://anteku.jp/blog/wp-content/uploads/2021/12/applewindows_logo.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Windows vs Mac</figcaption><p></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Qwerty.png" class="img-fluid" /></p>
-<p><figcaption>QWERTY配列</figcaption></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://www.netquest.com/hs-fs/hubfs/Imported_Blog_Media/vhsbeta-1.png" class="img-fluid" /></p>
-<p><figcaption>VHS vs Beta</figcaption></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://www.wingsoverquebec.com/wp-content/uploads/2019/12/Duopole-Airbus-Boeing-800x445.jpg" class="img-fluid" /></p>
-<p><figcaption>エアバスvsボーイング</figcaption></p>
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Qwerty.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QWERTY配列</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -772,17 +761,35 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Countries_driving_on_the_left_or_right.svg/1280px-Countries_driving_on_the_left_or_right.svg.png" class="img-fluid" /></p>
-<p><figcaption>左側通行vs右側通行</figcaption></p>
+<figure class="figure">
+<p><img src="https://www.netquest.com/hs-fs/hubfs/Imported_Blog_Media/vhsbeta-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">VHS vs Beta</figcaption><p></p>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Countries_that_use_Fahrenheit.svg/1280px-Countries_that_use_Fahrenheit.svg.png" class="img-fluid" /></p>
-<p><figcaption>摂氏vs華氏</figcaption></p>
+<figure class="figure">
+<p><img src="https://www.wingsoverquebec.com/wp-content/uploads/2019/12/Duopole-Airbus-Boeing-800x445.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">エアバスvsボーイング</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Countries_driving_on_the_left_or_right.svg/1280px-Countries_driving_on_the_left_or_right.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">左側通行vs右側通行</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Countries_that_use_Fahrenheit.svg/1280px-Countries_that_use_Fahrenheit.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">摂氏vs華氏</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -797,15 +804,15 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>現在のLLMで重要なのは計算資源<span class="math inline">\(\times\)</span>データ量<span class="math inline">\(\times\)</span>モデルのサイズ<span class="math inline">\(\leadsto\)</span>資金＆時間</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://wirelesswire.jp/wp-content/uploads/2023/02/e047e8f1cde575800c5ef4f18b15239a.png" class="img-fluid" /></p>
-<p><figcaption><span class="citation" data-cites="kaplan2020">Kaplan ほか (<a href="#ref-kaplan2020" role="doc-biblioref">2020</a>)</span></figcaption></p>
+<figure class="figure">
+<p><img src="https://wirelesswire.jp/wp-content/uploads/2023/02/e047e8f1cde575800c5ef4f18b15239a.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="kaplan2020">Kaplan ほか (<a href="#ref-kaplan2020" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/model_parameters.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://huggingface.co/learn/nlp-course/ja/chapter1/4?fw=pt">LLMの規模の発展</a></figcaption></p>
+<figure class="figure">
+<p><img src="https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/model_parameters.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://huggingface.co/learn/nlp-course/ja/chapter1/4?fw=pt">LLMの規模の発展</a></figcaption><p></p>
 </figure>
 </div>
 <ul>
@@ -847,17 +854,17 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul>
 </section>
 <section id="人工知能と環境" class="level4" data-number="4.2.2">
-<h4 data-number="4.2.2"><span class="header-section-number">4.2.2</span> 人工知能と環境</h4>
+<h4 data-number="4.2.2" class="anchored" data-anchor-id="人工知能と環境"><span class="header-section-number">4.2.2</span> 人工知能と環境</h4>
 <p>LLMの開発には大規模な計算が必要<span class="math inline">\(\leadsto\)</span>莫大な電力消費と環境不可</p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/ai_co2.png" class="img-fluid" /></p>
-<p><figcaption><a href="https://www.gizmodo.jp/2023/04/chatgpt-ai-openai-carbon-emissions-stanford-report.html">LLMの環境負荷</a></figcaption></p>
+<figure class="figure">
+<p><img src="figures/ai_co2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.gizmodo.jp/2023/04/chatgpt-ai-openai-carbon-emissions-stanford-report.html">LLMの環境負荷</a></figcaption><p></p>
 </figure>
 </div>
 </section>
 <section id="人工知能と労働" class="level4" data-number="4.2.3">
-<h4 data-number="4.2.3"><span class="header-section-number">4.2.3</span> 人工知能と労働</h4>
+<h4 data-number="4.2.3" class="anchored" data-anchor-id="人工知能と労働"><span class="header-section-number">4.2.3</span> 人工知能と労働</h4>
 <p>AIの発展によって雇用は減るのか？</p>
 <ul>
 <li>ラッダイト運動：産業革命<span class="math inline">\(\leadsto\)</span>繊維産業の自動化<span class="math inline">\(\leadsto\)</span>熟練工の抗議
@@ -867,9 +874,9 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img src="figures/acemoglu.png" class="img-fluid" /></p>
-<p><figcaption><span class="citation" data-cites="acemoglu2020">Acemoglu と Restrepo (<a href="#ref-acemoglu2020" role="doc-biblioref">2020</a>)</span></figcaption></p>
+<figure class="figure">
+<p><img src="figures/acemoglu.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="acemoglu2020">Acemoglu と Restrepo (<a href="#ref-acemoglu2020" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>製造の自動化とは異なり、LLM（やその他の生成AI）によって代替される職業は？<span class="citation" data-cites="eloundou2023">(<a href="#ref-eloundou2023" role="doc-biblioref">Eloundou ほか 2023</a>)</span></p>
@@ -877,7 +884,7 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 </section>
 </section>
 <section id="機械学習の実践" class="level2" data-number="5">
-<h2 data-number="5"><span class="header-section-number">5</span> 機械学習の実践</h2>
+<h2 data-number="5" class="anchored" data-anchor-id="機械学習の実践"><span class="header-section-number">5</span> 機械学習の実践</h2>
 <p>とりあえずデータに触れてみよう！</p>
 <ul>
 <li><a href="https://www.google.co.jp/publicdata/directory">Google Public Data Explorer</a></li>
@@ -914,13 +921,13 @@ i\textrm{の予測誤差の二乗の合計} = (y_1 - \hat{y}_1)^2 + (y_2 - \hat{
 <li>学生向けのイベントもあり</li>
 <li>就職活動でアピールできる（かも）</li>
 </ul>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">技術政策学</span> <span class="hidden" data-render-id="quarto-int-navbar-title">技術政策学</span> <span class="hidden" data-render-id="quarto-int-next">政策効果の検証：基礎</span> <span class="hidden" data-render-id="quarto-int-prev">デジタル化する社会</span> <span class="hidden" data-render-id="quarto-int-sidebar:/index.html">はじめに</span> <span class="hidden" data-render-id="quarto-int-sidebar:/big_data.html">デジタル化する社会</span> <span class="hidden" data-render-id="quarto-int-sidebar:/machine_learning.html">人工知能の機械学習</span> <span class="hidden" data-render-id="quarto-int-sidebar:/causal_inference_basic.html">政策効果の検証：基礎</span> <span class="hidden" data-render-id="quarto-int-sidebar:/causal_inference_advanced.html">政策効果の検証：発展</span></p>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden" data-render-id="quarto-metatitle">技術政策学 - 人工知能の機械学習</span> <span class="hidden" data-render-id="quarto-twittercardtitle">技術政策学 - 人工知能の機械学習</span> <span class="hidden" data-render-id="quarto-ogcardtitle">技術政策学 - 人工知能の機械学習</span> <span class="hidden" data-render-id="quarto-metasitename">技術政策学</span> <span class="hidden" data-render-id="quarto-twittercarddesc">技術政策学（データ科学編）</span> <span class="hidden" data-render-id="quarto-ogcardddesc">技術政策学（データ科学編）</span></p>
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-acemoglu2020" class="csl-entry" role="listitem">
 Acemoglu, Daron, と Pascual Restrepo. 2020. <span>「Robots and jobs: Evidence from US labor markets」</span>. <em>Journal of political economy</em> 128 (6): 2188–2244.
 </div>
@@ -945,21 +952,8 @@ Silver, David, Aja Huang, Chris J Maddison, Arthur Guez, Laurent Sifre, George V
 <div id="ref-vaswani2017" class="csl-entry" role="listitem">
 Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, と Illia Polosukhin. 2017. <span>「Attention is all you need」</span>. <em>Advances in neural information processing systems</em> 30.
 </div>
-</div>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p>最適化（偏微分係数が0となる値を求める）によって明示的に解くことができる。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>XGBoostやLightGBMなど。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>厳密に言えば、活性化関数を挟む。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Transformerを提案したのはGoogleの研究者たち。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>並列化が可能になるため。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
-
-</main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1210,6 +1204,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
-</body>
 
-</html>
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
