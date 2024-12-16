@@ -41,7 +41,7 @@ $\leadsto$いわゆる（最近において）人工知能と呼ばれるもの�
 **生成 (generative) AI**：ある情報から、別の情報を出力するモデル
 
 - **大規模言語モデル** (large language model: LLM)：大量のテキストを使い、巨大なモデルを学習した生成AI
-  - [ChatGPT](https://openai.com/blog/chatgpt)、[Google Bard](https://bard.google.com/)、[Microsoft Bing AI](https://www.microsoft.com/ja-jp/bing)など
+  <!-- - [ChatGPT](https://openai.com/blog/chatgpt)、[Google Bard](https://bard.google.com/)、[Microsoft Bing AI](https://www.microsoft.com/ja-jp/bing)など -->
   - GPT=**Generative** Pre-trained Trensformer
   - まずは、[OpenAIのPlayground](https://platform.openai.com/examples)で遊んでみよう。
 - 画像生成の性能も向上、Vision and Languageの発展
@@ -193,7 +193,7 @@ tibble(x = x, y = if_else(x < 0, 0, 1)) %>%
 
 $\leadsto$回帰分析をニューロンとして見て^[厳密に言えば、活性化関数を挟む。]、これをたくさん作る。
 
-![ロジスティック回帰のイメージ](figures/logistic_regression.drawio.png)
+![回帰分析のイメージ](figures/logistic_regression.drawio.png)
 
 ![深層ニューラル・ネットワークのイメージ](figures/deep_learning.drawio.png)
 
@@ -206,28 +206,18 @@ $\leadsto$回帰分析をニューロンとして見て^[厳密に言えば、�
     - むしろ、重要な特徴量がなにかを学習する（**表現学習**）。
 1. 学習済みモデルを使える。
     - タスクに応じて出力側を再学習（**ファイン・チューニング**）する。
-    - GPT=Generative **Pre-trained** Trensformer
+    - GPT=Generative **Pre-trained** Transformer
 1. 様々な形式のデータ（テキスト、画像、音声……）を同じ枠組みで分析できる。
     - vision and languageなど**マルチモーダル**なモデルの開発
+    - 多言語なモデルの開発
     
 $\leadsto$生成AI（LLM含む）は与えられた単語の列から、次に来そうな、もっともらしい単語を予測している（だけ）！
 
 ![[LLMによる文書生成のイメージ](https://huggingface.co/learn/nlp-course/ja/chapter1/4)](figures/causal_modeling.png)
 
 - 同じ入力に対して同じ回答をしないように、ある程度ランダムに予測をしている。
-  - GPTにおけるtemparatureはランダム度合いを指定している。
+  <!-- - GPTにおけるtemparatureはランダム度合いを指定している。 -->
 - 人工知能の獲得か？（例、中国語の部屋）
-
-### プロンプト・エンジニアリング
-
-ChatGPTなどの最近のLLMがすごいのは、タスクも指示するだけでよいこと。
-
-- 翻訳、要約、質疑応答などのタスクごとにモデルを作らなくて良い。
-
-$\leadsto$入力する指示文（**プロンプト**）をどのようにするのかが重要。
-
-- プロンプトの書き方を工夫することをプロンプト・エンジニアリングなどと呼ぶ。
-- いくつかの具体例を提示すると、性能が良くなる、安定する**few shot learning**という現象（？）
 
 ### 拡散モデル
 
@@ -261,6 +251,7 @@ $\leadsto$単語のベクトル（位置）$\approx$意味？
 
 $\leadsto$周辺の単語をうまく予測できるベクトルを学習する。
 
+- 足し引きができるという意味で、単語を理解できている。
 - 画像も同様に埋め込むことで、テキスト→画像の予測が可能となる。
 
 ### 自己注意機構
@@ -279,8 +270,21 @@ $\leadsto$特に**自己注意機構** (self-attention mechanism) が重要（�
 
 ![[自己注意機構のイメージ](https://jalammar.github.io/illustrated-transformer/)](https://jalammar.github.io/images/t/transformer_self-attention_visualization.png)
 
-- 離れた単語も踏まえた学習ができる。
-- 学習速度が高速になる。^[並列化が可能になるため。]
+- 離れた単語・文脈も踏まえた学習・予測ができる（短期記憶の獲得）。
+  - DNN部分で学習データからの長期記憶を呼び出している。
+- 学習速度が高速になる（並列化が可能になるため）。
+
+### プロンプト・エンジニアリング
+
+ChatGPTなどの最近のLLMがすごいのは、タスクも指示するだけでよいこと。
+
+- 自己注意機構によって**本文中 (in-context) 学習**が（図らずも）可能になった。
+- 翻訳、要約、質疑応答などのタスクごとにモデルを作らなくて良い。
+
+$\leadsto$入力する指示文（**プロンプト**）をどのようにするのかが重要。
+
+- プロンプトの書き方を工夫することをプロンプト・エンジニアリングなどと呼ぶ。
+- **one/few shot learning**, **chain of thought**
 
 ## 強化学習
 
@@ -338,6 +342,8 @@ $\leadsto$Deep Fakeはオンラインの画像や映像を加工$\leadsto$フェ
 どんな技術も悪用しようと思えばできる$\leadsto$（個人的に）重要なのは、悪用よりも誤用
 
 #### 人工知能の誤用
+
+機会は「客観的、中立的」なのか？
 
 **統計的差別** (statistical discrimination) ：個人の属性（属する集団）に基づく差別
 

@@ -34,30 +34,30 @@ format:
     link-external-newwindow: true
     fig-format: png
     smooth-scroll: true
-  pdf:
-    pdf-engine: latexmk
-    pdf-engine-opt: "-xelatex"
-    latex-output-dir: pdf
-    latex-auto-install: false
-    documentclass: bxjsarticle
-    classoption:
-      - xelatex
-      - ja=standard
-    include-in-header: 
-      text: |
-        \renewcommand{\thefootnote}{\arabic{footnote}}
-    mainfont: Noto Serif CJK JP
-    mainfontoptions: 
-      - BoldFont=Noto Sans CJK JP
-    number-sections: true
-    fig-pos: "htpb"
-    fig-format: png
-    linkcolor: NavyBlue
-    citecolor: NavyBlue
-    urlcolor: NavyBlue
-    cite-method: natbib
-    biblio-config: true
-    biblio-style: jecon
+  # pdf:
+  #   pdf-engine: latexmk
+  #   pdf-engine-opt: "-xelatex"
+  #   latex-output-dir: pdf
+  #   latex-auto-install: false
+  #   documentclass: bxjsarticle
+  #   classoption:
+  #     - xelatex
+  #     - ja=standard
+  #   include-in-header: 
+  #     text: |
+  #       \renewcommand{\thefootnote}{\arabic{footnote}}
+  #   mainfont: Noto Serif CJK JP
+  #   mainfontoptions: 
+  #     - BoldFont=Noto Sans CJK JP
+  #   number-sections: true
+  #   fig-pos: "htpb"
+  #   fig-format: png
+  #   linkcolor: NavyBlue
+  #   citecolor: NavyBlue
+  #   urlcolor: NavyBlue
+  #   cite-method: natbib
+  #   biblio-config: true
+  #   biblio-style: jecon
 
 bibliography: references.bib
 lang: ja
